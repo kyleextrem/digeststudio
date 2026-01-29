@@ -27,13 +27,13 @@ const About: React.FC = () => {
           </div>
           <div className="lg:col-span-5 relative">
             <div className="aspect-[3/4] bg-accent/5 rounded-[64px] overflow-hidden shadow-2xl shadow-accent/10 border-8 border-white">
-               {/* Updated image to reflect the user's provided photo: Young guy, curly hair, black puffer, colorful hillside city background */}
-               <img 
-                src="https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?auto=format&fit=crop&q=80&w=1000" 
-                alt="Kyle - Digest Studio Founder" 
-                className="w-full h-full object-cover grayscale-0 hover:grayscale-0 transition-all duration-700" 
-               />
-               <div className="absolute inset-0 bg-gradient-to-t from-accent/40 to-transparent" />
+              {/* Updated image to reflect the user's provided photo: Young guy, curly hair, black puffer, colorful hillside city background */}
+              <img
+                src="/kyle-profile.jpg"
+                alt="Kyle - Digest Studio Founder"
+                className="w-full h-full object-cover grayscale-0 hover:grayscale-0 transition-all duration-700"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-accent/40 to-transparent" />
             </div>
             <div className="absolute -bottom-8 -left-8 bg-white border border-accent/5 shadow-2xl p-8 rounded-[40px] max-w-[300px]">
               <div className="flex items-center gap-4 mb-4">
@@ -69,7 +69,7 @@ const About: React.FC = () => {
               <Zap className="text-primary w-8 h-8" />
             </div>
             <h3 className="text-3xl font-heading font-bold mb-6">Why local matters</h3>
-            
+
             <div className="space-y-8">
               <div className="group">
                 <div className="text-primary font-bold mb-2 flex items-center gap-2">
@@ -102,10 +102,10 @@ const About: React.FC = () => {
               Newcastle isn't just a market to us. It's home. That's why we only work with businesses we genuinely believe we can help grow.
             </p>
           </div>
-          
+
           <div className="mt-20">
-             <a 
-              href="#contact" 
+            <a
+              href="#contact"
               onClick={(e) => {
                 e.preventDefault();
                 document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' });

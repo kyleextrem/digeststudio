@@ -9,10 +9,11 @@ const Footer: React.FC = () => {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 mb-24">
           <div className="lg:col-span-6">
             <Link to="/" className="flex items-center gap-2 mb-8">
-              <div className="w-10 h-10 bg-primary rounded-full flex items-center justify-center">
-                <span className="text-white font-bold text-2xl leading-none">D</span>
-              </div>
-              <span className="font-heading font-bold text-3xl tracking-tight text-accent uppercase">Digest Studio</span>
+              <img
+                src="/digest-studio-logo.jpg"
+                alt="Digest Studio Logo"
+                className="h-24 w-auto object-contain"
+              />
             </Link>
             <p className="text-xl text-accent/60 leading-relaxed mb-10 max-w-sm">
               Newcastle's local marketing partner. Keep your business front of mind with built-in community reach.

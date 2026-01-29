@@ -11,7 +11,7 @@ import ServicesPage from './pages/ServicesPage';
 
 const ScrollToTop = () => {
   const { pathname, hash } = useLocation();
-  
+
   useEffect(() => {
     if (!hash) {
       window.scrollTo(0, 0);
@@ -22,27 +22,36 @@ const ScrollToTop = () => {
       }
     }
   }, [pathname, hash]);
-  
+
   return null;
+};
+
+const Layout: React.FC = () => {
+  const location = useLocation();
+  const isHome = location.pathname === '/';
+
+  return (
+    <div className="min-h-screen flex flex-col">
+      <Navbar />
+      <main className="flex-grow">
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/services" element={<ServicesPage />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/faq" element={<FAQ />} />
+          <Route path="/blog" element={<Blog />} />
+        </Routes>
+      </main>
+      <Footer />
+    </div>
+  );
 };
 
 const App: React.FC = () => {
   return (
     <HashRouter>
       <ScrollToTop />
-      <div className="min-h-screen flex flex-col">
-        <Navbar />
-        <main className="flex-grow">
-          <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/services" element={<ServicesPage />} />
-            <Route path="/about" element={<About />} />
-            <Route path="/faq" element={<FAQ />} />
-            <Route path="/blog" element={<Blog />} />
-          </Routes>
-        </main>
-        <Footer />
-      </div>
+      <Layout />
     </HashRouter>
   );
 };
