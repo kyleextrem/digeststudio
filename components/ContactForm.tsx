@@ -1,43 +1,59 @@
 import React, { useEffect } from 'react';
 
+declare global {
+  interface Window {
+    hbspt: any;
+  }
+}
+
 const ContactForm: React.FC = () => {
   useEffect(() => {
-    // Check if script already exists to avoid duplicate loads
-    const existingScript = document.querySelector('script[src="https://js-ap1.hsforms.net/forms/embed/442301086.js"]');
-    if (!existingScript) {
-      const script = document.createElement('script');
-      script.src = "https://js-ap1.hsforms.net/forms/embed/442301086.js";
-      script.defer = true;
-      document.body.appendChild(script);
+    const portalId = "442301086";
+    const formId = "291f8dc9-af73-4446-b370-0c20568b7af2";
+    const region = "ap1";
 
-      return () => {
-        // Optional: remove script on unmount, but usually harmless to keep if cached
-        // document.body.removeChild(script);
+    const loadForm = () => {
+      if (window.hbspt) {
+        window.hbspt.forms.create({
+          region: region,
+          portalId: portalId,
+          formId: formId,
+          target: '#hubspot-form-container'
+        });
       }
+    };
+
+    // Check if script already exists
+    const scriptSrc = "https://js.hsforms.net/forms/v2.js";
+    let script = document.querySelector(`script[src="${scriptSrc}"]`) as HTMLScriptElement;
+
+    if (!script) {
+      script = document.createElement('script');
+      script.src = scriptSrc;
+      script.async = true;
+      script.defer = true;
+      script.onload = loadForm;
+      document.body.appendChild(script);
+    } else if (window.hbspt) {
+      loadForm();
+    } else {
+      script.addEventListener('load', loadForm);
     }
+
+    return () => {
+      // Clean up the form container content on unmount to prevent duplicates
+      const container = document.getElementById('hubspot-form-container');
+      if (container) {
+        container.innerHTML = '';
+      }
+    };
   }, []);
 
   return (
     <div className="w-full">
-      {/* HubSpot Form Container */}
-      <div
-        className="hs-form-frame"
-        data-region="ap1"
-        data-form-id="291f8dc9-af73-4446-b370-0c20568b7af2"
-        data-portal-id="442301086"
-      ></div>
-
-      {/* 
-         Note: HubSpot forms render in an iframe or shadow DOM which isolates them from page CSS.
-         To style this form exactly like the previous one, you would typically need to add custom CSS 
-         within the HubSpot form editor or use their "Raw HTML" embed type.
-      */}
-      <style>{`
-        .hs-form-frame iframe {
-            width: 100% !important;
-            min-height: 500px;
-        }
-      `}</style>
+      <div id="hubspot-form-container" className="min-h-[500px]">
+        {/* HubSpot Form will render here */}
+      </div>
     </div>
   );
 };
