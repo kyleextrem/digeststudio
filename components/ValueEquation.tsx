@@ -26,7 +26,7 @@ const ValueEquation: React.FC = () => {
                     <div className="grid grid-cols-3 border-b border-accent/5 py-6 px-4 md:px-8 items-center text-center">
                         <div className="text-left font-bold text-accent">Audience</div>
                         <div className="text-accent/60">Starts at 0</div>
-                        <div className="text-primary font-bold bg-primary/5 py-1 px-3 rounded-full inline-block mx-auto">6,500+ Locals Ready</div>
+                        <div className="text-primary font-bold bg-primary/5 py-1 px-3 rounded-full inline-block mx-auto">7,000+ Locals Ready</div>
                     </div>
 
                     {/* Row 2 */}

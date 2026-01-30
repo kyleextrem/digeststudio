@@ -4,8 +4,8 @@ import { Newspaper, Users, TrendingUp, Zap } from 'lucide-react';
 
 const Proof: React.FC = () => {
   const stats = [
-    { label: "Locals Reached", value: "6,500+", icon: Users },
-    { label: "Avg. Open Rate", value: "~61%", icon: Newspaper },
+    { label: "Locals Reached", value: "7,000+", icon: Users },
+    { label: "Avg. Open Rate", value: "~60%", icon: Newspaper },
     { label: "Local Impact", value: "100%", icon: Zap },
     { label: "Growth Focus", value: "24/7", icon: TrendingUp },
   ];
@@ -38,7 +38,7 @@ const Proof: React.FC = () => {
               </ul>
             </div>
           </div>
-          
+
           <div className="grid grid-cols-2 gap-6">
             {stats.map((stat, i) => (
               <div key={i} className={`p-8 rounded-3xl border-2 transition-all hover:-translate-y-2 cursor-default ${i % 2 === 0 ? 'bg-primary border-primary' : 'bg-transparent border-white/10'}`}>

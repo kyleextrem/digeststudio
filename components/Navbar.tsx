@@ -59,13 +59,12 @@ const Navbar: React.FC = () => {
             ))}
           </div>
 
-          <Link
-            to="/"
+          <button
             onClick={handleContactClick}
             className="bg-accent text-white px-8 py-3 rounded-xl font-bold text-sm uppercase tracking-widest hover:bg-primary transition-all active:scale-95 shadow-lg shadow-accent/10"
           >
             Contact
-          </Link>
+          </button>
         </div>
 
         {/* Mobile Toggle */}
@@ -90,13 +89,12 @@ const Navbar: React.FC = () => {
               {link.name}
             </Link>
           ))}
-          <Link
-            to="/"
+          <button
             onClick={handleContactClick}
             className="bg-primary text-white text-center py-5 rounded-2xl font-bold text-2xl"
           >
             Get Started
-          </Link>
+          </button>
         </div>
       </div>
     </nav>

@@ -21,7 +21,7 @@ const faqItems = [
   },
   {
     question: "What makes you different from other marketing agencies?",
-    answer: "Three things: 1) We own Newcastle Digest (6,500+ local subscribers), so you get media reach without paying for ads. 2) Productised packages mean clear pricing and deliverables, no scope creep. 3) We only work locally in Newcastle, so we understand the audience, venues, and what actually works here."
+    answer: "Three things: 1) We own Newcastle Digest (7,000+ local subscribers), so you get media reach without paying for ads. 2) Productised packages mean clear pricing and deliverables, no scope creep. 3) We only work locally in Newcastle, so we understand the audience, venues, and what actually works here."
   },
   {
     question: "Can I just start with one thing?",
@@ -36,18 +36,18 @@ const FAQ: React.FC = () => {
     <div className="pt-32 pb-32 px-6">
       <div className="max-w-4xl mx-auto">
         <div className="text-center mb-24">
-          <span className="text-primary font-bold uppercase tracking-widest text-sm mb-4 block">Help Center</span>
+          <span className="text-primary font-bold uppercase tracking-widest text-sm mb-4 block">Help Centre</span>
           <h1 className="text-h1 font-heading font-bold mb-8">Common Questions</h1>
           <p className="text-body text-accent/60">Everything you need to know about working with Newcastle's local marketing studio.</p>
         </div>
 
         <div className="space-y-4">
           {faqItems.map((item, i) => (
-            <div 
-              key={i} 
+            <div
+              key={i}
               className={`border-2 rounded-[32px] overflow-hidden transition-all ${openIndex === i ? 'border-primary bg-primary/[0.02]' : 'border-accent/5 bg-white'}`}
             >
-              <button 
+              <button
                 onClick={() => setOpenIndex(openIndex === i ? null : i)}
                 className="w-full p-8 flex items-center justify-between text-left group"
               >
@@ -58,8 +58,8 @@ const FAQ: React.FC = () => {
                   {openIndex === i ? <Minus size={24} /> : <Plus size={24} />}
                 </div>
               </button>
-              
-              <div 
+
+              <div
                 className={`transition-all duration-300 overflow-hidden ${openIndex === i ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'}`}
               >
                 <div className="p-8 pt-0 text-xl text-accent/60 leading-relaxed border-t border-accent/5 mx-8">

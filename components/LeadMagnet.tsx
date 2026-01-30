@@ -1,7 +1,19 @@
 import React from 'react';
-import { LayoutTemplate, Search, Send, BarChart3 } from 'lucide-react';
+import { useNavigate, useLocation } from 'react-router-dom';
+import { LayoutTemplate, Search, Send, BarChart3, ArrowRight } from 'lucide-react';
 
 const LeadMagnet: React.FC = () => {
+    const navigate = useNavigate();
+    const location = useLocation();
+
+    const handleContactClick = (e: React.MouseEvent) => {
+        e.preventDefault();
+        if (location.pathname === '/') {
+            document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' });
+        } else {
+            navigate('/#contact');
+        }
+    };
     return (
         <section className="py-24 px-6 bg-accent text-white relative overflow-hidden">
             {/* Background Accents */}
@@ -24,12 +36,12 @@ const LeadMagnet: React.FC = () => {
                         </div>
                         <h3 className="text-2xl font-bold mb-4">1. Local Visibility Engine</h3>
                         <p className="text-white/70 leading-relaxed mb-6">
-                            We take over your Google Business Profile and local SEO. We fix your categories, optimize your photos, and build the citations that signal to Google you're the authority in Newcastle.
+                            We take over your Google Business Profile and local SEO. We fix your categories, optimise your photos, and build the citations that signal to Google you're the authority in Newcastle.
                         </p>
                         <ul className="space-y-2">
                             <li className="flex items-center gap-3 text-sm text-white/50">
                                 <div className="w-1.5 h-1.5 bg-primary rounded-full"></div>
-                                Google Map Pack Optimization
+                                Google Map Pack Optimisation
                             </li>
                             <li className="flex items-center gap-3 text-sm text-white/50">
                                 <div className="w-1.5 h-1.5 bg-primary rounded-full"></div>
@@ -68,7 +80,7 @@ const LeadMagnet: React.FC = () => {
                                 </div>
                                 <h3 className="text-3xl font-heading font-bold mb-4 text-white">3. The Distribution Cannon</h3>
                                 <p className="text-white/80 text-lg leading-relaxed mb-6 max-w-2xl">
-                                    This is what other agencies can't offer. We take your new content and offer and feature it in <span className="text-white font-bold">Newcastle Digest</span>. It goes straight to 6,500+ locals' inboxes.
+                                    This is what other agencies can't offer. We take your new content and offer and feature it in <span className="text-white font-bold">Newcastle Digest</span>. It goes straight to 7,000+ locals' inboxes.
                                 </p>
                                 <div className="flex items-center gap-6">
                                     <div className="flex items-center gap-2 text-white/60">
@@ -77,17 +89,28 @@ const LeadMagnet: React.FC = () => {
                                     </div>
                                     <div className="flex items-center gap-2 text-white/60">
                                         <BarChart3 className="w-5 h-5 text-primary" />
-                                        <span>6,500+ Reach (Guaranteed)</span>
+                                        <span>7,000+ Reach (Guaranteed)</span>
                                     </div>
                                 </div>
                             </div>
 
                             <div className="hidden md:flex flex-col items-center justify-center bg-white/10 rounded-2xl p-6 min-w-[200px] border border-white/10 group-hover:bg-white/20 transition-colors">
-                                <span className="text-6xl font-heading font-bold text-white mb-2">61%</span>
+                                <span className="text-6xl font-heading font-bold text-white mb-2">60%</span>
                                 <span className="text-white/60 uppercase tracking-widest text-xs font-bold">Open Rate</span>
                             </div>
                         </div>
                     </div>
+                </div>
+
+                <div className="mt-20 text-center">
+                    <button
+                        onClick={handleContactClick}
+                        className="inline-flex items-center gap-3 bg-primary text-white px-12 py-6 rounded-2xl font-bold text-2xl hover:bg-white hover:text-primary transition-all shadow-2xl shadow-primary/20"
+                    >
+                        Work starts in 48 hours. Let's talk.
+                        <ArrowRight />
+                    </button>
+                    <p className="mt-6 text-white/40 font-medium italic">Newcastle's only marketing partner with distribution baked in.</p>
                 </div>
             </div>
         </section>

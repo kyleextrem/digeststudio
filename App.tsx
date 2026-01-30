@@ -16,10 +16,18 @@ const ScrollToTop = () => {
     if (!hash) {
       window.scrollTo(0, 0);
     } else {
-      const element = document.getElementById(hash.replace('#', ''));
-      if (element) {
-        element.scrollIntoView({ behavior: 'smooth' });
-      }
+      const scroll = () => {
+        const element = document.getElementById(hash.replace('#', ''));
+        if (element) {
+          element.scrollIntoView({ behavior: 'smooth' });
+        }
+      };
+
+      // Try immediately
+      scroll();
+      // And again after a short delay in case of rendering lag
+      const timeout = setTimeout(scroll, 100);
+      return () => clearTimeout(timeout);
     }
   }, [pathname, hash]);
 

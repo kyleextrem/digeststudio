@@ -18,19 +18,19 @@ const Hero: React.FC = () => {
 
         <p className="text-xl md:text-2xl text-accent/70 mb-10 max-w-3xl mx-auto leading-relaxed font-medium">
           The only Newcastle marketing studio with <span className="text-accent font-bold">distribution baked in</span>.
-          We optimize your local presence AND feature you to our 6,500+ local subscribers.
+          We optimise your local presence AND feature you to our 7,000+ local subscribers.
         </p>
 
         {/* Stats Row */}
         <div className="flex flex-wrap justify-center gap-4 md:gap-12 mb-12 text-accent/80 border-y border-accent/5 py-6 bg-accent/[0.02]">
           <div className="flex items-center gap-2">
             <Users className="w-5 h-5 text-primary" />
-            <span className="text-lg font-bold">6,500+ Local Subscribers</span>
+            <span className="text-lg font-bold">7,000+ Local Subscribers</span>
           </div>
           <div className="hidden md:block text-accent/20">|</div>
           <div className="flex items-center gap-2">
             <Mail className="w-5 h-5 text-primary" />
-            <span className="text-lg font-bold">61% Open Rate</span>
+            <span className="text-lg font-bold">60% Open Rate</span>
           </div>
           <div className="hidden md:block text-accent/20">|</div>
           <div className="flex items-center gap-2">

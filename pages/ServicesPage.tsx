@@ -1,9 +1,22 @@
 
 import React from 'react';
+import { useNavigate, useLocation } from 'react-router-dom';
 import Services from '../components/Services';
 import { CheckCircle2, ArrowRight } from 'lucide-react';
 
 const ServicesPage: React.FC = () => {
+  const navigate = useNavigate();
+  const location = useLocation();
+
+  const handleContactClick = (e: React.MouseEvent) => {
+    e.preventDefault();
+    if (location.pathname === '/') {
+      document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' });
+    } else {
+      navigate('/#contact');
+    }
+  };
+
   return (
     <div className="pt-20">
       {/* Services Hero */}
@@ -42,13 +55,13 @@ const ServicesPage: React.FC = () => {
         <div className="max-w-4xl mx-auto text-center">
           <h2 className="text-4xl font-heading font-bold mb-6">Not sure which path to take?</h2>
           <p className="text-xl text-accent/60 mb-10">Book a free 15-minute consultation. We'll look at your business and tell you exactly where the quick wins are.</p>
-          <a 
-            href="#contact"
+          <button
+            onClick={handleContactClick}
             className="inline-flex items-center gap-3 bg-accent text-white px-12 py-5 rounded-2xl font-bold text-xl hover:bg-primary transition-all"
           >
             Request a Growth Audit
             <ArrowRight />
-          </a>
+          </button>
         </div>
       </section>
     </div>

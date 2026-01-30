@@ -27,7 +27,7 @@ const About: React.FC = () => {
           </div>
           <div className="lg:col-span-5 relative">
             <div className="aspect-[3/4] bg-accent/5 rounded-[64px] overflow-hidden shadow-2xl shadow-accent/10 border-8 border-white">
-              {/* Updated image to reflect the user's provided photo: Young guy, curly hair, black puffer, colorful hillside city background */}
+              {/* Updated image to reflect the user's provided photo: Young guy, curly hair, black puffer, colourful hillside city background */}
               <img
                 src="/kyle-profile.jpg"
                 alt="Kyle - Digest Studio Founder"
@@ -59,7 +59,7 @@ const About: React.FC = () => {
                 Most agencies start with a client and then try to find an audience. <strong>We did it the other way around.</strong>
               </p>
               <p>
-                We built Newcastle Digest first. We spent months learning what this city cares about. We created a platform where 6,500+ locals actually want to read what we have to say.
+                We built Newcastle Digest first. We spent months learning what this city cares about. We created a platform where 7,000+ locals actually want to read what we have to say.
               </p>
               <p className="text-primary font-bold text-xl">When you work with Digest Studio, you aren't just buying service hours—you're buying access to our audience.</p>
             </div>

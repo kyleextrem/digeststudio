@@ -1,5 +1,6 @@
 
 import React from 'react';
+import { useNavigate, useLocation } from 'react-router-dom';
 import { ArrowUpRight, CheckCircle2, Layout, Megaphone, Camera, Search } from 'lucide-react';
 
 const services = [
@@ -114,6 +115,18 @@ const addons = [
 ];
 
 const Services: React.FC = () => {
+  const navigate = useNavigate();
+  const location = useLocation();
+
+  const handleContactClick = (e: React.MouseEvent) => {
+    e.preventDefault();
+    if (location.pathname === '/') {
+      document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' });
+    } else {
+      navigate('/#contact');
+    }
+  };
+
   return (
     <section id="services" className="py-32 px-6">
       <div className="max-w-7xl mx-auto">
@@ -128,8 +141,8 @@ const Services: React.FC = () => {
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-32">
           {services.map((service, i) => (
-            <div 
-              key={i} 
+            <div
+              key={i}
               className={`relative flex flex-col p-10 rounded-[40px] border-2 transition-all hover:shadow-2xl hover:shadow-accent/5 group ${service.highlight ? 'border-primary bg-primary/[0.02]' : 'border-accent/5 bg-white'}`}
             >
               {service.tag && (
@@ -137,10 +150,10 @@ const Services: React.FC = () => {
                   {service.tag}
                 </span>
               )}
-              
+
               <h3 className="text-3xl font-heading font-bold mb-2 group-hover:text-primary transition-colors">{service.title}</h3>
               <p className="text-accent/60 mb-8 font-medium">{service.subtitle}</p>
-              
+
               <div className="mb-10">
                 <div className="flex items-baseline gap-2">
                   <span className="text-5xl font-heading font-bold text-accent">{service.price}</span>
@@ -160,13 +173,13 @@ const Services: React.FC = () => {
                 ))}
               </div>
 
-              <a 
-                href="#contact" 
+              <button
+                onClick={handleContactClick}
                 className={`w-full py-5 rounded-2xl text-xl font-bold flex items-center justify-center gap-2 transition-all active:scale-95 ${service.highlight ? 'bg-primary text-white shadow-lg shadow-primary/20 hover:bg-accent' : 'bg-accent text-white hover:bg-primary'}`}
               >
                 Get Started
                 <ArrowUpRight className="w-6 h-6" />
-              </a>
+              </button>
             </div>
           ))}
         </div>
@@ -188,7 +201,7 @@ const Services: React.FC = () => {
                 <h3 className="text-xl font-heading font-bold mb-1">{addon.title}</h3>
                 <p className="text-accent/60 text-sm font-medium mb-4">{addon.subtitle}</p>
                 <div className="text-primary font-bold mb-6">{addon.price}</div>
-                
+
                 <ul className="space-y-3 mb-8 flex-grow">
                   {addon.features.map((feature, idx) => (
                     <li key={idx} className="text-sm text-accent/70 flex items-start gap-2">
@@ -198,12 +211,12 @@ const Services: React.FC = () => {
                   ))}
                 </ul>
 
-                <a 
-                  href="#contact" 
+                <button
+                  onClick={handleContactClick}
                   className="w-full py-3 rounded-xl border border-accent/10 text-center text-sm font-bold hover:bg-accent hover:text-white transition-all"
                 >
                   {addon.cta}
-                </a>
+                </button>
               </div>
             ))}
           </div>
@@ -216,12 +229,12 @@ const Services: React.FC = () => {
               We're launching with our first 10 clients at exclusive founding rates. Be among the first Newcastle businesses to leverage our audience and lock in your rate for life.
             </p>
           </div>
-          <a 
-            href="#contact" 
+          <button
+            onClick={handleContactClick}
             className="bg-primary text-white px-10 py-5 rounded-2xl text-xl font-bold hover:bg-white hover:text-primary transition-all whitespace-nowrap"
           >
             Lock In Your Rate →
-          </a>
+          </button>
         </div>
       </div>
     </section>
