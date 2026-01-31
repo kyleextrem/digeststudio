@@ -53,8 +53,8 @@ const Footer: React.FC = () => {
             © {new Date().getFullYear()} Digest Studio a product of Digest Media. All rights reserved.
           </p>
           <div className="flex gap-8">
-            <a href="#" className="text-accent/40 hover:text-accent text-sm font-medium transition-colors">Privacy Policy</a>
-            <a href="#" className="text-accent/40 hover:text-accent text-sm font-medium transition-colors">Terms of Service</a>
+            <Link to="/privacy" className="text-accent/40 hover:text-accent text-sm font-medium transition-colors">Privacy Policy</Link>
+            <Link to="/terms" className="text-accent/40 hover:text-accent text-sm font-medium transition-colors">Terms of Service</Link>
           </div>
         </div>
       </div>

@@ -10,6 +10,8 @@ import About from './pages/About';
 import FAQ from './pages/FAQ';
 import Blog from './pages/Blog';
 import ServicesPage from './pages/ServicesPage';
+import Privacy from './pages/Privacy';
+import Terms from './pages/Terms';
 
 const ScrollToTop = () => {
   const { pathname, hash } = useLocation();
@@ -50,6 +52,8 @@ const Layout: React.FC = () => {
           <Route path="/about" element={<About />} />
           <Route path="/faq" element={<FAQ />} />
           <Route path="/blog" element={<Blog />} />
+          <Route path="/privacy" element={<Privacy />} />
+          <Route path="/terms" element={<Terms />} />
         </Routes>
       </main>
       <Footer />
