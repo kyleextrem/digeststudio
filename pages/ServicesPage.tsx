@@ -1,6 +1,6 @@
-
 import React from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
+import SEO from '../components/SEO';
 import Services from '../components/Services';
 import { CheckCircle2, ArrowRight } from 'lucide-react';
 
@@ -19,6 +19,10 @@ const ServicesPage: React.FC = () => {
 
   return (
     <div className="pt-20">
+      <SEO
+        title="Marketing Packages & Distribution"
+        description="Fixed-price marketing packages built for Newcastle momentum. No long-term contracts, just results for local businesses."
+      />
       {/* Services Hero */}
       <div className="bg-accent py-32 px-6 text-white relative overflow-hidden">
         <div className="absolute top-0 right-0 w-1/3 h-full bg-primary/10 -skew-x-12 translate-x-1/2" />

@@ -11,7 +11,7 @@ const Footer: React.FC = () => {
             <Link to="/" className="flex items-center gap-2 mb-8">
               <img
                 src="/digest-studio-logo.jpg"
-                alt="Digest Studio Logo"
+                alt="Digest Studio Newcastle - Marketing Distribution Partner Logo"
                 className="h-24 w-auto object-contain"
               />
             </Link>

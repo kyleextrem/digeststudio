@@ -1,0 +1,21 @@
+{
+    "name": "Digest Studio",
+    "short_name": "Digest Studio",
+    "description": "Newcastle's Local Marketing Partner with distribution built-in.",
+    "start_url": "/",
+    "display": "standalone",
+    "background_color": "#FFFFFF",
+    "theme_color": "#FF4400",
+    "icons": [
+        {
+            "src": "/digest-studio-logo.jpg",
+            "sizes": "192x192",
+            "type": "image/jpeg"
+        },
+        {
+            "src": "/digest-studio-logo.jpg",
+            "sizes": "512x512",
+            "type": "image/jpeg"
+        }
+    ]
+}

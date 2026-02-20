@@ -1,6 +1,6 @@
-
 import React, { useState } from 'react';
 import { Plus, Minus } from 'lucide-react';
+import SEO from '../components/SEO';
 
 const faqItems = [
   {
@@ -34,6 +34,10 @@ const FAQ: React.FC = () => {
 
   return (
     <div className="pt-32 pb-32 px-6">
+      <SEO
+        title="FAQ - Local Marketing Help"
+        description="Common questions about marketing your Newcastle business, pricing, and how Digest Studio works."
+      />
       <div className="max-w-4xl mx-auto">
         <div className="text-center mb-24">
           <span className="text-primary font-bold uppercase tracking-widest text-sm mb-4 block">Help Centre</span>

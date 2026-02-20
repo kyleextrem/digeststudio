@@ -1,12 +1,16 @@
-
 import React from 'react';
 import { ArrowRight, Calendar, User } from 'lucide-react';
+import SEO from '../components/SEO';
 
 const posts: any[] = [];
 
 const Blog: React.FC = () => {
   return (
     <div className="pt-32 pb-32 px-6">
+      <SEO
+        title="Local Insights & Marketing Strategy"
+        description="Practical marketing advice and insights specifically for Newcastle business owners from Digest Studio."
+      />
       <div className="max-w-7xl mx-auto">
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-8 mb-20">
           <div className="max-w-2xl">

@@ -40,7 +40,7 @@ const Navbar: React.FC = () => {
         <Link to="/" className="flex items-center gap-2 group shrink-0">
           <img
             src="/digest-studio-logo.jpg"
-            alt="Digest Studio Logo"
+            alt="Digest Studio Newcastle - Local Marketing and Growth Agency Logo"
             className="h-20 md:h-24 w-auto object-contain transition-transform group-hover:scale-105"
           />
         </Link>

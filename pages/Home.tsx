@@ -1,4 +1,5 @@
 import React from 'react';
+import SEO from '../components/SEO';
 import Hero from '../components/Hero';
 import ValueEquation from '../components/ValueEquation';
 import LeadMagnet from '../components/LeadMagnet';
@@ -8,6 +9,10 @@ import { ArrowRight, CheckCircle2, Clock } from 'lucide-react';
 const Home: React.FC = () => {
   return (
     <>
+      <SEO
+        title="Be the Newcastle Business Locals Think of First"
+        description="The only Newcastle marketing studio with distribution baked in. We optimize your local presence and feature you to 7,000+ local subscribers."
+      />
       <Hero />
 
       <ValueEquation />

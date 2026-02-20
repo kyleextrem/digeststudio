@@ -1,10 +1,14 @@
-
 import React from 'react';
 import { ArrowRight, Check, X, Zap } from 'lucide-react';
+import SEO from '../components/SEO';
 
 const About: React.FC = () => {
   return (
     <div className="pt-32 pb-20">
+      <SEO
+        title="Meet Kyle – Newcastle's Local Marketing Partner"
+        description="Learn why Digest Studio was built to help Newcastle businesses grow. Built on the distribution power of Newcastle Digest."
+      />
       {/* Intro Section */}
       <section className="max-w-7xl mx-auto px-6 mb-32">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 lg:gap-24 items-start">
@@ -30,7 +34,7 @@ const About: React.FC = () => {
               {/* Updated image to reflect the user's provided photo: Young guy, curly hair, black puffer, colourful hillside city background */}
               <img
                 src="/kyle-profile.jpg"
-                alt="Kyle - Digest Studio Founder"
+                alt="Kyle, Founder of Digest Studio - Newcastle's Local Marketing and Growth Specialist"
                 className="w-full h-full object-cover grayscale-0 hover:grayscale-0 transition-all duration-700"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-accent/40 to-transparent" />
