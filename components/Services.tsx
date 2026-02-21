@@ -1,6 +1,7 @@
+'use client';
 
 import React from 'react';
-import { useNavigate, useLocation } from 'react-router-dom';
+import { usePathname, useRouter } from 'next/navigation';
 import { ArrowUpRight, CheckCircle2, Layout, Megaphone, Camera, Search } from 'lucide-react';
 
 const services = [
@@ -115,15 +116,15 @@ const addons = [
 ];
 
 const Services: React.FC = () => {
-  const navigate = useNavigate();
-  const location = useLocation();
+  const router = useRouter();
+  const pathname = usePathname();
 
   const handleContactClick = (e: React.MouseEvent) => {
     e.preventDefault();
-    if (location.pathname === '/') {
+    if (pathname === '/') {
       document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' });
     } else {
-      navigate('/#contact');
+      router.push('/#contact');
     }
   };
 

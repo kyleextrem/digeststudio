@@ -1,13 +1,15 @@
+'use client';
 
 import React, { useState, useEffect } from 'react';
-import { Link, useLocation, useNavigate } from 'react-router-dom';
+import Link from 'next/link';
+import { usePathname, useRouter } from 'next/navigation';
 import { Menu, X } from 'lucide-react';
 
 const Navbar: React.FC = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const location = useLocation();
-  const navigate = useNavigate();
+  const pathname = usePathname();
+  const router = useRouter();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -26,18 +28,18 @@ const Navbar: React.FC = () => {
 
   const handleContactClick = (e: React.MouseEvent) => {
     setIsMobileMenuOpen(false);
-    if (location.pathname === '/') {
+    if (pathname === '/') {
       e.preventDefault();
       document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' });
     } else {
-      navigate('/#contact');
+      router.push('/#contact');
     }
   };
 
   return (
-    <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${isScrolled || location.pathname !== '/' ? 'bg-white/95 backdrop-blur-md shadow-sm py-4' : 'bg-transparent py-6'}`}>
+    <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${isScrolled || pathname !== '/' ? 'bg-white/95 backdrop-blur-md shadow-sm py-4' : 'bg-transparent py-6'}`}>
       <div className="max-w-7xl mx-auto px-6 flex items-center justify-between">
-        <Link to="/" className="flex items-center gap-2 group shrink-0">
+        <Link href="/" className="flex items-center gap-2 group shrink-0">
           <img
             src="/digest-studio-logo.jpg"
             alt="Digest Studio Newcastle - Local Marketing and Growth Agency Logo"
@@ -51,8 +53,8 @@ const Navbar: React.FC = () => {
             {navLinks.map((link) => (
               <Link
                 key={link.name}
-                to={link.path}
-                className={`font-bold text-sm uppercase tracking-widest transition-colors ${location.pathname === link.path ? 'text-primary' : 'text-accent hover:text-primary'}`}
+                href={link.path}
+                className={`font-bold text-sm uppercase tracking-widest transition-colors ${pathname === link.path ? 'text-primary' : 'text-accent hover:text-primary'}`}
               >
                 {link.name}
               </Link>
@@ -82,7 +84,7 @@ const Navbar: React.FC = () => {
           {navLinks.map((link) => (
             <Link
               key={link.name}
-              to={link.path}
+              href={link.path}
               onClick={() => setIsMobileMenuOpen(false)}
               className="text-4xl font-heading font-bold text-accent hover:text-primary transition-colors"
             >

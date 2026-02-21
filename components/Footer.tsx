@@ -1,6 +1,5 @@
-
 import React from 'react';
-import { Link } from 'react-router-dom';
+import Link from 'next/link';
 
 const Footer: React.FC = () => {
   return (
@@ -8,7 +7,7 @@ const Footer: React.FC = () => {
       <div className="max-w-7xl mx-auto">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 mb-24">
           <div className="lg:col-span-6">
-            <Link to="/" className="flex items-center gap-2 mb-8">
+            <Link href="/" className="flex items-center gap-2 mb-8">
               <img
                 src="/digest-studio-logo.jpg"
                 alt="Digest Studio Newcastle - Marketing Distribution Partner Logo"
@@ -33,11 +32,11 @@ const Footer: React.FC = () => {
           <div className="lg:col-span-3">
             <h4 className="font-heading font-bold text-xl mb-8 uppercase tracking-widest text-sm">Navigation</h4>
             <ul className="space-y-4">
-              <li><Link to="/" className="text-accent/60 hover:text-primary font-bold transition-colors">Home</Link></li>
-              <li><Link to="/services" className="text-accent/60 hover:text-primary font-bold transition-colors">Services</Link></li>
-              <li><Link to="/about" className="text-accent/60 hover:text-primary font-bold transition-colors">About</Link></li>
-              <li><Link to="/blog" className="text-accent/60 hover:text-primary font-bold transition-colors">Blog</Link></li>
-              <li><Link to="/faq" className="text-accent/60 hover:text-primary font-bold transition-colors">FAQ</Link></li>
+              <li><Link href="/" className="text-accent/60 hover:text-primary font-bold transition-colors">Home</Link></li>
+              <li><Link href="/services" className="text-accent/60 hover:text-primary font-bold transition-colors">Services</Link></li>
+              <li><Link href="/about" className="text-accent/60 hover:text-primary font-bold transition-colors">About</Link></li>
+              <li><Link href="/blog" className="text-accent/60 hover:text-primary font-bold transition-colors">Blog</Link></li>
+              <li><Link href="/faq" className="text-accent/60 hover:text-primary font-bold transition-colors">FAQ</Link></li>
             </ul>
           </div>
 
@@ -53,8 +52,8 @@ const Footer: React.FC = () => {
             © {new Date().getFullYear()} Digest Studio a product of Digest Media. All rights reserved.
           </p>
           <div className="flex gap-8">
-            <Link to="/privacy" className="text-accent/40 hover:text-accent text-sm font-medium transition-colors">Privacy Policy</Link>
-            <Link to="/terms" className="text-accent/40 hover:text-accent text-sm font-medium transition-colors">Terms of Service</Link>
+            <Link href="/privacy" className="text-accent/40 hover:text-accent text-sm font-medium transition-colors">Privacy Policy</Link>
+            <Link href="/terms" className="text-accent/40 hover:text-accent text-sm font-medium transition-colors">Terms of Service</Link>
           </div>
         </div>
       </div>
