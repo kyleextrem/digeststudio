@@ -1,4 +1,3 @@
-import React from 'react';
 import { client, urlFor } from '../../../lib/sanity';
 import { postQuery, postSlugsQuery } from '../../../lib/queries';
 import PortableText from '../../../components/PortableText';

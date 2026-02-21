@@ -1,11 +1,11 @@
 'use client';
 
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { usePathname, useRouter } from 'next/navigation';
 import { Menu, X } from 'lucide-react';
 
-const Navbar: React.FC = () => {
+const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const pathname = usePathname();
@@ -26,7 +26,7 @@ const Navbar: React.FC = () => {
     { name: 'FAQ', path: '/faq' },
   ];
 
-  const handleContactClick = (e: React.MouseEvent) => {
+  const handleContactClick = (e: any) => {
     setIsMobileMenuOpen(false);
     if (pathname === '/') {
       e.preventDefault();

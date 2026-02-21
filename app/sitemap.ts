@@ -3,7 +3,7 @@ import { client } from '../lib/sanity';
 import { postSlugsQuery } from '../lib/queries';
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
-    const baseUrl = 'https://digeststudio.com.au'; // Replace with actual domain if known
+    const baseUrl = 'https://digeststudio.com.au';
 
     // Fetch all blog post slugs
     const slugs = await client.fetch(postSlugsQuery);
