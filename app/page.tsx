@@ -82,7 +82,7 @@ export default function Home() {
                                 </div>
 
                                 <a
-                                    href="https://cal.com/digest"
+                                    href="https://cal.com/digest/digest-studio"
                                     target="_blank"
                                     rel="noopener noreferrer"
                                     className="bg-primary text-white text-xl px-12 py-7 rounded-3xl font-bold hover:shadow-2xl hover:shadow-primary/40 transition-all flex items-center justify-center gap-5 w-full group/btn relative overflow-hidden active:scale-[0.98]"

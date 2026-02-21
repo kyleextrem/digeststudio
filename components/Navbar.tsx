@@ -41,9 +41,9 @@ const Navbar = () => {
       <div className="max-w-7xl mx-auto px-6 flex items-center justify-between">
         <Link href="/" className="flex items-center gap-2 group shrink-0">
           <img
-            src="/digest-studio-logo.jpg"
+            src="/logo-lightning.png"
             alt="Digest Studio Newcastle - Local Marketing and Growth Agency Logo"
-            className="h-20 md:h-24 w-auto object-contain transition-transform group-hover:scale-105"
+            className="h-16 md:h-20 w-auto object-contain transition-transform group-hover:scale-105"
           />
         </Link>
 

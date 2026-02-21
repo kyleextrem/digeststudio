@@ -93,9 +93,9 @@ const Navbar = ()=>{
                         href: "/",
                         className: "flex items-center gap-2 group shrink-0",
                         children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("img", {
-                            src: "/digest-studio-logo.jpg",
+                            src: "/logo-lightning.png",
                             alt: "Digest Studio Newcastle - Local Marketing and Growth Agency Logo",
-                            className: "h-20 md:h-24 w-auto object-contain transition-transform group-hover:scale-105"
+                            className: "h-16 md:h-20 w-auto object-contain transition-transform group-hover:scale-105"
                         }, void 0, false, {
                             fileName: "[project]/components/Navbar.tsx",
                             lineNumber: 43,
