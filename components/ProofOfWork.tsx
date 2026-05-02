@@ -20,9 +20,9 @@ const ProofOfWork: React.FC = () => {
                     {/* Card 1 */}
                     <div className="bg-accent rounded-[32px] p-8 md:p-12 text-white flex flex-col items-start border border-accent/10 shadow-2xl relative group hover:-translate-y-2 transition-transform duration-500">
                         <div className="w-full aspect-[16/10] bg-accent/50 rounded-2xl mb-10 overflow-hidden border border-white/10 relative">
-                            {/* Placeholder Image */}
+                            {/* Newcastle Digest Image */}
                             <img 
-                                src="/api/placeholder/800/500" 
+                                src="/newcastle-digest.png" 
                                 alt="Newcastle Digest website screenshot" 
                                 className="w-full h-full object-cover opacity-80 group-hover:opacity-100 transition-opacity duration-500"
                             />
@@ -53,9 +53,9 @@ const ProofOfWork: React.FC = () => {
                     {/* Card 2 */}
                     <div className="bg-accent rounded-[32px] p-8 md:p-12 text-white flex flex-col items-start border border-accent/10 shadow-2xl relative group hover:-translate-y-2 transition-transform duration-500">
                         <div className="w-full aspect-[16/10] bg-accent/50 rounded-2xl mb-10 overflow-hidden border border-white/10 relative">
-                            {/* Placeholder Image */}
+                            {/* Testimo Image */}
                             <img 
-                                src="/api/placeholder/800/500" 
+                                src="/testimo.png" 
                                 alt="Testimo landing page screenshot" 
                                 className="w-full h-full object-cover opacity-80 group-hover:opacity-100 transition-opacity duration-500"
                             />
