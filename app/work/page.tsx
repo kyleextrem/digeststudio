@@ -75,7 +75,7 @@ const WorkPage: React.FC = () => {
                     </div>
                     <div className="relative rounded-[40px] overflow-hidden shadow-2xl border border-accent/10 group bg-accent/5 aspect-video flex items-center justify-center">
                         <img 
-                            src="/testimo.png" 
+                            src="/Testimo.png" 
                             alt="Testimo Dashboard" 
                             className="w-full h-full object-cover transform transition-transform duration-700 group-hover:scale-105"
                             onError={(e) => {

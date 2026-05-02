@@ -55,7 +55,7 @@ const ProofOfWork: React.FC = () => {
                         <div className="w-full aspect-[16/10] bg-accent/50 rounded-2xl mb-10 overflow-hidden border border-white/10 relative">
                             {/* Testimo Image */}
                             <img 
-                                src="/testimo.png" 
+                                src="/Testimo.png" 
                                 alt="Testimo landing page screenshot" 
                                 className="w-full h-full object-cover opacity-80 group-hover:opacity-100 transition-opacity duration-500"
                             />
