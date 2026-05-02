@@ -3,6 +3,7 @@
 import React from 'react';
 import { ArrowRight, Zap } from 'lucide-react';
 import Link from 'next/link';
+import ProofOfWork from '@/components/ProofOfWork';
 
 const AboutPage: React.FC = () => {
     return (
@@ -93,6 +94,9 @@ const AboutPage: React.FC = () => {
                     </div>
                 </div>
             </section>
+
+            {/* Proof of Work */}
+            <ProofOfWork />
 
             {/* Why Newcastle matters */}
             <section className="py-32 bg-primary/5 px-6 overflow-hidden relative">
