@@ -43,14 +43,22 @@ const WorkPage: React.FC = () => {
                         <p className="text-lg text-accent/70 leading-relaxed">
                             Designed, built, and grown by us. Newcastle's most-read local newsletter — 7,000 subscribers, 60% open rate.
                         </p>
-                        <Link 
-                            href="https://newcastledigest.com" 
-                            target="_blank" 
-                            rel="noopener noreferrer"
-                            className="inline-flex items-center gap-2 text-primary font-bold hover:text-accent transition-colors"
-                        >
-                            Visit Newcastle Digest <ExternalLink className="w-5 h-5" />
-                        </Link>
+                        <div className="flex flex-wrap items-center gap-4">
+                            <Link 
+                                href="/work/newcastle-digest" 
+                                className="inline-flex items-center gap-2 bg-primary text-white px-6 py-3 rounded-xl font-bold hover:bg-accent transition-colors shadow-lg shadow-primary/20"
+                            >
+                                Read Case Study
+                            </Link>
+                            <Link 
+                                href="https://newcastledigest.com" 
+                                target="_blank" 
+                                rel="noopener noreferrer"
+                                className="inline-flex items-center gap-2 text-primary font-bold hover:text-accent transition-colors"
+                            >
+                                Visit Site <ExternalLink className="w-4 h-4" />
+                            </Link>
+                        </div>
                     </div>
                 </div>
             </section>
@@ -64,14 +72,22 @@ const WorkPage: React.FC = () => {
                         <p className="text-lg text-accent/70 leading-relaxed">
                             A full-stack Google review automation SaaS we built in-house. Live, Stripe-integrated, and included free for Growth Partner clients.
                         </p>
-                        <Link 
-                            href="https://testimo.com.au" 
-                            target="_blank" 
-                            rel="noopener noreferrer"
-                            className="inline-flex items-center gap-2 text-primary font-bold hover:text-accent transition-colors"
-                        >
-                            Visit Testimo <ExternalLink className="w-5 h-5" />
-                        </Link>
+                        <div className="flex flex-wrap items-center gap-4">
+                            <Link 
+                                href="/work/testimo" 
+                                className="inline-flex items-center gap-2 bg-primary text-white px-6 py-3 rounded-xl font-bold hover:bg-accent transition-colors shadow-lg shadow-primary/20"
+                            >
+                                Read Case Study
+                            </Link>
+                            <Link 
+                                href="https://testimo.com.au" 
+                                target="_blank" 
+                                rel="noopener noreferrer"
+                                className="inline-flex items-center gap-2 text-primary font-bold hover:text-accent transition-colors"
+                            >
+                                Visit Site <ExternalLink className="w-4 h-4" />
+                            </Link>
+                        </div>
                     </div>
                     <div className="relative rounded-[40px] overflow-hidden shadow-2xl border border-accent/10 group bg-accent/5 aspect-video flex items-center justify-center">
                         <img 

@@ -1,6 +1,7 @@
 'use client';
 
 import React from 'react';
+import Link from 'next/link';
 import { ArrowRight } from 'lucide-react';
 
 const ProofOfWork: React.FC = () => {
@@ -40,14 +41,12 @@ const ProofOfWork: React.FC = () => {
                             </span>
                         </div>
 
-                        <a 
-                            href="https://newcastledigest.com" 
-                            target="_blank" 
-                            rel="noopener noreferrer"
+                        <Link 
+                            href="/work/newcastle-digest" 
                             className="inline-flex items-center gap-3 text-primary font-bold text-lg hover:text-white transition-colors group/link mt-auto"
                         >
-                            View Site <ArrowRight className="w-5 h-5 group-hover/link:translate-x-2 transition-transform" />
-                        </a>
+                            Read Case Study <ArrowRight className="w-5 h-5 group-hover/link:translate-x-2 transition-transform" />
+                        </Link>
                     </div>
 
                     {/* Card 2 */}
@@ -73,14 +72,12 @@ const ProofOfWork: React.FC = () => {
                             </span>
                         </div>
 
-                        <a 
-                            href="https://testimo.com.au" 
-                            target="_blank" 
-                            rel="noopener noreferrer"
+                        <Link 
+                            href="/work/testimo" 
                             className="inline-flex items-center gap-3 text-primary font-bold text-lg hover:text-white transition-colors group/link mt-auto"
                         >
-                            View Site <ArrowRight className="w-5 h-5 group-hover/link:translate-x-2 transition-transform" />
-                        </a>
+                            Read Case Study <ArrowRight className="w-5 h-5 group-hover/link:translate-x-2 transition-transform" />
+                        </Link>
                     </div>
 
                 </div>
