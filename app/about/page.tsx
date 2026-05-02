@@ -17,13 +17,16 @@ const AboutPage: React.FC = () => {
                         </h1>
                         <div className="space-y-6 text-body text-accent/70 max-w-3xl">
                             <p>
-                                I've spent years inside marketing teams seeing the same thing: businesses being sold complex "funnels" and "strategies" while they ignore the people right on their doorstep.
-                            </p>
-                            <p className="font-bold text-accent">
-                                I built Digest Studio because local businesses shouldn't have to fight for attention when they already have a community ready to support them.
+                                I built Newcastle Digest from zero to 7,000 subscribers and a 60% open rate — without a team, without a budget, and without shortcuts. That took understanding what Newcastle locals actually care about, and building something they'd look forward to every week.
                             </p>
                             <p>
-                                My background isn't just theory. I built <strong>Newcastle Digest</strong> from zero to thousands of subscribers. I know what Newcastle locals click on, what they ignore, and what makes them pick up the phone.
+                                I then built Testimo — a Google review automation tool for local businesses — from scratch. Full-stack, live, and running.
+                            </p>
+                            <p className="font-bold text-accent">
+                                Digest Studio exists because those two things proved something: the combination of local trust, owned distribution, and real product capability is something no generic marketing agency can replicate.
+                            </p>
+                            <p>
+                                I work directly with every client. You won't be handed to a junior. You get me, my audience, and the tools I've built.
                             </p>
                         </div>
                     </div>

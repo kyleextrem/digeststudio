@@ -3,6 +3,7 @@ import Hero from "@/components/Hero";
 import ValueEquation from "@/components/ValueEquation";
 import LeadMagnet from "@/components/LeadMagnet";
 import ContactForm from "@/components/ContactForm";
+import ProofOfWork from "@/components/ProofOfWork";
 import { CheckCircle2, Clock } from "lucide-react";
 
 export const metadata: Metadata = {
@@ -18,6 +19,8 @@ export default function Home() {
             <ValueEquation />
 
             <LeadMagnet />
+
+            <ProofOfWork />
 
             {/* Contact Section - Premium Dual Booking & Form */}
             <section id="contact" className="py-24 px-6 md:py-40 bg-[#FBFBFC] relative overflow-hidden">

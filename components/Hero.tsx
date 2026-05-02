@@ -41,6 +41,19 @@ const Hero: React.FC = () => {
           </div>
         </div>
 
+        <div className="mb-12">
+          <a 
+            href="#our-work" 
+            onClick={(e) => {
+              e.preventDefault();
+              document.getElementById('our-work')?.scrollIntoView({ behavior: 'smooth' });
+            }}
+            className="inline-flex items-center gap-2 text-accent/60 font-medium hover:text-primary transition-colors text-sm uppercase tracking-widest border-b border-transparent hover:border-primary pb-0.5"
+          >
+            See our work ↓
+          </a>
+        </div>
+
         <div className="flex flex-col items-center gap-4">
           <a
             href="#contact"
@@ -54,7 +67,7 @@ const Hero: React.FC = () => {
             <ArrowRight className="group-hover:translate-x-2 transition-transform w-6 h-6" />
           </a>
           <p className="text-accent/40 text-sm font-medium">
-            Founding Client rates available for February intake.
+            Founding Client rates — limited spots available.
           </p>
         </div>
       </div>

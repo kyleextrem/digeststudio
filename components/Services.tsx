@@ -34,7 +34,7 @@ const services = [
       "Professional photo pack (15-20 images)",
       "Feature article in Newcastle Digest",
       "Canva social starter kit",
-      "Review booster system setup"
+      "Testimo review automation (our own software — $49/month value, included)"
     ],
     highlight: false
   },
@@ -183,6 +183,10 @@ const Services: React.FC = () => {
               </button>
             </div>
           ))}
+        </div>
+
+        <div className="bg-primary/5 border border-primary/20 rounded-2xl p-8 mb-32 max-w-4xl mx-auto text-center text-accent/80 text-lg font-medium shadow-sm">
+            All Growth Partner clients receive free access to Testimo — our proprietary Google review automation tool. SMS-based review requests, automated follow-ups, and a live review dashboard. Built by us, for businesses like yours.
         </div>
 
         {/* Add-ons Section */}
