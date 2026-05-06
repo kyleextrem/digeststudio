@@ -80,7 +80,7 @@ const TestimoCaseStudy: React.FC = () => {
                         Ready to grow your Newcastle audience?
                     </h2>
                     <p className="text-lg text-accent/60 mb-10 max-w-xl mx-auto">
-                        Get the same expertise, tools, and distribution that built Testimo.
+                        Get the same expertise and tools we built for ourselves, working for your business.
                     </p>
                     <Link
                         href="/#contact"

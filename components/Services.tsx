@@ -227,6 +227,96 @@ const Services: React.FC = () => {
           </div>
         </div>
 
+        {/* Strategic Partnerships Section */}
+        <div className="mb-32">
+          <div className="text-center mb-16">
+            <span className="text-primary font-bold uppercase tracking-widest text-sm mb-4 block">Strategic Partnerships</span>
+            <h2 className="text-4xl md:text-5xl font-heading font-bold mb-6 text-accent">Some businesses don't need a package. They need a partner.</h2>
+            <p className="text-xl text-accent/60 max-w-4xl mx-auto leading-relaxed">
+              If you're expanding into new markets, building a lead generation engine from scratch, or need someone to own your marketing end-to-end — that's a different conversation. We work with a small number of Newcastle and Hunter businesses on a retained basis, handling strategy and execution together.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
+            {/* Column 1 */}
+            <div className="bg-white p-8 rounded-[32px] border-2 border-accent/5 hover:border-primary/20 transition-all">
+              <h3 className="text-2xl font-heading font-bold mb-8 text-accent">What this looks like</h3>
+              <ul className="space-y-4">
+                {[
+                  "Monthly retainer, scoped to your business — no cookie-cutter deliverables",
+                  "Strategy, execution, and reporting all under one roof",
+                  "SEO, content, conversion, HubSpot, paid — whatever the business actually needs",
+                  "Access to Newcastle Digest's 7,000+ subscriber audience as a distribution channel",
+                  "Testimo reputation management included where relevant",
+                  "One point of contact who knows your business"
+                ].map((item, idx) => (
+                  <li key={idx} className="flex items-start gap-3">
+                    <CheckCircle2 className="w-5 h-5 mt-0.5 text-primary flex-shrink-0" />
+                    <span className="text-accent/70 font-medium leading-tight">{item}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            {/* Column 2 */}
+            <div className="bg-white p-8 rounded-[32px] border-2 border-accent/5 hover:border-primary/20 transition-all">
+              <h3 className="text-2xl font-heading font-bold mb-8 text-accent">Who it's for</h3>
+              <ul className="space-y-4">
+                {[
+                  "B2B businesses entering or growing in the Newcastle and Hunter market",
+                  "Businesses that have tried agencies and been burned by vague retainers and no accountability",
+                  "Operators who want a marketing partner, not a vendor"
+                ].map((item, idx) => (
+                  <li key={idx} className="flex items-start gap-3">
+                    <CheckCircle2 className="w-5 h-5 mt-0.5 text-primary flex-shrink-0" />
+                    <span className="text-accent/70 font-medium leading-tight">{item}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            {/* Column 3 */}
+            <div className="bg-white p-8 rounded-[32px] border-2 border-accent/5 hover:border-primary/20 transition-all">
+              <h3 className="text-2xl font-heading font-bold mb-8 text-accent">How it works</h3>
+              <ul className="space-y-4">
+                {[
+                  "30-minute discovery call to understand your situation",
+                  "We come back with a proposed scope, phased approach, and monthly investment",
+                  "Phase 1 typically kicks off within a week of agreement",
+                  "No lock-in beyond the current phase — if it's not working, we'll tell you"
+                ].map((item, idx) => (
+                  <li key={idx} className="flex items-start gap-3">
+                    <CheckCircle2 className="w-5 h-5 mt-0.5 text-primary flex-shrink-0" />
+                    <span className="text-accent/70 font-medium leading-tight">{item}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
+
+          {/* HubSpot Callout */}
+          <div className="bg-[#FF7A59]/10 border border-[#FF7A59]/20 rounded-2xl p-8 mb-12 max-w-4xl mx-auto flex flex-col md:flex-row items-center gap-6">
+            <div className="bg-white px-4 py-2 rounded-xl shadow-sm flex-shrink-0 flex items-center justify-center">
+              <span className="font-bold text-[#FF7A59] text-xl tracking-tight">HubSpot</span>
+            </div>
+            <p className="text-accent/80 text-lg font-medium leading-relaxed">
+              We implement and manage HubSpot for our Strategic Partnership clients — from initial setup and CRM configuration through to tracking, lead flow, and reporting. HubSpot implementation is included as standard where required.
+            </p>
+          </div>
+
+          <div className="text-center">
+            <a
+              href="https://cal.com/digest/digest-studio"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center justify-center gap-2 bg-accent text-white px-10 py-5 rounded-2xl text-xl font-bold hover:bg-primary transition-all shadow-lg hover:shadow-primary/20 active:scale-95"
+            >
+              Book a Strategy Call
+              <ArrowUpRight className="w-6 h-6" />
+            </a>
+          </div>
+        </div>
+
         <div className="bg-accent rounded-[40px] p-12 text-white flex flex-col md:flex-row items-center justify-between gap-8">
           <div>
             <h3 className="text-3xl font-heading font-bold mb-4">Join Our Founding Clients</h3>
