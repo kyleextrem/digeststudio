@@ -5,6 +5,7 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { Analytics } from "@vercel/analytics/react";
 import { SpeedInsights } from "@vercel/speed-insights/react";
+import Script from "next/script";
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
 const spaceGrotesk = Space_Grotesk({ subsets: ["latin"], variable: "--font-space-grotesk" });
@@ -67,6 +68,15 @@ export default function RootLayout({
                 </div>
                 <Analytics />
                 <SpeedInsights />
+                {/* HubSpot Embed Code */}
+                <Script
+                    type="text/javascript"
+                    id="hs-script-loader"
+                    async
+                    defer
+                    src="//js-ap1.hs-scripts.com/442301086.js"
+                    strategy="afterInteractive"
+                />
             </body>
         </html>
     );
