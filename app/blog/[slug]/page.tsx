@@ -77,17 +77,7 @@ export default async function BlogPostPage({ params }: Props) {
                     <PortableText value={post.body} />
                 </div>
 
-                <footer className="mt-20 pt-12 border-t border-accent/5">
-                    <div className="bg-accent/5 p-12 rounded-[48px] text-center">
-                        <h3 className="text-2xl font-heading font-bold mb-4">Want more local insights?</h3>
-                        <p className="text-accent/60 mb-8 max-w-md mx-auto">
-                            Join 7,000+ local Newcastle business owners getting marketing strategy delivered weekly.
-                        </p>
-                        <button className="bg-primary text-white px-12 py-5 rounded-2xl font-bold text-xl hover:shadow-2xl hover:shadow-primary/30 transition-all">
-                            Join the Digest
-                        </button>
-                    </div>
-                </footer>
+
             </div>
         </article>
     );
