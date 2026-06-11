@@ -541,11 +541,11 @@ const VisibilityAudit: React.FC = () => {
                                     <div className="bg-white/5 border border-white/10 rounded-[32px] p-8 md:p-10 space-y-6">
                                         <div>
                                             <h3 className="text-xl font-heading font-bold mb-2">
-                                                Get your full personalised audit report
+                                                Want us to walk you through your results?
                                             </h3>
                                             <p className="text-white/50 text-sm leading-relaxed">
-                                                We&apos;ll review your answers and send you a prioritised action plan
-                                                within 48 hours.
+                                                Enter your details and we&apos;ll be in touch to talk through what the
+                                                score means for your business.
                                             </p>
                                         </div>
                                         <div>
@@ -612,7 +612,8 @@ const VisibilityAudit: React.FC = () => {
                                         You&apos;re on the list.
                                     </h3>
                                     <p className="text-white/60 mb-8">
-                                        Expect your audit report within 48 hours.
+                                        We&apos;ll be in touch soon. In the meantime, book a free 15-minute strategy
+                                        call to talk through your results.
                                     </p>
                                     <a
                                         href={BOOKING_URL}
