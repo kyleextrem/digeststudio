@@ -24,7 +24,7 @@ const services = [
   {
     title: "Local Launch Pack",
     subtitle: "Launch with credibility",
-    price: "$1,500",
+    price: "$2,500",
     period: "once-off",
     tag: "Popular",
     features: [
@@ -33,14 +33,13 @@ const services = [
       "Professional photo pack (15-20 images)",
       "Feature article in Newcastle Digest",
       "Canva social starter kit",
-      "Testimo review automation (our own software — $49/month value, included)"
     ],
     highlight: false
   },
   {
     title: "Growth Partner Plan",
     subtitle: "Consistent local growth",
-    price: "$997",
+    price: "$1,999",
     period: "monthly",
     tag: "Most Popular",
     features: [
@@ -50,6 +49,7 @@ const services = [
       "Quarterly content shoot (Photo + Video)",
       "Performance tracking & monthly insights",
       "Guaranteed quarterly Digest feature",
+      "Testimo review automation (included — $49/month value)",
       "Quarterly strategy sessions"
     ],
     highlight: true
