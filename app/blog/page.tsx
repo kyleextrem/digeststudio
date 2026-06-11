@@ -8,6 +8,9 @@ export const revalidate = 60;
 export const metadata = {
     title: "Local Insights & Marketing Strategy | Digest Studio",
     description: "Practical marketing advice and insights specifically for Newcastle business owners from Digest Studio.",
+    alternates: {
+        canonical: "/blog",
+    },
 };
 
 async function getPosts() {

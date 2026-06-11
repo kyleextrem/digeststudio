@@ -24,6 +24,7 @@ const Navbar = () => {
     { name: 'About', path: '/about' },
     { name: 'Work', path: '/work' },
     { name: 'Blog', path: '/blog' },
+    { name: 'Free Audit', path: '/visibility-audit', highlight: true },
     { name: 'FAQ', path: '/faq' },
   ];
 
@@ -55,9 +56,22 @@ const Navbar = () => {
               <Link
                 key={link.name}
                 href={link.path}
-                className={`font-bold text-sm uppercase tracking-widest transition-colors ${pathname === link.path ? 'text-primary' : 'text-accent hover:text-primary'}`}
+                className={`font-bold text-sm uppercase tracking-widest transition-colors flex items-center gap-2 ${
+                  link.highlight
+                    ? pathname === link.path
+                      ? 'text-primary'
+                      : 'text-accent hover:text-primary bg-primary/10 px-3 py-1.5 rounded-full'
+                    : pathname === link.path
+                      ? 'text-primary'
+                      : 'text-accent hover:text-primary'
+                }`}
               >
                 {link.name}
+                {link.highlight && (
+                  <span className="text-[9px] bg-primary text-white px-1.5 py-0.5 rounded-full tracking-normal normal-case font-bold">
+                    Free
+                  </span>
+                )}
               </Link>
             ))}
           </div>
@@ -87,9 +101,18 @@ const Navbar = () => {
               key={link.name}
               href={link.path}
               onClick={() => setIsMobileMenuOpen(false)}
-              className="text-4xl font-heading font-bold text-accent hover:text-primary transition-colors"
+              className={`text-4xl font-heading font-bold transition-colors flex items-center gap-3 ${
+                link.highlight
+                  ? 'text-primary'
+                  : 'text-accent hover:text-primary'
+              }`}
             >
               {link.name}
+              {link.highlight && (
+                <span className="text-sm bg-primary text-white px-3 py-1 rounded-full tracking-normal normal-case font-bold">
+                  Free
+                </span>
+              )}
             </Link>
           ))}
           <button

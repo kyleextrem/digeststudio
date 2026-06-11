@@ -41,9 +41,6 @@ export const metadata: Metadata = {
         index: true,
         follow: true,
     },
-    alternates: {
-        canonical: "https://digeststudio.com.au/",
-    },
     manifest: "/manifest.json",
     icons: {
         icon: "/icon.png",

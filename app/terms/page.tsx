@@ -3,6 +3,9 @@ import React from 'react';
 export const metadata = {
     title: "Terms of Service | Digest Studio",
     description: "Our terms of service for working with Digest Studio.",
+    alternates: {
+        canonical: "/terms",
+    },
 };
 
 const TermsPage: React.FC = () => {

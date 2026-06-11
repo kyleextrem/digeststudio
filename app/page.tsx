@@ -4,11 +4,15 @@ import ValueEquation from "@/components/ValueEquation";
 import LeadMagnet from "@/components/LeadMagnet";
 import ContactForm from "@/components/ContactForm";
 import ProofOfWork from "@/components/ProofOfWork";
+import VisibilityAuditCTA from "@/components/VisibilityAuditCTA";
 import { CheckCircle2, Clock } from "lucide-react";
 
 export const metadata: Metadata = {
     title: "Be the Newcastle Business Locals Think of First",
     description: "The only Newcastle marketing studio with distribution baked in. We optimize your local presence and feature you to 7,000+ local subscribers.",
+    alternates: {
+        canonical: "/",
+    },
 };
 
 export default function Home() {
@@ -19,6 +23,8 @@ export default function Home() {
             <ValueEquation />
 
             <LeadMagnet />
+
+            <VisibilityAuditCTA variant="home" />
 
             <ProofOfWork />
 

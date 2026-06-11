@@ -1,6 +1,7 @@
 import { client, urlFor } from '../../../lib/sanity';
 import { postQuery, postSlugsQuery } from '../../../lib/queries';
 import PortableText from '../../../components/PortableText';
+import VisibilityAuditCTA from '../../../components/VisibilityAuditCTA';
 import Image from 'next/image';
 import { Metadata } from 'next';
 import { notFound } from 'next/navigation';
@@ -29,6 +30,9 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     return {
         title: `${post.title} | Digest Studio`,
         description: post.excerpt,
+        alternates: {
+            canonical: `/blog/${slug}`,
+        },
         openGraph: {
             title: post.title,
             description: post.excerpt,
@@ -77,7 +81,7 @@ export default async function BlogPostPage({ params }: Props) {
                     <PortableText value={post.body} />
                 </div>
 
-
+                <VisibilityAuditCTA variant="blog" />
             </div>
         </article>
     );

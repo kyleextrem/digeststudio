@@ -3,6 +3,9 @@ import React from 'react';
 export const metadata = {
     title: "Privacy Policy | Digest Studio",
     description: "Our privacy policy and how we handle your data at Digest Studio.",
+    alternates: {
+        canonical: "/privacy",
+    },
 };
 
 const PrivacyPage: React.FC = () => {

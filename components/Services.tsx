@@ -25,9 +25,8 @@ const services = [
     title: "Local Launch Pack",
     subtitle: "Launch with credibility",
     price: "$1,500",
-    period: "Founding Rate",
+    period: "once-off",
     tag: "Popular",
-    regularPrice: "Regular $3,000",
     features: [
       "Google Business Profile setup",
       "One-page conversion landing page",
@@ -44,7 +43,6 @@ const services = [
     price: "$997",
     period: "monthly",
     tag: "Most Popular",
-    regularPrice: "Regular $1,997/mo",
     features: [
       "Monthly campaign planning",
       "Full Local SEO & GBP management",
@@ -160,9 +158,6 @@ const Services: React.FC = () => {
                   <span className="text-5xl font-heading font-bold text-accent">{service.price}</span>
                   <span className="text-accent/40 font-bold uppercase tracking-widest text-sm">{service.period}</span>
                 </div>
-                {service.regularPrice && (
-                  <div className="text-accent/30 line-through font-bold mt-1">{service.regularPrice}</div>
-                )}
               </div>
 
               <div className="flex-grow space-y-4 mb-10">
@@ -317,20 +312,6 @@ const Services: React.FC = () => {
           </div>
         </div>
 
-        <div className="bg-accent rounded-[40px] p-12 text-white flex flex-col md:flex-row items-center justify-between gap-8">
-          <div>
-            <h3 className="text-3xl font-heading font-bold mb-4">Join Our Founding Clients</h3>
-            <p className="text-white/60 text-lg max-w-xl">
-              We're launching with our first 10 clients at exclusive founding rates. Be among the first Newcastle businesses to leverage our audience and lock in your rate for life.
-            </p>
-          </div>
-          <button
-            onClick={handleContactClick}
-            className="bg-primary text-white px-10 py-5 rounded-2xl text-xl font-bold hover:bg-white hover:text-primary transition-all whitespace-nowrap"
-          >
-            Lock In Your Rate →
-          </button>
-        </div>
       </div>
     </section>
   );
