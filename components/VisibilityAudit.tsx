@@ -249,6 +249,8 @@ const VisibilityAudit: React.FC = () => {
             audit_industry: business.industry,
         };
 
+        console.log('[audit-lead] payload:', payload);
+
         try {
             const res = await fetch('/api/audit-lead', {
                 method: 'POST',
