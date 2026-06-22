@@ -65,6 +65,19 @@ export default function RootLayout({
                 </div>
                 <Analytics />
                 <SpeedInsights />
+                {/* Google tag (gtag.js) */}
+                <Script
+                    src="https://www.googletagmanager.com/gtag/js?id=G-Q1RMQQ4VLQ"
+                    strategy="afterInteractive"
+                />
+                <Script id="google-analytics" strategy="afterInteractive">
+                    {`
+                        window.dataLayer = window.dataLayer || [];
+                        function gtag(){dataLayer.push(arguments);}
+                        gtag('js', new Date());
+                        gtag('config', 'G-Q1RMQQ4VLQ');
+                    `}
+                </Script>
                 {/* HubSpot Embed Code */}
                 <Script
                     type="text/javascript"
