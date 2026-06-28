@@ -1,8 +1,9 @@
 'use client';
 
 import React from 'react';
+import Link from 'next/link';
 import { usePathname, useRouter } from 'next/navigation';
-import { ArrowUpRight, CheckCircle2, Layout, Megaphone, Camera, Search } from 'lucide-react';
+import { ArrowRight, ArrowUpRight, CheckCircle2, Layout, Megaphone, Camera, Search } from 'lucide-react';
 
 const services = [
   {
@@ -49,10 +50,11 @@ const services = [
       "Quarterly content shoot (Photo + Video)",
       "Performance tracking & monthly insights",
       "Guaranteed quarterly Digest feature",
-      "Testimo review automation (included — $49/month value)",
+      "Testimo review automation (included, $49/month value)",
       "Quarterly strategy sessions"
     ],
-    highlight: true
+    highlight: true,
+    href: "/services/growth-partner"
   }
 ];
 
@@ -70,7 +72,8 @@ const addons = [
       "Forms & booking integration",
       "14 days post-launch support"
     ],
-    cta: "Discuss Website Build"
+    cta: "Discuss Website Build",
+    href: "/services/website-development"
   },
   {
     title: "Paid Ads Management",
@@ -169,19 +172,86 @@ const Services: React.FC = () => {
                 ))}
               </div>
 
-              <button
-                onClick={handleContactClick}
-                className={`w-full py-5 rounded-2xl text-xl font-bold flex items-center justify-center gap-2 transition-all active:scale-95 ${service.highlight ? 'bg-primary text-white shadow-lg shadow-primary/20 hover:bg-accent' : 'bg-accent text-white hover:bg-primary'}`}
-              >
-                Get Started
-                <ArrowUpRight className="w-6 h-6" />
-              </button>
+              {'href' in service && service.href ? (
+                <Link
+                  href={service.href}
+                  className={`w-full py-5 rounded-2xl text-xl font-bold flex items-center justify-center gap-2 transition-all active:scale-95 ${service.highlight ? 'bg-primary text-white shadow-lg shadow-primary/20 hover:bg-accent' : 'bg-accent text-white hover:bg-primary'}`}
+                >
+                  Learn More
+                  <ArrowUpRight className="w-6 h-6" />
+                </Link>
+              ) : (
+                <button
+                  onClick={handleContactClick}
+                  className={`w-full py-5 rounded-2xl text-xl font-bold flex items-center justify-center gap-2 transition-all active:scale-95 ${service.highlight ? 'bg-primary text-white shadow-lg shadow-primary/20 hover:bg-accent' : 'bg-accent text-white hover:bg-primary'}`}
+                >
+                  Get Started
+                  <ArrowUpRight className="w-6 h-6" />
+                </button>
+              )}
             </div>
           ))}
         </div>
 
         <div className="bg-primary/5 border border-primary/20 rounded-2xl p-8 mb-32 max-w-4xl mx-auto text-center text-accent/80 text-lg font-medium shadow-sm">
-            All Growth Partner clients receive free access to Testimo — our proprietary Google review automation tool. SMS-based review requests, automated follow-ups, and a live review dashboard. Built by us, for businesses like yours.
+            All Growth Partner clients receive free access to Testimo, our proprietary Google review automation tool. SMS-based review requests, automated follow-ups, and a live review dashboard. Built by us, for businesses like yours.
+        </div>
+
+        {/* Growth Partner Plan */}
+        <div className="mb-32">
+          <Link
+            href="/services/growth-partner"
+            className="group block bg-accent text-white rounded-[40px] p-10 md:p-14 relative overflow-hidden hover:shadow-2xl hover:shadow-accent/20 transition-all border-2 border-primary/30"
+          >
+            <div className="absolute top-0 right-0 w-1/3 h-full bg-primary/10 -skew-x-12 translate-x-1/2" />
+            <div className="relative z-10 flex flex-col md:flex-row md:items-center md:justify-between gap-8">
+              <div className="max-w-2xl">
+                <span className="text-primary font-bold uppercase tracking-widest text-sm mb-4 block">
+                  Most Popular
+                </span>
+                <h2 className="text-3xl md:text-4xl font-heading font-bold mb-4">
+                  Marketing that actually{' '}
+                  <span className="text-primary italic">compounds</span>
+                </h2>
+                <p className="text-lg text-white/60 leading-relaxed">
+                  Consistent SEO, content, and visibility every month. Backed by Newcastle Digest&apos;s 7,300 subscribers.
+                </p>
+                <p className="mt-4 text-primary font-bold text-xl">$1,999/month. No lock-in contracts.</p>
+              </div>
+              <span className="inline-flex items-center gap-3 bg-primary text-white px-8 py-4 rounded-2xl font-bold text-lg group-hover:bg-white group-hover:text-accent transition-all flex-shrink-0">
+                Learn More
+                <ArrowRight className="w-5 h-5" />
+              </span>
+            </div>
+          </Link>
+        </div>
+
+        {/* Website Development */}
+        <div className="mb-32">
+          <Link
+            href="/services/website-development"
+            className="group block bg-accent text-white rounded-[40px] p-10 md:p-14 relative overflow-hidden hover:shadow-2xl hover:shadow-accent/20 transition-all"
+          >
+            <div className="absolute top-0 right-0 w-1/3 h-full bg-primary/10 -skew-x-12 translate-x-1/2" />
+            <div className="relative z-10 flex flex-col md:flex-row md:items-center md:justify-between gap-8">
+              <div className="max-w-2xl">
+                <span className="text-primary font-bold uppercase tracking-widest text-sm mb-4 block">
+                  Custom Website Build
+                </span>
+                <h2 className="text-3xl md:text-4xl font-heading font-bold mb-4">
+                  A custom website, live in{' '}
+                  <span className="text-primary italic">14 days</span>
+                </h2>
+                <p className="text-lg text-white/60 leading-relaxed">
+                  No templates. No drag-and-drop builders. Custom coded for speed, search, and conversions.
+                </p>
+              </div>
+              <span className="inline-flex items-center gap-3 bg-primary text-white px-8 py-4 rounded-2xl font-bold text-lg group-hover:bg-white group-hover:text-accent transition-all flex-shrink-0">
+                Learn More
+                <ArrowRight className="w-5 h-5" />
+              </span>
+            </div>
+          </Link>
         </div>
 
         {/* Add-ons Section */}
@@ -211,12 +281,21 @@ const Services: React.FC = () => {
                   ))}
                 </ul>
 
-                <button
-                  onClick={handleContactClick}
-                  className="w-full py-3 rounded-xl border border-accent/10 text-center text-sm font-bold hover:bg-accent hover:text-white transition-all"
-                >
-                  {addon.cta}
-                </button>
+                {addon.href ? (
+                  <Link
+                    href={addon.href}
+                    className="w-full py-3 rounded-xl border border-accent/10 text-center text-sm font-bold hover:bg-accent hover:text-white transition-all block"
+                  >
+                    {addon.cta}
+                  </Link>
+                ) : (
+                  <button
+                    onClick={handleContactClick}
+                    className="w-full py-3 rounded-xl border border-accent/10 text-center text-sm font-bold hover:bg-accent hover:text-white transition-all"
+                  >
+                    {addon.cta}
+                  </button>
+                )}
               </div>
             ))}
           </div>

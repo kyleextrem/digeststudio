@@ -20,7 +20,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
         console.error('Sitemap: Sanity unavailable or misconfigured, skipping blog posts', e);
     }
 
-    const staticPages = ['', '/services', '/about', '/blog', '/faq', '/privacy', '/terms'].map(
+    const staticPages = ['', '/services', '/services/website-development', '/services/growth-partner', '/about', '/blog', '/faq', '/privacy', '/terms'].map(
         (route) => ({
             url: `${baseUrl}${route}`,
             lastModified: new Date(),
