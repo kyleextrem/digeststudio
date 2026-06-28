@@ -307,7 +307,7 @@ const Services: React.FC = () => {
             <span className="text-primary font-bold uppercase tracking-widest text-sm mb-4 block">Strategic Partnerships</span>
             <h2 className="text-4xl md:text-5xl font-heading font-bold mb-6 text-accent">Some businesses don't need a package. They need a partner.</h2>
             <p className="text-xl text-accent/60 max-w-4xl mx-auto leading-relaxed">
-              If you're expanding into new markets, building a lead generation engine from scratch, or need someone to own your marketing end-to-end — that's a different conversation. We work with a small number of Newcastle and Hunter businesses on a retained basis, handling strategy and execution together.
+              If you're expanding into new markets, building a lead generation engine from scratch, or need someone to own your marketing end-to-end. That's a different conversation. We work with a small number of Newcastle and Hunter businesses on a retained basis, handling strategy and execution together.
             </p>
           </div>
 
@@ -317,9 +317,9 @@ const Services: React.FC = () => {
               <h3 className="text-2xl font-heading font-bold mb-8 text-accent">What this looks like</h3>
               <ul className="space-y-4">
                 {[
-                  "Monthly retainer, scoped to your business — no cookie-cutter deliverables",
+                  "Monthly retainer, scoped to your business, no cookie-cutter deliverables",
                   "Strategy, execution, and reporting all under one roof",
-                  "SEO, content, conversion, HubSpot, paid — whatever the business actually needs",
+                  "SEO, content, conversion, HubSpot, paid: whatever the business actually needs",
                   "Access to Newcastle Digest's 7,000+ subscriber audience as a distribution channel",
                   "Testimo reputation management included where relevant",
                   "One point of contact who knows your business"
@@ -357,7 +357,7 @@ const Services: React.FC = () => {
                   "30-minute discovery call to understand your situation",
                   "We come back with a proposed scope, phased approach, and monthly investment",
                   "Phase 1 typically kicks off within a week of agreement",
-                  "No lock-in beyond the current phase — if it's not working, we'll tell you"
+                  "No lock-in beyond the current phase. If it's not working, we'll tell you"
                 ].map((item, idx) => (
                   <li key={idx} className="flex items-start gap-3">
                     <CheckCircle2 className="w-5 h-5 mt-0.5 text-primary flex-shrink-0" />
@@ -374,7 +374,7 @@ const Services: React.FC = () => {
               <span className="font-bold text-[#FF7A59] text-xl tracking-tight">HubSpot</span>
             </div>
             <p className="text-accent/80 text-lg font-medium leading-relaxed">
-              We implement and manage HubSpot for our Strategic Partnership clients — from initial setup and CRM configuration through to tracking, lead flow, and reporting. HubSpot implementation is included as standard where required.
+              We implement and manage HubSpot for our Strategic Partnership clients, from initial setup and CRM configuration through to tracking, lead flow, and reporting. HubSpot implementation is included as standard where required.
             </p>
           </div>
 

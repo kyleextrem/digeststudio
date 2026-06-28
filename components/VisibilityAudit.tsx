@@ -131,11 +131,11 @@ function getTeaser(band: Band, businessName: string): string {
     const name = businessName || 'your business';
     switch (band) {
         case 'invisible':
-            return `${name} has serious visibility gaps. Newcastle customers are searching for your service right now — and finding your competitors instead. Submit your details below and we'll send you a prioritised fix list within 48 hours.`;
+            return `${name} has serious visibility gaps. Newcastle customers are searching for your service right now, and finding your competitors instead. Submit your details below and we'll send you a prioritised fix list within 48 hours.`;
         case 'getting-there':
-            return `${name} has some foundations in place, but the gaps are still sending customers elsewhere. We've identified where you're losing ground — enter your details to get the full breakdown and action plan.`;
+            return `${name} has some foundations in place, but the gaps are still sending customers elsewhere. We've identified where you're losing ground. Enter your details to get the full breakdown and action plan.`;
         case 'well-positioned':
-            return `${name} is ahead of most local businesses. The opportunity now is amplification — getting in front of more Newcastle locals, faster. Enter your details to see exactly where you can push harder.`;
+            return `${name} is ahead of most local businesses. The opportunity now is amplification: getting in front of more Newcastle locals, faster. Enter your details to see exactly where you can push harder.`;
     }
 }
 
@@ -149,7 +149,7 @@ function getPersonalizedSummary(
 
     if (weak.length >= 2) {
         const areas = weak.map((c) => c.name).join(' and ');
-        return `${name} is weakest in ${areas} — the areas Newcastle customers check first when choosing a local business. Fixing these should be your top priority before spending on ads or social campaigns. We'll outline exactly what to tackle first in your report.`;
+        return `${name} is weakest in ${areas}, the areas Newcastle customers check first when choosing a local business. Fixing these should be your top priority before spending on ads or social campaigns. We'll outline exactly what to tackle first in your report.`;
     }
     if (weak.length === 1) {
         return `${name} is solid in most areas, but ${weak[0].name} is holding you back. That's often the first thing locals notice when comparing you to competitors. Your report will focus on closing this gap quickly.`;
@@ -158,7 +158,7 @@ function getPersonalizedSummary(
         const areas = moderate.map((c) => c.name).join(' and ');
         return `${name} has a decent foundation, but ${areas} have room to improve. Small changes here could meaningfully increase how many Newcastle locals find and choose you.`;
     }
-    return `${name} is performing well across the board. Your report will focus on amplification — how to get more reach from what's already working, including our distribution channel of 7,000+ local subscribers.`;
+    return `${name} is performing well across the board. Your report will focus on amplification: how to get more reach from what's already working, including our distribution channel of 7,000+ local subscribers.`;
 }
 
 const BOOKING_URL = 'https://cal.com/digest/digest-studio';
@@ -289,7 +289,7 @@ const VisibilityAudit: React.FC = () => {
                         <span className="text-primary italic">Visibility Audit</span>
                     </h1>
                     <p className="text-white/50 text-lg max-w-lg mx-auto">
-                        Find out how visible your business is to Newcastle locals — and what to fix first.
+                        Find out how visible your business is to Newcastle locals, and what to fix first.
                     </p>
                 </div>
 
@@ -343,7 +343,7 @@ const VisibilityAudit: React.FC = () => {
                         stepVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
                     }`}
                 >
-                    {/* Step 1 — Business Details */}
+                    {/* Step 1 - Business Details */}
                     {step === 1 && (
                         <form onSubmit={handleStartAudit} className="space-y-6">
                             <div className="bg-white/5 border border-white/10 rounded-[32px] p-8 md:p-10 space-y-6">
@@ -417,7 +417,7 @@ const VisibilityAudit: React.FC = () => {
                         </form>
                     )}
 
-                    {/* Step 2 — Audit Questions */}
+                    {/* Step 2 - Audit Questions */}
                     {step === 2 && currentCategory && (
                         <div className="space-y-6">
                             <div className="bg-white/5 border border-white/10 rounded-[32px] p-8 md:p-10">
@@ -479,7 +479,7 @@ const VisibilityAudit: React.FC = () => {
                         </div>
                     )}
 
-                    {/* Step 3 — Results */}
+                    {/* Step 3 - Results */}
                     {step === 3 && (
                         <div className="space-y-8">
                             {/* Band result (always visible) */}

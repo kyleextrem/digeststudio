@@ -32,7 +32,7 @@ const ProofOfWork: React.FC = () => {
                         <h3 className="text-3xl font-heading font-bold mb-4">From zero to Newcastle's most-read local newsletter</h3>
                         
                         <p className="text-white/70 text-lg leading-relaxed mb-8 flex-grow text-left">
-                            We built Newcastle Digest from scratch. Today it reaches 7,000+ local subscribers with a 60% open rate — one of the strongest engagement rates of any local newsletter in Australia. It's not just our flagship product. It's proof we know how to build a local audience.
+                            We built Newcastle Digest from scratch. Today it reaches 7,000+ local subscribers with a 60% open rate, one of the strongest engagement rates of any local newsletter in Australia. It's not just our flagship product. It's proof we know how to build a local audience.
                         </p>
 
                         <div className="mb-10 inline-flex flex-wrap items-center gap-2 bg-primary/10 border border-primary/20 px-4 py-2 rounded-full">

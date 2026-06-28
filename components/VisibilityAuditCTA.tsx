@@ -15,7 +15,7 @@ const VisibilityAuditCTA: React.FC<VisibilityAuditCTAProps> = ({ variant }) => {
                         How Visible Is Your Newcastle Business?
                     </h2>
                     <p className="text-xl text-white/60 mb-10 leading-relaxed">
-                        Take our free 2-minute audit and find out exactly where locals can&apos;t find you — and what
+                        Take our free 2-minute audit and find out exactly where locals can&apos;t find you, and what
                         to fix first.
                     </p>
                     <Link
@@ -36,7 +36,7 @@ const VisibilityAuditCTA: React.FC<VisibilityAuditCTAProps> = ({ variant }) => {
                 Not sure where your business stands online?
             </h2>
             <p className="text-accent/60 text-lg leading-relaxed mb-8">
-                Take the free Newcastle Visibility Audit — 15 questions, 2 minutes, and a clear picture of where
+                Take the free Newcastle Visibility Audit: 15 questions, 2 minutes, and a clear picture of where
                 locals can&apos;t find you.
             </p>
             <Link

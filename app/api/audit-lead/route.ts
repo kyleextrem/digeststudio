@@ -1,4 +1,4 @@
-// Requires HUBSPOT_PRIVATE_APP_TOKEN in .env.local — Personal Access Key from HubSpot Development > Keys > Personal Access Key
+// Requires HUBSPOT_PRIVATE_APP_TOKEN in .env.local - Personal Access Key from HubSpot Development > Keys > Personal Access Key
 
 import { NextRequest, NextResponse } from "next/server";
 
@@ -76,7 +76,7 @@ export async function POST(request: NextRequest) {
 
             if (!contactId) {
                 console.error(
-                    "[audit-lead] HubSpot 409 conflict — could not extract contact ID:",
+                    "[audit-lead] HubSpot 409 conflict - could not extract contact ID:",
                     JSON.stringify(conflictBody)
                 );
                 return NextResponse.json(

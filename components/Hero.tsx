@@ -67,7 +67,7 @@ const Hero: React.FC = () => {
             <ArrowRight className="group-hover:translate-x-2 transition-transform w-6 h-6" />
           </a>
           <p className="text-accent/40 text-sm font-medium">
-            Founding Client rates — limited spots available.
+            Founding Client rates. Limited spots available.
           </p>
         </div>
       </div>

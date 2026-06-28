@@ -18,10 +18,10 @@ const AboutPage: React.FC = () => {
                         </h1>
                         <div className="space-y-6 text-body text-accent/70 max-w-3xl">
                             <p>
-                                I built Newcastle Digest from zero to 7,000 subscribers and a 60% open rate — without a team, without a budget, and without shortcuts. That took understanding what Newcastle locals actually care about, and building something they'd look forward to every week.
+                                I built Newcastle Digest from zero to 7,000 subscribers and a 60% open rate, without a team, without a budget, and without shortcuts. That took understanding what Newcastle locals actually care about, and building something they'd look forward to every week.
                             </p>
                             <p>
-                                I then built Testimo — a Google review automation tool for local businesses — from scratch. Full-stack, live, and running.
+                                I then built Testimo, a Google review automation tool for local businesses, from scratch. Full-stack, live, and running.
                             </p>
                             <p className="font-bold text-accent">
                                 Digest Studio exists because those two things proved something: the combination of local trust, owned distribution, and real product capability is something no generic marketing agency can replicate.
@@ -66,7 +66,7 @@ const AboutPage: React.FC = () => {
                             <p>
                                 We built Newcastle Digest first. We spent months learning what this city cares about. We created a platform where 7,000+ locals actually want to read what we have to say.
                             </p>
-                            <p className="text-primary font-bold text-xl">When you work with Digest Studio, you aren't just buying service hours—you're buying access to our audience.</p>
+                            <p className="text-primary font-bold text-xl">When you work with Digest Studio, you aren't just buying service hours. You're buying access to our audience.</p>
                         </div>
                     </div>
                     <div className="bg-white/5 p-12 rounded-[48px] border border-white/10 backdrop-blur-sm">

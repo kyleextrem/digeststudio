@@ -17,7 +17,7 @@ const WorkPage: React.FC = () => {
                 </p>
             </section>
 
-            {/* Section 1 — Newcastle Digest website */}
+            {/* Section 1 - Newcastle Digest website */}
             <section className="max-w-7xl mx-auto px-6 mb-32">
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
                     <div className="order-2 lg:order-1 relative rounded-[40px] overflow-hidden shadow-2xl border border-accent/10 group bg-accent/5 aspect-video flex items-center justify-center">
@@ -41,7 +41,7 @@ const WorkPage: React.FC = () => {
                         <span className="text-primary font-bold uppercase tracking-widest text-sm mb-2 block">Media / Publishing</span>
                         <h2 className="text-4xl font-heading font-bold text-accent">Newcastle Digest</h2>
                         <p className="text-lg text-accent/70 leading-relaxed">
-                            Designed, built, and grown by us. Newcastle's most-read local newsletter — 7,000 subscribers, 60% open rate.
+                            Designed, built, and grown by us. Newcastle's most-read local newsletter: 7,000 subscribers, 60% open rate.
                         </p>
                         <div className="flex flex-wrap items-center gap-4">
                             <Link 
@@ -63,7 +63,7 @@ const WorkPage: React.FC = () => {
                 </div>
             </section>
 
-            {/* Section 2 — Testimo */}
+            {/* Section 2 - Testimo */}
             <section className="max-w-7xl mx-auto px-6 mb-32">
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
                     <div className="space-y-6">
@@ -109,7 +109,7 @@ const WorkPage: React.FC = () => {
                 </div>
             </section>
 
-            {/* Section 3 — Newsletter issues */}
+            {/* Section 3 - Newsletter issues */}
             <section className="max-w-4xl mx-auto px-6 mb-32 text-center bg-accent/5 rounded-[48px] py-20 border border-accent/10">
                 <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-8 text-primary">
                     <Mail className="w-8 h-8" />
