@@ -3,6 +3,7 @@ import { Inter, Space_Grotesk } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import PopupCTA from "@/components/PopupCTA";
 import { Analytics } from "@vercel/analytics/react";
 import { SpeedInsights } from "@vercel/speed-insights/react";
 import Script from "next/script";
@@ -63,6 +64,7 @@ export default function RootLayout({
                     </main>
                     <Footer />
                 </div>
+                <PopupCTA />
                 <Analytics />
                 <SpeedInsights />
                 {/* Google tag (gtag.js) */}

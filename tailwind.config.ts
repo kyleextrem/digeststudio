@@ -22,7 +22,21 @@ const config: Config = {
                 'h1': ['72px', { lineHeight: '1.1', letterSpacing: '-0.02em' }],
                 'h2': ['48px', { lineHeight: '1.2', letterSpacing: '-0.01em' }],
                 'body': ['24px', { lineHeight: '1.5' }],
-            }
+            },
+            keyframes: {
+                'popup-fade-in': {
+                    from: { opacity: '0' },
+                    to: { opacity: '1' },
+                },
+                'popup-slide-up': {
+                    from: { opacity: '0', transform: 'translateY(16px)' },
+                    to: { opacity: '1', transform: 'translateY(0)' },
+                },
+            },
+            animation: {
+                'popup-fade-in': 'popup-fade-in 0.3s ease-out',
+                'popup-slide-up': 'popup-slide-up 0.35s ease-out',
+            },
         },
     },
     plugins: [],
