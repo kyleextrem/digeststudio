@@ -60,7 +60,7 @@ export default function PopupCTA() {
 
             hasTriggeredRef.current = true;
             setIsOpen(true);
-            window.removeEventListener('scroll', handleScroll, { passive: true });
+            window.removeEventListener('scroll', handleScroll);
         };
 
         window.addEventListener('scroll', handleScroll, { passive: true });
