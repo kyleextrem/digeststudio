@@ -7,6 +7,7 @@ import PopupCTA from "@/components/PopupCTA";
 import { Analytics } from "@vercel/analytics/react";
 import { SpeedInsights } from "@vercel/speed-insights/react";
 import Script from "next/script";
+import { localBusinessSchema } from "@/lib/schema";
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
 const spaceGrotesk = Space_Grotesk({ subsets: ["latin"], variable: "--font-space-grotesk" });
@@ -56,6 +57,12 @@ export default function RootLayout({
 }>) {
     return (
         <html lang="en">
+            <head>
+                <script
+                    type="application/ld+json"
+                    dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusinessSchema) }}
+                />
+            </head>
             <body className={`${inter.variable} ${spaceGrotesk.variable} font-sans antialiased`}>
                 <div className="min-h-screen flex flex-col">
                     <Navbar />

@@ -2,32 +2,46 @@ import { MetadataRoute } from 'next';
 import { client } from '../lib/sanity';
 import { postSlugsQuery } from '../lib/queries';
 
+const BASE_URL = 'https://digeststudio.com.au';
+
+type Freq = MetadataRoute.Sitemap[number]['changeFrequency'];
+
+const staticRoutes: { path: string; freq: Freq; priority: number }[] = [
+    { path: '',                              freq: 'weekly',  priority: 1.0 },
+    { path: '/services',                     freq: 'weekly',  priority: 0.9 },
+    { path: '/services/website-development', freq: 'weekly',  priority: 0.9 },
+    { path: '/services/growth-partner',      freq: 'weekly',  priority: 0.9 },
+    { path: '/about',                        freq: 'monthly', priority: 0.7 },
+    { path: '/work',                         freq: 'monthly', priority: 0.7 },
+    { path: '/blog',                         freq: 'weekly',  priority: 0.8 },
+    { path: '/local-seo-newcastle-nsw',       freq: 'weekly',  priority: 0.9 },
+    { path: '/visibility-audit',             freq: 'monthly', priority: 0.8 },
+    { path: '/faq',                          freq: 'monthly', priority: 0.6 },
+    { path: '/privacy',                      freq: 'yearly',  priority: 0.3 },
+    { path: '/terms',                        freq: 'yearly',  priority: 0.3 },
+];
+
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
-    const baseUrl = 'https://digeststudio.com.au';
     let blogPosts: MetadataRoute.Sitemap = [];
 
     try {
-        // Fetch all blog post slugs from Sanity
-        const slugs = await client.fetch(postSlugsQuery);
-
-        blogPosts = slugs.map((slug: string) => ({
-            url: `${baseUrl}/blog/${slug}`,
+        const slugs: string[] = await client.fetch(postSlugsQuery);
+        blogPosts = slugs.map((slug) => ({
+            url: `${BASE_URL}/blog/${slug}`,
             lastModified: new Date(),
-            changeFrequency: 'monthly' as const,
+            changeFrequency: 'monthly' as Freq,
             priority: 0.7,
         }));
     } catch (e) {
-        console.error('Sitemap: Sanity unavailable or misconfigured, skipping blog posts', e);
+        console.error('Sitemap: Sanity unavailable, skipping blog posts', e);
     }
 
-    const staticPages = ['', '/services', '/services/website-development', '/services/growth-partner', '/about', '/blog', '/faq', '/privacy', '/terms'].map(
-        (route) => ({
-            url: `${baseUrl}${route}`,
-            lastModified: new Date(),
-            changeFrequency: 'monthly' as const,
-            priority: route === '' ? 1.0 : 0.8,
-        })
-    );
+    const pages: MetadataRoute.Sitemap = staticRoutes.map(({ path, freq, priority }) => ({
+        url: `${BASE_URL}${path}`,
+        lastModified: new Date(),
+        changeFrequency: freq,
+        priority,
+    }));
 
-    return [...staticPages, ...blogPosts];
+    return [...pages, ...blogPosts];
 }
