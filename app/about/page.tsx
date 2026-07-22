@@ -70,48 +70,50 @@ const CAL = 'https://cal.com/digest/digest-studio';
 export default function AboutPage() {
   return (
     <div className="bg-white pt-16 md:pt-20">
-      {/* Hero + full-width portrait */}
+      {/* Hero + portrait */}
       <section className="ds-section !pb-10 md:!pb-14">
         <div className="ds-container">
-          <Reveal>
-            <span className="ds-eyebrow">About</span>
-            <h1 className="ds-h2 mb-6 max-w-3xl !text-[2.75rem] sm:!text-5xl md:!text-[3.5rem] md:leading-[1.08]">
-              Building businesses. Helping others do the same.
-            </h1>
-            <div className="mb-12 max-w-2xl space-y-5 md:mb-14">
-              <p className="text-[15px] leading-relaxed text-accent/55 md:text-base">
-                I built Newcastle Digest from zero to more than 7,000
-                subscribers with a 60% average open rate - learning how to earn
-                attention and trust in a local market, week by week.
-              </p>
-              <p className="text-[15px] leading-relaxed text-accent/55 md:text-base">
-                Then I built Testimo from scratch: a platform that helps
-                businesses turn completed jobs into reviews, testimonials,
-                referrals and other useful follow-up.
-              </p>
-              <p className="text-[15px] leading-relaxed text-accent/55 md:text-base">
-                Digest Studio is where those experiences meet Newcastle
-                businesses that need a stronger brand, a clearer website, or
-                marketing that still matters after launch day.
-              </p>
-              <p className="text-[15px] font-medium leading-relaxed text-accent md:text-base">
-                When you work with Digest Studio, you work directly with me.
-              </p>
-            </div>
-          </Reveal>
-          <Reveal delay={60}>
-            <div className="mx-auto w-full max-w-[240px] overflow-hidden rounded-2xl border border-[#ececec] bg-[#f4f4f5] sm:max-w-[280px] md:max-w-[300px]">
-              <Image
-                src="/kyle-profile.jpg"
-                alt="Kyle, founder of Digest Studio, standing outdoors"
-                width={1600}
-                height={2000}
-                priority
-                sizes="(max-width: 640px) 240px, (max-width: 768px) 280px, 300px"
-                className="h-auto w-full"
-              />
-            </div>
-          </Reveal>
+          <div className="grid grid-cols-1 items-start gap-10 lg:grid-cols-12 lg:gap-14 xl:gap-16">
+            <Reveal className="lg:col-span-8">
+              <span className="ds-eyebrow">About</span>
+              <h1 className="ds-h2 mb-6 max-w-3xl !text-[2.75rem] sm:!text-5xl md:!text-[3.5rem] md:leading-[1.08]">
+                Building businesses. Helping others do the same.
+              </h1>
+              <div className="max-w-2xl space-y-5">
+                <p className="text-[15px] leading-relaxed text-accent/55 md:text-base">
+                  I built Newcastle Digest from zero to more than 7,000
+                  subscribers with a 60% average open rate - learning how to earn
+                  attention and trust in a local market, week by week.
+                </p>
+                <p className="text-[15px] leading-relaxed text-accent/55 md:text-base">
+                  Then I built Testimo from scratch: a platform that helps
+                  businesses turn completed jobs into reviews, testimonials,
+                  referrals and other useful follow-up.
+                </p>
+                <p className="text-[15px] leading-relaxed text-accent/55 md:text-base">
+                  Digest Studio is where those experiences meet Newcastle
+                  businesses that need a stronger brand, a clearer website, or
+                  marketing that still matters after launch day.
+                </p>
+                <p className="text-[15px] font-medium leading-relaxed text-accent md:text-base">
+                  When you work with Digest Studio, you work directly with me.
+                </p>
+              </div>
+            </Reveal>
+            <Reveal delay={60} className="lg:col-span-4 lg:pt-2">
+              <div className="mx-auto w-full max-w-[240px] overflow-hidden rounded-2xl border border-[#ececec] bg-[#f4f4f5] sm:max-w-[280px] lg:mx-0 lg:ml-auto lg:max-w-[300px]">
+                <Image
+                  src="/kyle-profile.jpg"
+                  alt="Kyle, founder of Digest Studio, standing outdoors"
+                  width={1600}
+                  height={2000}
+                  priority
+                  sizes="(max-width: 640px) 240px, (max-width: 1024px) 280px, 300px"
+                  className="h-auto w-full"
+                />
+              </div>
+            </Reveal>
+          </div>
         </div>
       </section>
 
