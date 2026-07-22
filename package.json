@@ -5,8 +5,10 @@
   "type": "module",
   "scripts": {
     "dev": "PATH=\"/opt/homebrew/opt/node@20/bin:$PATH\" NEXT_DIST_DIR=/tmp/digest-studio-next next dev",
-    "build": "PATH=\"/opt/homebrew/opt/node@20/bin:$PATH\" NEXT_DIST_DIR=/tmp/digest-studio-next next build",
-    "start": "PATH=\"/opt/homebrew/opt/node@20/bin:$PATH\" NEXT_DIST_DIR=/tmp/digest-studio-next next start",
+    "build": "next build",
+    "start": "next start",
+    "build:local": "PATH=\"/opt/homebrew/opt/node@20/bin:$PATH\" NEXT_DIST_DIR=/tmp/digest-studio-next next build",
+    "start:local": "PATH=\"/opt/homebrew/opt/node@20/bin:$PATH\" NEXT_DIST_DIR=/tmp/digest-studio-next next start",
     "lint": "next lint"
   },
   "dependencies": {
