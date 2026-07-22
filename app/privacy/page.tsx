@@ -1,12 +1,11 @@
 import React from 'react';
+import { pageMetadata } from '@/lib/seo';
 
-export const metadata = {
-    title: "Privacy Policy | Digest Studio",
-    description: "Our privacy policy and how we handle your data at Digest Studio.",
-    alternates: {
-        canonical: "/privacy",
-    },
-};
+export const metadata = pageMetadata({
+    title: 'Privacy Policy',
+    description: 'Our privacy policy and how we handle your data at Digest Studio.',
+    path: '/privacy',
+});
 
 const PrivacyPage: React.FC = () => {
     return (

@@ -1,127 +1,280 @@
 'use client';
 
-import React from 'react';
 import Link from 'next/link';
 import { usePathname, useRouter } from 'next/navigation';
-import { ArrowRight, ArrowUpRight, CheckCircle2, Layout, Megaphone, Camera, Search } from 'lucide-react';
+import { ArrowRight } from 'lucide-react';
+import TestimonialQuote from '@/components/TestimonialQuote';
 
-const services = [
+const packages = [
   {
-    title: "Visibility Boost",
-    subtitle: "Fast wins for local presence",
-    price: "$750",
-    period: "once-off",
-    tag: "One-off • Fast wins",
-    features: [
-      "Google Business Profile optimisation",
-      "Local SEO audit + priority fixes",
-      "Website conversion review",
-      "Social starter pack (3 posts)",
-      "Newcastle Digest spotlight feature",
-      "Summary report with next steps"
+    id: 'visibility',
+    title: 'Visibility Boost',
+    tag: 'Fast wins',
+    outcome: 'Get found locally - and get in front of Newcastle - fast.',
+    price: '$750',
+    period: 'once-off',
+    groups: [
+      {
+        label: 'Build',
+        items: ['Google Business Profile', 'Website Conversion Review'],
+      },
+      {
+        label: 'Grow',
+        items: ['Local SEO', 'Social Content'],
+      },
+      {
+        label: 'Distribute',
+        items: ['Newcastle Digest', 'Next Steps'],
+      },
     ],
-    highlight: false
+    highlight: false,
+    href: '/packages/visibility-boost' as string | null,
+    span: 'lg:col-span-3',
   },
   {
-    title: "Local Launch Pack",
-    subtitle: "Launch with credibility",
-    price: "$2,500",
-    period: "once-off",
-    tag: "Popular",
-    features: [
-      "Google Business Profile setup",
-      "One-page conversion landing page",
-      "Professional photo pack (15-20 images)",
-      "Feature article in Newcastle Digest",
-      "Canva social starter kit",
+    id: 'launch',
+    title: 'Local Launch Pack',
+    tag: 'Launch ready',
+    outcome: 'Launch with credibility - a conversion page, photography and Digest reach.',
+    price: '$2,500',
+    period: 'once-off',
+    groups: [
+      {
+        label: 'Build',
+        items: ['Conversion Landing Page', 'Custom Website Option'],
+      },
+      {
+        label: 'Grow',
+        items: ['Google Business Profile', 'Photo Pack + Social Kit'],
+      },
+      {
+        label: 'Distribute',
+        items: ['Digest Feature Article', 'Launch-Ready Presence'],
+      },
     ],
-    highlight: false
+    highlight: false,
+    href: '/packages/local-launch-pack' as string | null,
+    span: 'lg:col-span-4',
   },
   {
-    title: "Growth Partner Plan",
-    subtitle: "Consistent local growth",
-    price: "$1,999",
-    period: "monthly",
-    tag: "Most Popular",
-    features: [
-      "Monthly campaign planning",
-      "Full Local SEO & GBP management",
-      "Social content (8-12 posts/mo)",
-      "Quarterly content shoot (Photo + Video)",
-      "Performance tracking & monthly insights",
-      "Guaranteed quarterly Digest feature",
-      "Testimo review automation (included, $49/month value)",
-      "Quarterly strategy sessions"
+    id: 'growth',
+    title: 'Growth Partner',
+    tag: 'Most popular',
+    outcome: 'Marketing that compounds every month - SEO, content, reviews and Digest.',
+    price: '$1,999',
+    period: 'monthly',
+    groups: [
+      {
+        label: 'Build',
+        items: ['Campaign Planning', 'Quarterly Content Shoots'],
+      },
+      {
+        label: 'Grow',
+        items: ['Local SEO & GBP', 'Testimo Reviews'],
+      },
+      {
+        label: 'Distribute',
+        items: ['Quarterly Digest Feature', 'Monthly Insights'],
+      },
     ],
     highlight: true,
-    href: "/services/growth-partner"
-  }
-];
+    href: '/packages/growth-partner' as string | null,
+    span: 'lg:col-span-5',
+  },
+] as const;
 
-const addons = [
+const additional = [
   {
-    title: "Custom Website Build",
-    icon: Layout,
-    subtitle: "Bigger, more detailed website",
-    price: "From $2,500",
-    features: [
-      "4-7 page custom website",
-      "Clean, modern, mobile-first design",
-      "Conversion-focused copy",
-      "SEO-ready structure",
-      "Forms & booking integration",
-      "14 days post-launch support"
-    ],
-    cta: "Discuss Website Build",
-    href: "/services/website-development"
+    title: 'Custom Website Build',
+    description:
+      'Multi-page sites built for speed, search and conversions - not templates.',
+    visual: 'website' as const,
+    href: '/services/website-development' as string | null,
   },
   {
-    title: "Paid Ads Management",
-    icon: Megaphone,
-    subtitle: "Meta or Google",
-    price: "Custom pricing",
-    features: [
-      "Strategy and campaign setup",
-      "Ongoing optimisation",
-      "Management of ad spend",
-      "Detailed performance reporting"
-    ],
-    cta: "Discuss Ad Management"
+    title: 'Paid Ads',
+    description:
+      'Meta or Google campaigns set up, managed and optimised for local demand.',
+    visual: 'ads' as const,
+    href: '/services/paid-ads' as string | null,
   },
   {
-    title: "Additional Content",
-    icon: Camera,
-    subtitle: "Shoots, Blogs & Emails",
-    price: "Custom pricing",
-    features: [
-      "Additional content shoots",
-      "Email marketing campaigns",
-      "Blog content creation",
-      "Visual storytelling"
-    ],
-    cta: "Discuss Content Needs"
+    title: 'Additional Content',
+    description:
+      'Extra shoots, blogs and email campaigns when you need more fuel.',
+    visual: 'content' as const,
+    href: '/services/content-marketing' as string | null,
   },
   {
-    title: "Advanced SEO",
-    icon: Search,
-    subtitle: "Backlinks & Authority",
-    price: "Custom pricing",
-    features: [
-      "Advanced SEO strategies",
-      "Backlink building",
-      "Authority growth",
-      "Branding & visual identity"
-    ],
-    cta: "Discuss SEO Options"
-  }
-];
+    title: 'Advanced SEO',
+    description:
+      'Authority, backlinks and deeper search strategy beyond local foundations.',
+    visual: 'seo' as const,
+    href: '/services/advanced-seo' as string | null,
+  },
+] as const;
 
-const Services: React.FC = () => {
+const partnerPillars = [
+  {
+    title: 'Strategy',
+    description:
+      'Monthly planning, positioning and commercial direction.',
+  },
+  {
+    title: 'Marketing',
+    description:
+      'SEO, websites, content, reviews and campaigns delivered by one team.',
+  },
+  {
+    title: 'Distribution',
+    description:
+      'Reach Newcastle customers through Newcastle Digest alongside your own marketing.',
+  },
+] as const;
+
+function BenefitGroups({
+  groups,
+  dark = false,
+}: {
+  groups: readonly { label: string; items: readonly string[] }[];
+  dark?: boolean;
+}) {
+  return (
+    <div
+      className={`divide-y ${
+        dark ? 'divide-white/10' : 'divide-accent/[0.08]'
+      }`}
+    >
+      {groups.map((group) => (
+        <div key={group.label} className="py-4 first:pt-0 last:pb-0">
+          <div
+            className={`mb-2.5 text-[11px] font-semibold uppercase tracking-[0.18em] ${
+              dark ? 'text-primary' : 'text-primary'
+            }`}
+          >
+            {group.label}
+          </div>
+          <ul className="space-y-1.5">
+            {group.items.map((item) => (
+              <li
+                key={item}
+                className={`text-[14px] leading-snug tracking-tight ${
+                  dark ? 'text-white/70' : 'text-accent/65'
+                }`}
+              >
+                {item}
+              </li>
+            ))}
+          </ul>
+        </div>
+      ))}
+    </div>
+  );
+}
+
+function AddonVisual({ type }: { type: (typeof additional)[number]['visual'] }) {
+  switch (type) {
+    case 'website':
+      return (
+        <div className="overflow-hidden rounded-xl border border-[#e8e8e8] bg-white shadow-[0_8px_20px_-12px_rgba(17,24,39,0.25)] transition-transform duration-500 group-hover:scale-[1.03]">
+          <div className="flex items-center gap-1 border-b border-[#eee] bg-[#f4f4f4] px-2.5 py-1.5">
+            <span className="h-1.5 w-1.5 rounded-full bg-[#ff5f57]" />
+            <span className="h-1.5 w-1.5 rounded-full bg-[#febc2e]" />
+            <span className="h-1.5 w-1.5 rounded-full bg-[#28c840]" />
+            <div className="ml-1 h-3.5 flex-1 rounded bg-white border border-[#e8e8e8]" />
+          </div>
+          <div className="space-y-1.5 p-2.5">
+            <div className="h-2 w-1/3 rounded bg-primary/80" />
+            <div className="h-2 w-2/3 rounded bg-accent/10" />
+            <div className="mt-1 grid grid-cols-3 gap-1">
+              <div className="aspect-[4/3] rounded bg-[#ebe7e2]" />
+              <div className="aspect-[4/3] rounded bg-[#ddd7d0]" />
+              <div className="aspect-[4/3] rounded bg-[#e8e4df]" />
+            </div>
+          </div>
+        </div>
+      );
+    case 'ads':
+      return (
+        <div className="overflow-hidden rounded-xl border border-[#e8e8e8] bg-white p-2.5 shadow-[0_8px_20px_-12px_rgba(17,24,39,0.25)] transition-transform duration-500 group-hover:scale-[1.03]">
+          <div className="mb-2 flex items-center justify-between">
+            <div className="h-1.5 w-12 rounded bg-accent/15" />
+            <div className="h-4 rounded bg-primary/15 px-1.5 text-[7px] font-semibold leading-4 text-primary">
+              +18%
+            </div>
+          </div>
+          <div className="mb-2 flex h-12 items-end gap-1">
+            {[40, 55, 45, 70, 60, 85, 75].map((h, i) => (
+              <div
+                key={i}
+                className="flex-1 rounded-sm bg-primary/20"
+                style={{ height: `${h}%` }}
+              />
+            ))}
+          </div>
+          <div className="grid grid-cols-2 gap-1.5">
+            <div className="rounded-md bg-[#f7f7f7] px-1.5 py-1">
+              <div className="text-[8px] font-bold text-accent">2.4k</div>
+              <div className="text-[6px] text-accent/40">Clicks</div>
+            </div>
+            <div className="rounded-md bg-[#f7f7f7] px-1.5 py-1">
+              <div className="text-[8px] font-bold text-accent">$1.12</div>
+              <div className="text-[6px] text-accent/40">CPC</div>
+            </div>
+          </div>
+        </div>
+      );
+    case 'content':
+      return (
+        <div className="relative h-full min-h-[88px] overflow-hidden rounded-xl transition-transform duration-500 group-hover:scale-[1.03]">
+          <div className="absolute left-0 top-1 h-[78%] w-[48%] -rotate-3 overflow-hidden rounded-lg border border-[#e4e0db] bg-white shadow-sm">
+            <div className="aspect-square bg-[linear-gradient(160deg,#d4cbc0,#a89a8c)]" />
+          </div>
+          <div className="absolute bottom-1 right-0 w-[55%] rotate-2 overflow-hidden rounded-lg border border-[#e8e8e8] bg-white shadow-sm">
+            <div className="bg-accent px-2 py-1">
+              <div className="text-[7px] font-bold text-white">Digest</div>
+            </div>
+            <div className="space-y-1 p-1.5">
+              <div className="h-1.5 w-full rounded bg-accent/10" />
+              <div className="h-1.5 w-2/3 rounded bg-accent/10" />
+            </div>
+          </div>
+        </div>
+      );
+    case 'seo':
+      return (
+        <div className="overflow-hidden rounded-xl border border-[#dadce0] bg-white p-2.5 shadow-[0_8px_20px_-12px_rgba(17,24,39,0.25)] transition-transform duration-500 group-hover:scale-[1.03]">
+          <div className="mb-2 flex items-center gap-0.5">
+            <span className="text-[10px] font-medium text-[#4285F4]">G</span>
+            <span className="text-[10px] font-medium text-[#EA4335]">o</span>
+            <span className="text-[10px] font-medium text-[#FBBC05]">o</span>
+            <span className="text-[10px] font-medium text-[#4285F4]">g</span>
+            <span className="text-[10px] font-medium text-[#34A853]">l</span>
+            <span className="text-[10px] font-medium text-[#EA4335]">e</span>
+          </div>
+          <div className="mb-2 h-5 rounded-full border border-[#dfe1e5] px-2 text-[8px] leading-5 text-[#202124]/70">
+            plumber newcastle
+          </div>
+          <div className="text-[10px] leading-snug text-[#1a0dab]">
+            Rank #1 · Local Pack
+          </div>
+          <div className="mt-0.5 text-[8px] text-[#70757a]">★★★★★ · Maps</div>
+        </div>
+      );
+  }
+}
+
+const primaryBtn =
+  'inline-flex items-center justify-center gap-2 rounded-2xl bg-primary px-7 py-3.5 text-[15px] font-semibold text-white transition-colors duration-300 hover:bg-accent';
+
+const secondaryLink =
+  'inline-flex items-center gap-1.5 text-[14px] font-medium text-accent/45 transition-colors group-hover:text-primary';
+
+export default function Services() {
   const router = useRouter();
   const pathname = usePathname();
 
-  const handleContactClick = (e: React.MouseEvent) => {
-    e.preventDefault();
+  const goContact = () => {
     if (pathname === '/') {
       document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' });
     } else {
@@ -130,270 +283,295 @@ const Services: React.FC = () => {
   };
 
   return (
-    <section id="services" className="py-32 px-6">
-      <div className="max-w-7xl mx-auto">
-        <div className="text-center mb-20">
-          <h2 className="text-h2 font-heading font-bold mb-6">
-            Helping Newcastle businesses get found, chosen, and contacted.
-          </h2>
-          <p className="text-body text-accent/60 max-w-3xl mx-auto">
-            Clear inclusions. Straightforward pricing. No long contracts, no hidden extras.
-          </p>
+    <div id="solutions" className="bg-white">
+      {/* Intro */}
+      <section className="relative overflow-hidden bg-accent px-6 pb-20 pt-28 text-white md:pb-24 md:pt-36">
+        <div
+          className="pointer-events-none absolute inset-0"
+          style={{
+            background:
+              'radial-gradient(ellipse 70% 55% at 85% 15%, rgba(255,68,0,0.22), transparent 60%)',
+          }}
+          aria-hidden="true"
+        />
+        <div className="relative z-10 mx-auto max-w-7xl">
+          <div className="max-w-3xl">
+            <span className="mb-6 block text-[11px] font-semibold uppercase tracking-[0.22em] text-primary">
+              Our Solutions
+            </span>
+            <h1 className="mb-6 font-heading text-[2.5rem] font-bold leading-[1.05] tracking-[-0.035em] sm:text-5xl md:text-[3.5rem]">
+              Packages built for Newcastle{' '}
+              <span className="text-primary">momentum.</span>
+            </h1>
+            <p className="mb-10 max-w-xl text-lg leading-relaxed text-white/55 md:text-xl">
+              Clear offerings. Fixed pricing. Distribution included. Know exactly
+              what you&apos;re getting - and what it drives.
+            </p>
+            <div className="flex flex-wrap items-center gap-x-6 gap-y-2 text-[13px] text-white/40">
+              <span>No long-term contracts</span>
+              <span className="hidden h-1 w-1 rounded-full bg-white/25 sm:block" />
+              <span>Transparent fixed pricing</span>
+              <span className="hidden h-1 w-1 rounded-full bg-white/25 sm:block" />
+              <span>Newcastle distribution included</span>
+            </div>
+          </div>
         </div>
+      </section>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-32">
-          {services.map((service, i) => (
-            <div
-              key={i}
-              className={`relative flex flex-col p-10 rounded-[40px] border-2 transition-all hover:shadow-2xl hover:shadow-accent/5 group ${service.highlight ? 'border-primary bg-primary/[0.02]' : 'border-accent/5 bg-white'}`}
-            >
-              {service.tag && (
-                <span className={`self-start px-4 py-1.5 rounded-full text-sm font-bold uppercase tracking-wider mb-8 ${service.highlight ? 'bg-primary text-white' : 'bg-accent/5 text-accent/60'}`}>
-                  {service.tag}
-                </span>
-              )}
+      {/* Core Packages */}
+      <section className="px-6 py-16 md:py-20">
+        <div className="mx-auto max-w-7xl">
+          <div className="mb-10 max-w-xl md:mb-12">
+            <span className="mb-3 block text-[11px] font-semibold uppercase tracking-[0.2em] text-primary">
+              Core packages
+            </span>
+            <h2 className="font-heading text-3xl font-bold tracking-tight text-accent md:text-[2.25rem]">
+              Pick the level of momentum you need.
+            </h2>
+          </div>
 
-              <h3 className="text-3xl font-heading font-bold mb-2 group-hover:text-primary transition-colors">{service.title}</h3>
-              <p className="text-accent/60 mb-8 font-medium">{service.subtitle}</p>
-
-              <div className="mb-10">
-                <div className="flex items-baseline gap-2">
-                  <span className="text-5xl font-heading font-bold text-accent">{service.price}</span>
-                  <span className="text-accent/40 font-bold uppercase tracking-widest text-sm">{service.period}</span>
-                </div>
-              </div>
-
-              <div className="flex-grow space-y-4 mb-10">
-                {service.features.map((feature, idx) => (
-                  <div key={idx} className="flex items-start gap-3">
-                    <CheckCircle2 className={`w-5 h-5 mt-1 flex-shrink-0 ${service.highlight ? 'text-primary' : 'text-accent/20'}`} />
-                    <span className="text-accent/70 font-medium leading-tight">{feature}</span>
+          <div className="grid grid-cols-1 items-stretch gap-6 md:grid-cols-2 lg:grid-cols-12 lg:gap-6 lg:items-end">
+            {packages.map((pkg) => {
+              const inner = (
+                <>
+                  <div className="mb-6">
+                    <span
+                      className={`inline-block text-[10px] font-semibold uppercase tracking-[0.16em] ${
+                        pkg.highlight ? 'text-primary' : 'text-accent/40'
+                      }`}
+                    >
+                      {pkg.tag}
+                    </span>
                   </div>
-                ))}
-              </div>
 
-              {'href' in service && service.href ? (
-                <Link
-                  href={service.href}
-                  className={`w-full py-5 rounded-2xl text-xl font-bold flex items-center justify-center gap-2 transition-all active:scale-95 ${service.highlight ? 'bg-primary text-white shadow-lg shadow-primary/20 hover:bg-accent' : 'bg-accent text-white hover:bg-primary'}`}
-                >
-                  Learn More
-                  <ArrowUpRight className="w-6 h-6" />
-                </Link>
-              ) : (
-                <button
-                  onClick={handleContactClick}
-                  className={`w-full py-5 rounded-2xl text-xl font-bold flex items-center justify-center gap-2 transition-all active:scale-95 ${service.highlight ? 'bg-primary text-white shadow-lg shadow-primary/20 hover:bg-accent' : 'bg-accent text-white hover:bg-primary'}`}
-                >
-                  Get Started
-                  <ArrowUpRight className="w-6 h-6" />
-                </button>
-              )}
-            </div>
-          ))}
-        </div>
-
-        <div className="bg-primary/5 border border-primary/20 rounded-2xl p-8 mb-32 max-w-4xl mx-auto text-center text-accent/80 text-lg font-medium shadow-sm">
-            All Growth Partner clients receive free access to Testimo, our proprietary Google review automation tool. SMS-based review requests, automated follow-ups, and a live review dashboard. Built by us, for businesses like yours.
-        </div>
-
-        {/* Growth Partner Plan */}
-        <div className="mb-32">
-          <Link
-            href="/services/growth-partner"
-            className="group block bg-accent text-white rounded-[40px] p-10 md:p-14 relative overflow-hidden hover:shadow-2xl hover:shadow-accent/20 transition-all border-2 border-primary/30"
-          >
-            <div className="absolute top-0 right-0 w-1/3 h-full bg-primary/10 -skew-x-12 translate-x-1/2" />
-            <div className="relative z-10 flex flex-col md:flex-row md:items-center md:justify-between gap-8">
-              <div className="max-w-2xl">
-                <span className="text-primary font-bold uppercase tracking-widest text-sm mb-4 block">
-                  Most Popular
-                </span>
-                <h2 className="text-3xl md:text-4xl font-heading font-bold mb-4">
-                  Marketing that actually{' '}
-                  <span className="text-primary italic">compounds</span>
-                </h2>
-                <p className="text-lg text-white/60 leading-relaxed">
-                  Consistent SEO, content, and visibility every month. Backed by Newcastle Digest&apos;s 7,300 subscribers.
-                </p>
-                <p className="mt-4 text-primary font-bold text-xl">$1,999/month. No lock-in contracts.</p>
-              </div>
-              <span className="inline-flex items-center gap-3 bg-primary text-white px-8 py-4 rounded-2xl font-bold text-lg group-hover:bg-white group-hover:text-accent transition-all flex-shrink-0">
-                Learn More
-                <ArrowRight className="w-5 h-5" />
-              </span>
-            </div>
-          </Link>
-        </div>
-
-        {/* Website Development */}
-        <div className="mb-32">
-          <Link
-            href="/services/website-development"
-            className="group block bg-accent text-white rounded-[40px] p-10 md:p-14 relative overflow-hidden hover:shadow-2xl hover:shadow-accent/20 transition-all"
-          >
-            <div className="absolute top-0 right-0 w-1/3 h-full bg-primary/10 -skew-x-12 translate-x-1/2" />
-            <div className="relative z-10 flex flex-col md:flex-row md:items-center md:justify-between gap-8">
-              <div className="max-w-2xl">
-                <span className="text-primary font-bold uppercase tracking-widest text-sm mb-4 block">
-                  Custom Website Build
-                </span>
-                <h2 className="text-3xl md:text-4xl font-heading font-bold mb-4">
-                  A custom website, live in{' '}
-                  <span className="text-primary italic">14 days</span>
-                </h2>
-                <p className="text-lg text-white/60 leading-relaxed">
-                  No templates. No drag-and-drop builders. Custom coded for speed, search, and conversions.
-                </p>
-              </div>
-              <span className="inline-flex items-center gap-3 bg-primary text-white px-8 py-4 rounded-2xl font-bold text-lg group-hover:bg-white group-hover:text-accent transition-all flex-shrink-0">
-                Learn More
-                <ArrowRight className="w-5 h-5" />
-              </span>
-            </div>
-          </Link>
-        </div>
-
-        {/* Add-ons Section */}
-        <div className="mb-32">
-          <div className="text-center mb-16">
-            <span className="text-primary font-bold uppercase tracking-widest text-sm mb-4 block">Enhancements</span>
-            <h2 className="text-4xl font-heading font-bold mb-4 text-accent">ADD-ONS</h2>
-            <p className="text-xl text-accent/60">Enhance any plan with targeted extras</p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {addons.map((addon, i) => (
-              <div key={i} className="bg-accent/5 p-8 rounded-[32px] border border-accent/5 hover:border-primary/20 transition-all flex flex-col">
-                <div className="bg-white w-12 h-12 rounded-xl flex items-center justify-center mb-6 shadow-sm">
-                  <addon.icon className="text-primary w-6 h-6" />
-                </div>
-                <h3 className="text-xl font-heading font-bold mb-1">{addon.title}</h3>
-                <p className="text-accent/60 text-sm font-medium mb-4">{addon.subtitle}</p>
-                <div className="text-primary font-bold mb-6">{addon.price}</div>
-
-                <ul className="space-y-3 mb-8 flex-grow">
-                  {addon.features.map((feature, idx) => (
-                    <li key={idx} className="text-sm text-accent/70 flex items-start gap-2">
-                      <div className="w-1 h-1 rounded-full bg-primary mt-2 flex-shrink-0" />
-                      <span>{feature}</span>
-                    </li>
-                  ))}
-                </ul>
-
-                {addon.href ? (
-                  <Link
-                    href={addon.href}
-                    className="w-full py-3 rounded-xl border border-accent/10 text-center text-sm font-bold hover:bg-accent hover:text-white transition-all block"
+                  {/* 1. Service name */}
+                  <h3
+                    className={`mb-3 font-heading font-bold tracking-tight ${
+                      pkg.highlight
+                        ? 'text-2xl text-white md:text-[1.85rem]'
+                        : 'text-xl text-accent md:text-2xl'
+                    }`}
                   >
-                    {addon.cta}
+                    {pkg.title}
+                  </h3>
+
+                  {/* 2. Outcome */}
+                  <p
+                    className={`mb-8 font-heading text-lg font-semibold leading-snug tracking-tight md:text-xl ${
+                      pkg.highlight ? 'text-white/90' : 'text-accent/80'
+                    }`}
+                  >
+                    {pkg.outcome}
+                  </p>
+
+                  {/* 3. Price */}
+                  <div className="mb-8 flex items-baseline gap-2">
+                    <span
+                      className={`font-heading text-2xl font-bold tracking-tight tabular-nums md:text-[1.65rem] ${
+                        pkg.highlight ? 'text-white/90' : 'text-accent/70'
+                      }`}
+                    >
+                      {pkg.price}
+                    </span>
+                    <span
+                      className={`text-[12px] font-medium uppercase tracking-wider ${
+                        pkg.highlight ? 'text-white/30' : 'text-accent/30'
+                      }`}
+                    >
+                      {pkg.period}
+                    </span>
+                  </div>
+
+                  {/* 4. Build / Grow / Distribute */}
+                  <div className="mb-9 flex-1">
+                    <BenefitGroups groups={pkg.groups} dark={pkg.highlight} />
+                  </div>
+
+                  {/* 5. CTA */}
+                  <span
+                    className={`inline-flex w-full items-center justify-center gap-2 rounded-2xl bg-primary py-3.5 text-[15px] font-semibold text-white transition-colors duration-300 ${
+                      pkg.highlight
+                        ? 'group-hover:bg-white group-hover:text-accent'
+                        : 'group-hover:bg-accent'
+                    }`}
+                  >
+                    Learn More
+                    <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
+                  </span>
+                </>
+              );
+
+              const className = `group flex h-full flex-col rounded-2xl p-7 text-left transition-all duration-500 ease-out hover:-translate-y-1 md:p-8 ${
+                pkg.highlight
+                  ? `${pkg.span} md:col-span-2 bg-accent text-white shadow-[0_28px_56px_-28px_rgba(17,24,39,0.45)] hover:shadow-[0_36px_64px_-28px_rgba(17,24,39,0.5)] lg:p-10 lg:pb-11 lg:scale-[1.03] lg:z-10`
+                  : `${pkg.span} border border-[#ececec] bg-white hover:shadow-[0_24px_48px_-28px_rgba(17,24,39,0.22)]`
+              }`;
+
+              if (pkg.href) {
+                return (
+                  <Link key={pkg.id} href={pkg.href} className={className}>
+                    {inner}
                   </Link>
-                ) : (
-                  <button
-                    onClick={handleContactClick}
-                    className="w-full py-3 rounded-xl border border-accent/10 text-center text-sm font-bold hover:bg-accent hover:text-white transition-all"
-                  >
-                    {addon.cta}
-                  </button>
-                )}
-              </div>
-            ))}
+                );
+              }
+
+              return (
+                <button
+                  key={pkg.id}
+                  type="button"
+                  onClick={goContact}
+                  className={className}
+                >
+                  {inner}
+                </button>
+              );
+            })}
           </div>
         </div>
+      </section>
 
-        {/* Strategic Partnerships Section */}
-        <div className="mb-32">
-          <div className="text-center mb-16">
-            <span className="text-primary font-bold uppercase tracking-widest text-sm mb-4 block">Strategic Partnerships</span>
-            <h2 className="text-4xl md:text-5xl font-heading font-bold mb-6 text-accent">Some businesses don't need a package. They need a partner.</h2>
-            <p className="text-xl text-accent/60 max-w-4xl mx-auto leading-relaxed">
-              If you're expanding into new markets, building a lead generation engine from scratch, or need someone to own your marketing end-to-end. That's a different conversation. We work with a small number of Newcastle and Hunter businesses on a retained basis, handling strategy and execution together.
-            </p>
+      {/* Additional Services */}
+      <section className="border-t border-[#f0f0f0] px-6 py-16 md:py-20">
+        <div className="mx-auto max-w-7xl">
+          <div className="mb-10 max-w-xl md:mb-12">
+            <span className="mb-3 block text-[11px] font-semibold uppercase tracking-[0.2em] text-primary">
+              Additional services
+            </span>
+            <h2 className="font-heading text-3xl font-bold tracking-tight text-accent md:text-[2.25rem]">
+              Extend any package when you need more.
+            </h2>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
-            {/* Column 1 */}
-            <div className="bg-white p-8 rounded-[32px] border-2 border-accent/5 hover:border-primary/20 transition-all">
-              <h3 className="text-2xl font-heading font-bold mb-8 text-accent">What this looks like</h3>
-              <ul className="space-y-4">
-                {[
-                  "Monthly retainer, scoped to your business, no cookie-cutter deliverables",
-                  "Strategy, execution, and reporting all under one roof",
-                  "SEO, content, conversion, HubSpot, paid: whatever the business actually needs",
-                  "Access to Newcastle Digest's 7,000+ subscriber audience as a distribution channel",
-                  "Testimo reputation management included where relevant",
-                  "One point of contact who knows your business"
-                ].map((item, idx) => (
-                  <li key={idx} className="flex items-start gap-3">
-                    <CheckCircle2 className="w-5 h-5 mt-0.5 text-primary flex-shrink-0" />
-                    <span className="text-accent/70 font-medium leading-tight">{item}</span>
-                  </li>
-                ))}
-              </ul>
-            </div>
+          <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:gap-6">
+            {additional.map((item) => {
+              const className =
+                'group flex flex-col rounded-2xl border border-[#ececec] bg-white p-7 transition-all duration-500 ease-out hover:-translate-y-1 hover:shadow-[0_24px_48px_-28px_rgba(17,24,39,0.22)] md:p-8';
 
-            {/* Column 2 */}
-            <div className="bg-white p-8 rounded-[32px] border-2 border-accent/5 hover:border-primary/20 transition-all">
-              <h3 className="text-2xl font-heading font-bold mb-8 text-accent">Who it's for</h3>
-              <ul className="space-y-4">
-                {[
-                  "B2B businesses entering or growing in the Newcastle and Hunter market",
-                  "Businesses that have tried agencies and been burned by vague retainers and no accountability",
-                  "Operators who want a marketing partner, not a vendor"
-                ].map((item, idx) => (
-                  <li key={idx} className="flex items-start gap-3">
-                    <CheckCircle2 className="w-5 h-5 mt-0.5 text-primary flex-shrink-0" />
-                    <span className="text-accent/70 font-medium leading-tight">{item}</span>
-                  </li>
-                ))}
-              </ul>
-            </div>
+              const body = (
+                <>
+                  <div className="mb-7 h-[96px] w-full max-w-[160px]">
+                    <AddonVisual type={item.visual} />
+                  </div>
+                  <h3 className="mb-2.5 font-heading text-xl font-bold tracking-tight text-accent">
+                    {item.title}
+                  </h3>
+                  <p className="mb-7 flex-1 text-[14px] leading-relaxed text-accent/50">
+                    {item.description}
+                  </p>
+                  <span className={secondaryLink}>
+                    Learn More
+                    <ArrowRight className="h-3.5 w-3.5 transition-transform duration-300 group-hover:translate-x-1" />
+                  </span>
+                </>
+              );
 
-            {/* Column 3 */}
-            <div className="bg-white p-8 rounded-[32px] border-2 border-accent/5 hover:border-primary/20 transition-all">
-              <h3 className="text-2xl font-heading font-bold mb-8 text-accent">How it works</h3>
-              <ul className="space-y-4">
-                {[
-                  "30-minute discovery call to understand your situation",
-                  "We come back with a proposed scope, phased approach, and monthly investment",
-                  "Phase 1 typically kicks off within a week of agreement",
-                  "No lock-in beyond the current phase. If it's not working, we'll tell you"
-                ].map((item, idx) => (
-                  <li key={idx} className="flex items-start gap-3">
-                    <CheckCircle2 className="w-5 h-5 mt-0.5 text-primary flex-shrink-0" />
-                    <span className="text-accent/70 font-medium leading-tight">{item}</span>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          </div>
+              if (item.href) {
+                return (
+                  <Link key={item.title} href={item.href} className={className}>
+                    {body}
+                  </Link>
+                );
+              }
 
-          {/* HubSpot Callout */}
-          <div className="bg-[#FF7A59]/10 border border-[#FF7A59]/20 rounded-2xl p-8 mb-12 max-w-4xl mx-auto flex flex-col md:flex-row items-center gap-6">
-            <div className="bg-white px-4 py-2 rounded-xl shadow-sm flex-shrink-0 flex items-center justify-center">
-              <span className="font-bold text-[#FF7A59] text-xl tracking-tight">HubSpot</span>
-            </div>
-            <p className="text-accent/80 text-lg font-medium leading-relaxed">
-              We implement and manage HubSpot for our Strategic Partnership clients, from initial setup and CRM configuration through to tracking, lead flow, and reporting. HubSpot implementation is included as standard where required.
-            </p>
-          </div>
-
-          <div className="text-center">
-            <a
-              href="https://cal.com/digest/digest-studio"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center justify-center gap-2 bg-accent text-white px-10 py-5 rounded-2xl text-xl font-bold hover:bg-primary transition-all shadow-lg hover:shadow-primary/20 active:scale-95"
-            >
-              Book a Strategy Call
-              <ArrowUpRight className="w-6 h-6" />
-            </a>
+              return (
+                <button
+                  key={item.title}
+                  type="button"
+                  onClick={goContact}
+                  className={`${className} w-full text-left`}
+                >
+                  {body}
+                </button>
+              );
+            })}
           </div>
         </div>
+      </section>
 
-      </div>
-    </section>
+      {/* Strategic Partnerships */}
+      <section className="border-t border-[#f0f0f0] px-6 py-16 md:py-20">
+        <div className="mx-auto max-w-7xl">
+          <div className="overflow-hidden rounded-2xl bg-[#fafafa] lg:grid lg:grid-cols-12">
+            <div className="flex flex-col justify-center p-8 md:p-12 lg:col-span-6 lg:p-14 xl:p-16">
+              <span className="mb-4 block text-[11px] font-semibold uppercase tracking-[0.2em] text-primary">
+                Strategic Partnerships
+              </span>
+              <h2 className="mb-5 font-heading text-3xl font-bold tracking-tight text-accent md:text-[2.5rem] md:leading-[1.12]">
+                Some businesses don&apos;t need a package.
+                <br />
+                They need a marketing partner.
+              </h2>
+              <p className="mb-8 max-w-md text-[15px] leading-relaxed text-accent/50 md:text-base">
+                Retained strategy and execution for Newcastle and Hunter operators
+                who want one team owning the whole picture - not a vendor
+                delivering tasks.
+              </p>
+              <a
+                href="https://cal.com/digest/digest-studio"
+                target="_blank"
+                rel="noopener noreferrer"
+                className={primaryBtn}
+              >
+                Book Strategy Call
+                <ArrowRight className="h-4 w-4" />
+              </a>
+            </div>
+
+            <div className="relative flex flex-col justify-center gap-4 p-8 pt-0 md:p-12 md:pt-0 lg:col-span-6 lg:gap-5 lg:p-14 lg:pl-4 xl:p-16 xl:pl-6">
+              {partnerPillars.map((pillar, i) => (
+                <div
+                  key={pillar.title}
+                  className={`relative rounded-2xl border border-[#ececec] bg-white p-6 transition-all duration-500 hover:-translate-y-1 hover:shadow-[0_20px_40px_-24px_rgba(17,24,39,0.28)] md:p-7 ${
+                    i === 1 ? 'lg:ml-10' : i === 2 ? 'lg:ml-5' : ''
+                  }`}
+                >
+                  <h3 className="mb-2 font-heading text-lg font-bold tracking-tight text-accent md:text-xl">
+                    {pillar.title}
+                  </h3>
+                  <p className="text-[14px] leading-relaxed text-accent/55 md:text-[15px]">
+                    {pillar.description}
+                  </p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Client testimonial */}
+      <section className="border-t border-[#f0f0f0] bg-[#fafafa] px-6 py-16 md:py-20">
+        <div className="mx-auto max-w-7xl">
+          <span className="mb-3 block text-[11px] font-semibold uppercase tracking-[0.2em] text-primary">
+            Client feedback
+          </span>
+          <TestimonialQuote context="strategy" />
+        </div>
+      </section>
+
+      {/* Final CTA */}
+      <section className="border-t border-[#f0f0f0] px-6 py-16 md:py-20">
+        <div className="mx-auto flex max-w-7xl flex-col items-start justify-between gap-8 lg:flex-row lg:items-center lg:gap-16">
+          <div className="max-w-2xl">
+            <h2 className="mb-3 font-heading text-2xl font-bold tracking-tight text-accent md:text-3xl">
+              Not sure which package is right for you?
+            </h2>
+            <p className="text-[15px] leading-relaxed text-accent/50 md:text-base">
+              We&apos;ll review your business, identify the biggest opportunities
+              and recommend the right approach - whether that&apos;s a one-off
+              project or a long-term partnership.
+            </p>
+          </div>
+          <a
+            href="https://cal.com/digest/digest-studio"
+            target="_blank"
+            rel="noopener noreferrer"
+            className={`${primaryBtn} shrink-0`}
+          >
+            Book a Free Strategy Call
+            <ArrowRight className="h-4 w-4" />
+          </a>
+        </div>
+      </section>
+    </div>
   );
-};
-
-export default Services;
+}

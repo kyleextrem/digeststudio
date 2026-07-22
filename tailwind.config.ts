@@ -15,8 +15,8 @@ const config: Config = {
                 textPrimary: '#111827',
             },
             fontFamily: {
-                sans: ['Inter', 'sans-serif'],
-                heading: ['Space Grotesk', 'sans-serif'],
+                sans: ['var(--font-inter)', 'Inter', 'sans-serif'],
+                heading: ['var(--font-heading)', 'Space Grotesk', 'sans-serif'],
             },
             fontSize: {
                 'h1': ['72px', { lineHeight: '1.1', letterSpacing: '-0.02em' }],

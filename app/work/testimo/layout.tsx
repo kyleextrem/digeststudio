@@ -2,10 +2,10 @@ import type { Metadata } from "next";
 
 export const metadata: Metadata = {
     alternates: {
-        canonical: "/work/testimo",
+        canonical: "/brands/testimo",
     },
 };
 
-export default function TestimoLayout({ children }: { children: React.ReactNode }) {
+export default function LegacyTestimoLayout({ children }: { children: React.ReactNode }) {
     return children;
 }

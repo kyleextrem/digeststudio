@@ -1,89 +1,427 @@
 'use client';
 
-import React, { useState } from 'react';
-import { Plus, Minus } from 'lucide-react';
+import { useState, type ReactNode } from 'react';
 import Link from 'next/link';
+import { ArrowRight, Minus, Plus } from 'lucide-react';
 
-const faqItems = [
-    {
-        question: "Do I need a big marketing budget to work with you?",
-        answer: "No. Our packages start at $750 for Visibility Boost (one-off) or $997/month for Growth Partner. We've structured everything so you pay for results, not retainers or vague strategy sessions. Small budgets work when they're focused on what actually drives bookings."
-    },
-    {
-        question: "What if I don't have time to manage this?",
-        answer: "That's exactly why we exist. You stay focused on running your business. We handle the creative, the posting, the media placements, the analytics. You get a summary each month and approve direction, but the execution is on us."
-    },
-    {
-        question: "I've been burned by marketing agencies before. Why should I trust you?",
-        answer: "We get it. Most agencies over-promise and under-deliver. We're different because we own Newcastle Digest, which means we control the media channel, not just buy space in it. Our packages are productised (you know exactly what you're getting), and we only work with businesses we can genuinely help grow in Newcastle."
-    },
-    {
-        question: "How fast will I see results?",
-        answer: "Visibility Boost delivers within 2 weeks. Local Launch Pack gets you live and featured within 4 weeks. Growth Partner builds momentum over 3-6 months as we layer campaigns, content, and local media. Quick wins are great, but sustained local presence is what keeps customers coming back."
-    },
-    {
-        question: "What makes you different from other marketing agencies?",
-        answer: "Three things: 1) We own Newcastle Digest (7,000+ local subscribers), so you get media reach without paying for ads. 2) Productised packages mean clear pricing and deliverables, no scope creep. 3) We only work locally in Newcastle, so we understand the audience, venues, and what actually works here."
-    },
-    {
-        question: "Can I just start with one thing?",
-        answer: "Absolutely. That's what Visibility Boost is for. It's a $750 one-off package that gives you immediate local traction without committing to a monthly plan. Many clients start there, see results, then move into Growth Partner when they're ready to scale."
-    }
-];
+const CAL = 'https://cal.com/digest/digest-studio';
 
-const FAQPage: React.FC = () => {
-    const [openIndex, setOpenIndex] = useState<number | null>(0);
+function FaqItem({
+  question,
+  children,
+  defaultOpen = false,
+}: {
+  question: string;
+  children: ReactNode;
+  defaultOpen?: boolean;
+}) {
+  const [open, setOpen] = useState(defaultOpen);
 
-    return (
-        <div className="pt-32 pb-32 px-6">
-            <div className="max-w-4xl mx-auto">
-                <div className="text-center mb-24">
-                    <span className="text-primary font-bold uppercase tracking-widest text-sm mb-4 block">Help Centre</span>
-                    <h1 className="text-h1 font-heading font-bold mb-8">Common Questions</h1>
-                    <p className="text-body text-accent/60">Everything you need to know about working with Newcastle's local marketing studio.</p>
-                </div>
-
-                <div className="space-y-4">
-                    {faqItems.map((item, i) => (
-                        <div
-                            key={i}
-                            className={`border-2 rounded-[32px] overflow-hidden transition-all ${openIndex === i ? 'border-primary bg-primary/[0.02]' : 'border-accent/5 bg-white'}`}
-                        >
-                            <button
-                                onClick={() => setOpenIndex(openIndex === i ? null : i)}
-                                className="w-full p-8 flex items-center justify-between text-left group"
-                            >
-                                <span className={`text-2xl font-heading font-bold transition-colors ${openIndex === i ? 'text-primary' : 'text-accent group-hover:text-primary'}`}>
-                                    {item.question}
-                                </span>
-                                <div className={`p-2 rounded-full transition-all ${openIndex === i ? 'bg-primary text-white rotate-180' : 'bg-accent/5 text-accent'}`}>
-                                    {openIndex === i ? <Minus size={24} /> : <Plus size={24} />}
-                                </div>
-                            </button>
-
-                            <div
-                                className={`transition-all duration-300 overflow-hidden ${openIndex === i ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'}`}
-                            >
-                                <div className="p-8 pt-0 text-xl text-accent/60 leading-relaxed border-t border-accent/5 mx-8">
-                                    {item.answer}
-                                </div>
-                            </div>
-                        </div>
-                    ))}
-                </div>
-
-                <div className="mt-24 bg-accent p-12 rounded-[40px] text-white flex flex-col md:flex-row items-center justify-between gap-8">
-                    <div>
-                        <h3 className="text-3xl font-heading font-bold mb-2">Still have questions?</h3>
-                        <p className="text-white/60 text-lg">Send us a message and we'll get back to you within 24 hours.</p>
-                    </div>
-                    <Link href="/#contact" className="bg-primary text-white px-10 py-5 rounded-2xl font-bold text-xl hover:bg-white hover:text-primary transition-all">
-                        Contact Us
-                    </Link>
-                </div>
-            </div>
+  return (
+    <div className="border-b border-[#ececec]">
+      <button
+        type="button"
+        onClick={() => setOpen(!open)}
+        className="flex w-full items-center justify-between gap-6 py-6 text-left md:py-7"
+        aria-expanded={open}
+      >
+        <span className="font-heading text-lg font-bold tracking-tight text-accent md:text-xl">
+          {question}
+        </span>
+        {open ? (
+          <Minus className="h-5 w-5 shrink-0 text-primary md:h-6 md:w-6" />
+        ) : (
+          <Plus className="h-5 w-5 shrink-0 text-accent/30 md:h-6 md:w-6" />
+        )}
+      </button>
+      {open && (
+        <div className="pb-6 pr-10 text-[15px] leading-relaxed text-accent/55 md:pb-7 md:text-base [&_a]:font-medium [&_a]:text-accent [&_a]:underline [&_a]:underline-offset-4 [&_a]:hover:text-primary">
+          {children}
         </div>
-    );
-};
+      )}
+    </div>
+  );
+}
 
-export default FAQPage;
+const categories = [
+  {
+    id: 'working-together',
+    title: 'Working Together',
+    items: [
+      {
+        question: 'How do we get started?',
+        answer: (
+          <>
+            Book a free strategy call. We talk through your business, decide
+            whether Digest Studio is a fit, and outline what would come next  - 
+            usually a{' '}
+            <Link href="/services">package</Link> or a scoped project.
+          </>
+        ),
+      },
+      {
+        question: 'Do you offer free consultations?',
+        answer: (
+          <>
+            Yes. Strategy calls are free. You can{' '}
+            <a href={CAL} target="_blank" rel="noopener noreferrer">
+              book one here
+            </a>
+            . There is no obligation to proceed.
+          </>
+        ),
+      },
+      {
+        question: 'Do you only work with Newcastle businesses?',
+        answer: (
+          <>
+            Most clients are in Newcastle and the Hunter. Work further afield is
+            considered case by case. More context is on{' '}
+            <Link href="/about-digest-studio">About Digest Studio</Link>.
+          </>
+        ),
+      },
+      {
+        question: 'Can you work remotely?',
+        answer:
+          'Yes. Most project work is remote. For local clients we can meet in Newcastle when it helps.',
+      },
+      {
+        question: 'How long does a typical project take?',
+        answer: (
+          <>
+            <Link href="/packages/visibility-boost">Visibility Boost</Link> is
+            usually about two weeks.{' '}
+            <Link href="/packages/local-launch-pack">Local Launch Pack</Link>{' '}
+            around three to four weeks. Custom websites depend on scope.{' '}
+            <Link href="/packages/growth-partner">Growth Partner</Link> is
+            ongoing month to month.
+          </>
+        ),
+      },
+    ],
+  },
+  {
+    id: 'websites',
+    title: 'Websites',
+    items: [
+      {
+        question: 'Do you redesign existing websites?',
+        answer: (
+          <>
+            Yes. We redesign and rebuild when the current site is holding the
+            business back. See{' '}
+            <Link href="/services/website-development">website development</Link>
+            .
+          </>
+        ),
+      },
+      {
+        question: 'Can you build eCommerce websites?',
+        answer:
+          'Yes, for suitable products and catalogues. Scope and platforms are confirmed before work starts.',
+      },
+      {
+        question: 'Do you use WordPress?',
+        answer:
+          'We choose the stack that fits the project. WordPress is an option when it makes sense; many builds use modern frameworks instead.',
+      },
+      {
+        question: 'Can I edit my website myself?',
+        answer:
+          'Yes where practical. We set up editing access for content you should be able to change without a developer.',
+      },
+      {
+        question: 'Will my website be mobile friendly?',
+        answer:
+          'Yes. Sites are built to work well on phones, tablets and desktops.',
+      },
+    ],
+  },
+  {
+    id: 'local-seo',
+    title: 'Local SEO',
+    items: [
+      {
+        question: 'How long does Local SEO take?',
+        answer: (
+          <>
+            Useful improvements can appear within weeks. Stronger ranking usually
+            takes consistent work over several months. Read more on{' '}
+            <Link href="/local-seo-newcastle-nsw">Local SEO in Newcastle</Link>.
+          </>
+        ),
+      },
+      {
+        question: 'Do I need Google Business Profile?',
+        answer: (
+          <>
+            If you serve local customers, yes. A complete profile is one of the
+            main ways people find you on Maps and Search. GBP work is included in{' '}
+            <Link href="/packages/visibility-boost">Visibility Boost</Link> and
+            ongoing SEO packages.
+          </>
+        ),
+      },
+      {
+        question: 'Can you help me rank in Newcastle?',
+        answer: (
+          <>
+            Yes. Local SEO for Newcastle and the Hunter is core work for Digest
+            Studio. Start with{' '}
+            <Link href="/local-seo-newcastle-nsw">Local SEO</Link> or{' '}
+            <Link href="/services/advanced-seo">advanced SEO</Link>.
+          </>
+        ),
+      },
+    ],
+  },
+  {
+    id: 'reputation',
+    title: 'Reputation Management',
+    items: [
+      {
+        question: 'How does Testimo work?',
+        answer: (
+          <>
+            After a job is completed, Testimo sends the customer through a simple
+            flow to leave a Google review and other useful feedback. Full detail
+            is on the{' '}
+            <Link href="/brands/testimo">Testimo</Link> page and{' '}
+            <Link href="/services/reputation-management">
+              reputation management
+            </Link>
+            .
+          </>
+        ),
+      },
+      {
+        question: 'Can I collect Google reviews automatically?',
+        answer:
+          'Yes. Testimo automates the request so you are not chasing reviews manually after every job.',
+      },
+      {
+        question: 'Can I collect testimonials too?',
+        answer:
+          'Yes. The same flow can capture testimonials and related assets, not only star ratings.',
+      },
+      {
+        question: 'What happens with negative feedback?',
+        answer:
+          'Unhappy responses can be routed privately so you can follow up before anything public is posted, depending on how the flow is set up.',
+      },
+    ],
+  },
+  {
+    id: 'growth-partner',
+    title: 'Growth Partner',
+    items: [
+      {
+        question: 'What is included?',
+        answer: (
+          <>
+            Growth Partner is the monthly partnership. It typically includes local
+            SEO, content, Newcastle Digest placement, quarterly photo or video,
+            and Testimo. See the full list on{' '}
+            <Link href="/packages/growth-partner">Growth Partner</Link>.
+          </>
+        ),
+      },
+      {
+        question: 'Is there a minimum commitment?',
+        answer:
+          'Growth Partner is month to month with no long lock-in. Details are confirmed before you start.',
+      },
+      {
+        question: 'Can I upgrade later?',
+        answer: (
+          <>
+            Yes. Many clients start with{' '}
+            <Link href="/packages/visibility-boost">Visibility Boost</Link> or{' '}
+            <Link href="/packages/local-launch-pack">Local Launch Pack</Link>{' '}
+            and move into Growth Partner when they want ongoing work.
+          </>
+        ),
+      },
+    ],
+  },
+  {
+    id: 'newcastle-digest',
+    title: 'Newcastle Digest',
+    items: [
+      {
+        question: 'Can my business advertise?',
+        answer: (
+          <>
+            Yes. Features and placements are available through Digest Studio
+            packages and related work. See{' '}
+            <Link href="/brands/newcastle-digest">Newcastle Digest</Link> and{' '}
+            <Link href="/services">packages</Link>.
+          </>
+        ),
+      },
+      {
+        question: 'How many subscribers does Newcastle Digest have?',
+        answer:
+          'Newcastle Digest has more than 7,000 subscribers, with a strong average open rate.',
+      },
+      {
+        question: 'Who reads Newcastle Digest?',
+        answer:
+          'Locals in Newcastle and nearby areas who want a weekly read on food, events and what is happening around the city.',
+      },
+      {
+        question: 'What advertising options are available?',
+        answer:
+          'Options include package features and placements arranged through Digest Studio. Scope is agreed before anything goes out.',
+      },
+    ],
+  },
+  {
+    id: 'pricing',
+    title: 'Pricing',
+    items: [
+      {
+        question: 'How much does a website cost?',
+        answer: (
+          <>
+            Custom websites typically start from $2,500 depending on pages and
+            integrations. Details are on{' '}
+            <Link href="/services/website-development">website development</Link>
+            . You get a clear quote before work begins.
+          </>
+        ),
+      },
+      {
+        question: 'How much does Local SEO cost?',
+        answer: (
+          <>
+            Local SEO sits inside packages such as{' '}
+            <Link href="/packages/visibility-boost">Visibility Boost</Link> ($750
+            once-off) and{' '}
+            <Link href="/packages/growth-partner">Growth Partner</Link> ($1,999
+            /month). Pricing depends on once-off vs ongoing work.
+          </>
+        ),
+      },
+      {
+        question: 'Can I get a custom quote?',
+        answer: (
+          <>
+            Yes. If a package is not the right fit, we can quote a scoped project
+            after a{' '}
+            <a href={CAL} target="_blank" rel="noopener noreferrer">
+              strategy call
+            </a>
+            . Full package list:{' '}
+            <Link href="/services">Our Solutions</Link>.
+          </>
+        ),
+      },
+    ],
+  },
+  {
+    id: 'technical',
+    title: 'Technical',
+    items: [
+      {
+        question: 'Do you provide hosting?',
+        answer:
+          'Yes. Hosting can be arranged as part of the website project or ongoing support.',
+      },
+      {
+        question: 'Can you manage my domain?',
+        answer:
+          'Yes. We can help with domain setup, DNS and renewals when needed.',
+      },
+      {
+        question: 'Can you migrate an existing website?',
+        answer: (
+          <>
+            Yes. Migrations are planned carefully so URLs, content and SEO
+            signals are preserved where possible. Talk through it on a{' '}
+            <a href={CAL} target="_blank" rel="noopener noreferrer">
+              strategy call
+            </a>
+            .
+          </>
+        ),
+      },
+      {
+        question: 'Do you provide ongoing support?',
+        answer: (
+          <>
+            Yes.{' '}
+            <Link href="/packages/growth-partner">Growth Partner</Link> includes
+            ongoing work. Website and technical support can also be arranged
+            after a build.
+          </>
+        ),
+      },
+    ],
+  },
+] as const;
+
+export default function FAQPage() {
+  return (
+    <div className="bg-white pt-16 md:pt-20">
+      <section className="ds-section !pb-12 md:!pb-16">
+        <div className="ds-container max-w-3xl">
+          <span className="ds-eyebrow">FAQ</span>
+          <h1 className="ds-h2 mb-5 !text-[2.5rem] sm:!text-5xl md:!text-[3.25rem]">
+            Questions people ask before we work together.
+          </h1>
+          <p className="ds-lede max-w-xl">
+            Straight answers on websites, local SEO, Testimo, Growth Partner and
+            Newcastle Digest.
+          </p>
+        </div>
+      </section>
+
+      <section className="border-t border-[#ececec] px-6 pb-20 md:pb-28">
+        <div className="ds-container max-w-3xl space-y-16 md:space-y-20">
+          {categories.map((category) => (
+            <div key={category.id} id={category.id}>
+              <h2 className="mb-2 font-heading text-2xl font-bold tracking-tight text-accent md:text-3xl">
+                {category.title}
+              </h2>
+              <div className="mt-4 border-t border-[#ececec]">
+                {category.items.map((item, i) => (
+                  <FaqItem
+                    key={item.question}
+                    question={item.question}
+                    defaultOpen={category.id === 'working-together' && i === 0}
+                  >
+                    {item.answer}
+                  </FaqItem>
+                ))}
+              </div>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      <section className="border-t border-[#ececec] bg-[#fafafa] px-6 py-20 md:py-28">
+        <div className="ds-container flex max-w-3xl flex-col items-start gap-8 sm:flex-row sm:items-center sm:justify-between">
+          <div>
+            <h2 className="mb-2 font-heading text-2xl font-bold tracking-tight text-accent md:text-3xl">
+              Still have a question?
+            </h2>
+            <p className="text-[15px] leading-relaxed text-accent/50 md:text-base">
+              Book a free strategy call.
+            </p>
+          </div>
+          <a
+            href={CAL}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="ds-btn-primary shrink-0"
+          >
+            Book a Free Strategy Call
+            <ArrowRight className="h-4 w-4 opacity-80" />
+          </a>
+        </div>
+      </section>
+    </div>
+  );
+}

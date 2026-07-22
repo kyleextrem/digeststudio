@@ -4,9 +4,9 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "dev": "next dev",
-    "build": "next build",
-    "start": "next start",
+    "dev": "PATH=\"/opt/homebrew/opt/node@20/bin:$PATH\" NEXT_DIST_DIR=/tmp/digest-studio-next next dev",
+    "build": "PATH=\"/opt/homebrew/opt/node@20/bin:$PATH\" NEXT_DIST_DIR=/tmp/digest-studio-next next build",
+    "start": "PATH=\"/opt/homebrew/opt/node@20/bin:$PATH\" NEXT_DIST_DIR=/tmp/digest-studio-next next start",
     "lint": "next lint"
   },
   "dependencies": {

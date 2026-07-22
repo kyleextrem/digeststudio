@@ -1,12 +1,11 @@
 import React from 'react';
+import { pageMetadata } from '@/lib/seo';
 
-export const metadata = {
-    title: "Terms of Service | Digest Studio",
-    description: "Our terms of service for working with Digest Studio.",
-    alternates: {
-        canonical: "/terms",
-    },
-};
+export const metadata = pageMetadata({
+    title: 'Terms of Service',
+    description: 'Our terms of service for working with Digest Studio.',
+    path: '/terms',
+});
 
 const TermsPage: React.FC = () => {
     return (

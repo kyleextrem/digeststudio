@@ -41,7 +41,9 @@
     ".next/dev/types/**/*.ts",
     "**/*.mts",
     "**/*.ts",
-    "**/*.tsx"
+    "**/*.tsx",
+    "/tmp/digest-studio-next/types/**/*.ts",
+    "/tmp/digest-studio-next/dev/types/**/*.ts"
   ],
   "exclude": [
     "node_modules"

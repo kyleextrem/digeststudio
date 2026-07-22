@@ -1,66 +1,190 @@
-import React from 'react';
 import Link from 'next/link';
+import { Instagram, Linkedin, Facebook } from 'lucide-react';
+import AskAiAboutDigest from '@/components/AskAiAboutDigest';
 
-const Footer: React.FC = () => {
-  return (
-    <footer className="bg-white border-t border-accent/5 pt-24 pb-12 px-6">
-      <div className="max-w-7xl mx-auto">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 mb-24">
-          <div className="lg:col-span-6">
-            <Link href="/" className="flex items-center gap-2 mb-8">
-              <img
-                src="/digest-studio-logo.jpg"
-                alt="Digest Studio Newcastle - Marketing Distribution Partner Logo"
-                className="h-24 w-auto object-contain"
-              />
-            </Link>
-            <p className="text-xl text-accent/60 leading-relaxed mb-10 max-w-sm">
-              Newcastle's local marketing partner. Keep your business front of mind with built-in community reach.
-            </p>
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-              <div className="space-y-1">
-                <p className="text-xs uppercase tracking-widest text-accent/40 font-bold">Email Us</p>
-                <p className="font-bold text-accent">info@digeststudio.com.au</p>
-              </div>
-              <div className="space-y-1">
-                <p className="text-xs uppercase tracking-widest text-accent/40 font-bold">Call Us</p>
-                <p className="font-bold text-accent">+61 417 668 744</p>
-              </div>
+const services = [
+    { label: 'Our Solutions', href: '/services' },
+    { label: 'Visibility Boost', href: '/packages/visibility-boost' },
+    { label: 'Local Launch Pack', href: '/packages/local-launch-pack' },
+    { label: 'Growth Partner', href: '/packages/growth-partner' },
+    { label: 'Website Design', href: '/services/website-development' },
+    { label: 'Local SEO', href: '/local-seo-newcastle-nsw' },
+    { label: 'Content Marketing', href: '/services/content-marketing' },
+    { label: 'Paid Ads', href: '/services/paid-ads' },
+    { label: 'Advanced SEO', href: '/services/advanced-seo' },
+    { label: 'Reputation Management', href: '/services/reputation-management' },
+    { label: 'Local Advertising', href: '/services/local-advertising' },
+] as const;
+
+const company = [
+    { label: 'About', href: '/about' },
+    { label: 'About Digest Studio', href: '/about-digest-studio' },
+    { label: 'Our Brands', href: '/work' },
+    { label: 'Blog', href: '/blog' },
+    { label: 'FAQ', href: '/faq' },
+] as const;
+
+const resources = [
+    { label: 'Free Audit', href: '/visibility-audit' },
+    { label: 'Newcastle Digest', href: '/brands/newcastle-digest' },
+    { label: 'Testimo', href: '/brands/testimo' },
+] as const;
+
+const social = [
+    {
+        label: 'Instagram',
+        href: 'https://www.instagram.com/digeststudio_/',
+        icon: Instagram,
+    },
+    {
+        label: 'LinkedIn',
+        href: 'https://www.linkedin.com/company/digestmediaco/',
+        icon: Linkedin,
+    },
+    {
+        label: 'Facebook',
+        href: 'https://www.facebook.com/newcastledigest/',
+        icon: Facebook,
+    },
+] as const;
+
+export default function Footer() {
+    return (
+        <footer className="bg-white border-t border-[#ececec]">
+            <div className="ds-container px-6 pt-14 md:pt-16 pb-10">
+                <AskAiAboutDigest />
+
+                <div className="grid grid-cols-2 md:grid-cols-12 gap-10 md:gap-8 mb-14">
+                    <div className="col-span-2 md:col-span-4">
+                        <Link href="/" className="inline-block mb-5">
+                            <img
+                                src="/logo-lightning.png"
+                                alt="Digest Studio"
+                                className="h-14 w-auto object-contain"
+                            />
+                        </Link>
+                        <p className="text-[15px] text-accent/50 leading-relaxed max-w-xs mb-6">
+                            Newcastle marketing studio with built-in distribution.
+                            We build it - then help locals see it.
+                        </p>
+                        <div className="flex items-center gap-2.5">
+                            {social.map(({ label, href, icon: Icon }) => (
+                                <a
+                                    key={label}
+                                    href={href}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    aria-label={label}
+                                    className="flex h-9 w-9 items-center justify-center rounded-xl border border-[#ececec] text-accent/45 hover:text-primary hover:border-primary/25 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/40 focus-visible:ring-offset-2"
+                                >
+                                    <Icon className="h-4 w-4" strokeWidth={1.75} />
+                                </a>
+                            ))}
+                        </div>
+                    </div>
+
+                    <div className="md:col-span-2">
+                        <h4 className="text-[11px] font-semibold uppercase tracking-[0.18em] text-accent/35 mb-4">
+                            Services
+                        </h4>
+                        <ul className="space-y-2.5">
+                            {services.map((item) => (
+                                <li key={item.href}>
+                                    <Link
+                                        href={item.href}
+                                        className="text-[14px] text-accent/55 hover:text-primary transition-colors"
+                                    >
+                                        {item.label}
+                                    </Link>
+                                </li>
+                            ))}
+                        </ul>
+                    </div>
+
+                    <div className="md:col-span-2">
+                        <h4 className="text-[11px] font-semibold uppercase tracking-[0.18em] text-accent/35 mb-4">
+                            Company
+                        </h4>
+                        <ul className="space-y-2.5">
+                            {company.map((item) => (
+                                <li key={item.href}>
+                                    <Link
+                                        href={item.href}
+                                        className="text-[14px] text-accent/55 hover:text-primary transition-colors"
+                                    >
+                                        {item.label}
+                                    </Link>
+                                </li>
+                            ))}
+                        </ul>
+                    </div>
+
+                    <div className="md:col-span-2">
+                        <h4 className="text-[11px] font-semibold uppercase tracking-[0.18em] text-accent/35 mb-4">
+                            Resources
+                        </h4>
+                        <ul className="space-y-2.5">
+                            {resources.map((item) => (
+                                <li key={item.href}>
+                                    <Link
+                                        href={item.href}
+                                        className="text-[14px] text-accent/55 hover:text-primary transition-colors"
+                                    >
+                                        {item.label}
+                                    </Link>
+                                </li>
+                            ))}
+                        </ul>
+                    </div>
+
+                    <div className="col-span-2 md:col-span-2">
+                        <h4 className="text-[11px] font-semibold uppercase tracking-[0.18em] text-accent/35 mb-4">
+                            Contact
+                        </h4>
+                        <ul className="space-y-2.5 text-[14px] text-accent/55">
+                            <li>
+                                <a
+                                    href="tel:+61417668744"
+                                    className="hover:text-primary transition-colors"
+                                >
+                                    +61 417 668 744
+                                </a>
+                            </li>
+                            <li>
+                                <a
+                                    href="mailto:info@digeststudio.com.au"
+                                    className="hover:text-primary transition-colors break-all"
+                                >
+                                    info@digeststudio.com.au
+                                </a>
+                            </li>
+                            <li className="text-accent/40 leading-relaxed pt-1">
+                                Newcastle, NSW
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 pt-8 border-t border-[#ececec]">
+                    <p className="text-[12px] text-accent/35">
+                        © {new Date().getFullYear()} Digest Studio · A product of Digest Media
+                    </p>
+                    <div className="flex gap-6">
+                        <Link
+                            href="/privacy"
+                            className="text-[12px] text-accent/35 hover:text-accent transition-colors"
+                        >
+                            Privacy
+                        </Link>
+                        <Link
+                            href="/terms"
+                            className="text-[12px] text-accent/35 hover:text-accent transition-colors"
+                        >
+                            Terms
+                        </Link>
+                    </div>
+                </div>
             </div>
-          </div>
-
-          <div className="lg:col-span-3">
-            <h4 className="font-heading font-bold text-xl mb-8 uppercase tracking-widest text-sm">Navigation</h4>
-            <ul className="space-y-4">
-              <li><Link href="/" className="text-accent/60 hover:text-primary font-bold transition-colors">Home</Link></li>
-              <li><Link href="/services" className="text-accent/60 hover:text-primary font-bold transition-colors">Services</Link></li>
-              <li><Link href="/about" className="text-accent/60 hover:text-primary font-bold transition-colors">About</Link></li>
-              <li><Link href="/work" className="text-accent/60 hover:text-primary font-bold transition-colors">Work</Link></li>
-              <li><Link href="/blog" className="text-accent/60 hover:text-primary font-bold transition-colors">Blog</Link></li>
-              <li><Link href="/visibility-audit" className="text-accent/60 hover:text-primary font-bold transition-colors">Free Audit</Link></li>
-              <li><Link href="/faq" className="text-accent/60 hover:text-primary font-bold transition-colors">FAQ</Link></li>
-            </ul>
-          </div>
-
-          <div className="lg:col-span-3">
-            <h4 className="font-heading font-bold text-xl mb-8 uppercase tracking-widest text-sm">Local Focus</h4>
-            <p className="text-accent/60 mb-6 font-medium">Proudly serving the Newcastle and Hunter region with growth strategies that actually work for local businesses.</p>
-            <p className="text-accent/40 text-sm italic">Newcastle, NSW, Australia</p>
-          </div>
-        </div>
-
-        <div className="flex flex-col md:flex-row justify-between items-center pt-12 border-t border-accent/5 gap-6">
-          <p className="text-accent/40 text-sm font-medium">
-            © {new Date().getFullYear()} Digest Studio a product of Digest Media. All rights reserved.
-          </p>
-          <div className="flex gap-8">
-            <Link href="/privacy" className="text-accent/40 hover:text-accent text-sm font-medium transition-colors">Privacy Policy</Link>
-            <Link href="/terms" className="text-accent/40 hover:text-accent text-sm font-medium transition-colors">Terms of Service</Link>
-          </div>
-        </div>
-      </div>
-    </footer>
-  );
-};
-
-export default Footer;
+        </footer>
+    );
+}

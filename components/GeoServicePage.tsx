@@ -87,7 +87,7 @@ const GeoServicePage: React.FC<GeoServicePageProps> = ({
                 <div className="max-w-7xl mx-auto relative z-10">
                     <div className="max-w-3xl">
                         <span className="text-primary font-bold uppercase tracking-widest text-sm mb-6 block">
-                            {serviceName} — {location}
+                            {serviceName} - {location}
                         </span>
                         <h1 className="text-h1 font-heading font-bold mb-8">{h1}</h1>
                         <div className="text-2xl text-white/60 mb-12 leading-relaxed">

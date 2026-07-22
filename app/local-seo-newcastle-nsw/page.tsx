@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import { ArrowRight, CheckCircle2, ChevronRight, MapPin, FileCheck, PenLine } from 'lucide-react';
 import { localBusinessSchema, serviceSchema } from '@/lib/schema';
+import TestimonialQuote from '@/components/TestimonialQuote';
 
 const SERVICE_NAME = 'Local SEO';
 const LOCATION = 'Newcastle';
@@ -221,6 +222,15 @@ export default function LocalSeoNewcastlePage() {
                             View all services
                         </Link>.
                     </p>
+                </div>
+            </section>
+
+            <section className="border-t border-[#ececec] bg-white px-6 py-20 md:py-24">
+                <div className="mx-auto max-w-3xl">
+                    <span className="mb-3 block text-[11px] font-semibold uppercase tracking-[0.2em] text-primary">
+                        Client feedback
+                    </span>
+                    <TestimonialQuote context="website-seo" />
                 </div>
             </section>
 
