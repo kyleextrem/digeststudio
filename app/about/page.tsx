@@ -100,14 +100,14 @@ export default function AboutPage() {
             </div>
           </Reveal>
           <Reveal delay={60}>
-            <div className="overflow-hidden rounded-2xl border border-[#ececec] bg-[#f4f4f5]">
+            <div className="mx-auto w-full max-w-[240px] overflow-hidden rounded-2xl border border-[#ececec] bg-[#f4f4f5] sm:max-w-[280px] md:max-w-[300px]">
               <Image
                 src="/kyle-profile.jpg"
                 alt="Kyle, founder of Digest Studio, standing outdoors"
                 width={1600}
                 height={2000}
                 priority
-                sizes="(max-width: 1280px) 100vw, 1280px"
+                sizes="(max-width: 640px) 240px, (max-width: 768px) 280px, 300px"
                 className="h-auto w-full"
               />
             </div>
