@@ -3,15 +3,15 @@ import { pageMetadata } from '@/lib/seo';
 import { breadcrumbSchema } from '@/lib/schema';
 
 export const metadata: Metadata = pageMetadata({
-  title: 'Our Brands',
+  title: 'Work',
   description:
-    "Brands we've built - Newcastle Digest and Testimo. Before helping other businesses, we built our own.",
+    'Client case studies and brands from Digest Studio - including Tiny Moves, Newcastle Digest and Testimo.',
   path: '/work',
 });
 
 const schema = breadcrumbSchema([
   { name: 'Home', path: '/' },
-  { name: 'Our Brands', path: '/work' },
+  { name: 'Work', path: '/work' },
 ]);
 
 export default function WorkLayout({ children }: { children: React.ReactNode }) {

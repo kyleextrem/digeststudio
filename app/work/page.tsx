@@ -49,7 +49,38 @@ function Reveal({
   );
 }
 
-const brands = [
+type WorkItem = {
+  name: string;
+  tagline: string;
+  href: string;
+  cta: string;
+  summary: string;
+  image?: string;
+  imageAlt?: string;
+  imagePlaceholder?: string;
+  metrics?: readonly { value: string; label: string }[];
+  visitUrl?: string;
+  visitLabel?: string;
+};
+
+const workItems: WorkItem[] = [
+  {
+    name: 'Tiny Moves',
+    tagline: 'Web Design & Development',
+    href: '/work/tiny-moves',
+    cta: 'Read the case study',
+    summary:
+      "A bespoke custom website for a Newcastle children's music and movement program. Three venues, self-managed content, built from scratch.",
+    image: '/work/tiny-moves/homepage.png',
+    imageAlt: 'Tiny Moves custom website homepage',
+    metrics: [
+      { value: '90+', label: 'Lighthouse' },
+      { value: '3 venues', label: 'Newcastle' },
+      { value: 'Custom', label: 'From scratch' },
+    ],
+    visitUrl: 'https://tinymoves.com.au',
+    visitLabel: 'Visit Tiny Moves',
+  },
   {
     name: 'Newcastle Digest',
     tagline: "Newcastle's weekly local newsletter",
@@ -80,7 +111,7 @@ const brands = [
       { value: 'Included', label: 'With Growth Partner' },
     ],
   },
-] as const;
+];
 
 export default function WorkPage() {
   return (
@@ -88,12 +119,12 @@ export default function WorkPage() {
       <section className="ds-section !pb-12 md:!pb-16">
         <div className="ds-container">
           <Reveal>
-            <span className="ds-eyebrow">Our Brands</span>
+            <span className="ds-eyebrow">Work</span>
             <h1 className="ds-h2 mb-5 max-w-3xl !text-[2.5rem] sm:!text-5xl md:!text-[3.5rem]">
-              Brands we&apos;ve built.
+              Client work and brands we&apos;ve built.
             </h1>
             <p className="ds-lede max-w-lg">
-              Before helping other businesses grow, we built our own.
+              Case studies from client builds, plus the brands we run ourselves.
             </p>
           </Reveal>
         </div>
@@ -101,48 +132,73 @@ export default function WorkPage() {
 
       <section className="border-t border-[#ececec] px-6 pb-20 pt-4 md:pb-28 md:pt-8">
         <div className="ds-container space-y-16 md:space-y-24">
-          {brands.map((brand, i) => (
-            <Reveal key={brand.name} delay={i * 80}>
+          {workItems.map((item, i) => (
+            <Reveal key={item.name} delay={i * 80}>
               <article className="group">
                 <Link
-                  href={brand.href}
+                  href={item.href}
                   className="block overflow-hidden rounded-2xl border border-[#ececec] transition-all duration-500 hover:-translate-y-1 hover:shadow-[0_24px_48px_-28px_rgba(17,24,39,0.28)]"
                 >
-                  <img
-                    src={brand.image}
-                    alt={brand.imageAlt}
-                    className="aspect-[16/9] w-full object-cover object-top md:aspect-[2.2/1]"
-                  />
+                  {item.image ? (
+                    <img
+                      src={item.image}
+                      alt={item.imageAlt ?? item.name}
+                      className="aspect-[16/9] w-full object-cover object-top md:aspect-[2.2/1]"
+                    />
+                  ) : (
+                    <div className="flex aspect-[16/9] w-full items-center justify-center bg-[#f4f4f5] px-6 text-center md:aspect-[2.2/1]">
+                      <p className="max-w-md text-[13px] leading-relaxed text-accent/40">
+                        {item.imagePlaceholder}
+                      </p>
+                    </div>
+                  )}
                 </Link>
 
                 <div className="mt-8 flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between">
                   <div className="max-w-xl">
-                    <p className="mb-2 text-[13px] text-accent/40">{brand.tagline}</p>
+                    <p className="mb-2 text-[13px] text-accent/40">
+                      {item.tagline}
+                    </p>
                     <h2 className="mb-3 font-heading text-3xl font-bold tracking-tight text-accent md:text-4xl">
-                      {brand.name}
+                      {item.name}
                     </h2>
                     <p className="mb-6 text-[15px] leading-relaxed text-accent/55">
-                      {brand.summary}
+                      {item.summary}
                     </p>
-                    <div className="mb-6 flex flex-wrap gap-6">
-                      {brand.metrics.map((m) => (
-                        <div key={m.label}>
-                          <div className="font-heading text-xl font-bold tabular-nums text-accent">
-                            {m.value}
+                    {item.metrics && (
+                      <div className="mb-6 flex flex-wrap gap-6">
+                        {item.metrics.map((m) => (
+                          <div key={m.label}>
+                            <div className="font-heading text-xl font-bold tabular-nums text-accent">
+                              {m.value}
+                            </div>
+                            <div className="text-[11px] uppercase tracking-[0.12em] text-accent/40">
+                              {m.label}
+                            </div>
                           </div>
-                          <div className="text-[11px] uppercase tracking-[0.12em] text-accent/40">
-                            {m.label}
-                          </div>
-                        </div>
-                      ))}
+                        ))}
+                      </div>
+                    )}
+                    <div className="flex flex-wrap items-center gap-x-6 gap-y-3">
+                      <Link
+                        href={item.href}
+                        className="group/link inline-flex items-center gap-2 text-[15px] font-semibold text-accent transition-colors hover:text-primary"
+                      >
+                        {item.cta}
+                        <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover/link:translate-x-1" />
+                      </Link>
+                      {item.visitUrl && (
+                        <a
+                          href={item.visitUrl}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="inline-flex items-center gap-1.5 text-[14px] font-medium text-accent/45 transition-colors hover:text-primary"
+                        >
+                          {item.visitLabel ?? 'Visit site'}
+                          <ArrowRight className="h-3.5 w-3.5" />
+                        </a>
+                      )}
                     </div>
-                    <Link
-                      href={brand.href}
-                      className="group/link inline-flex items-center gap-2 text-[15px] font-semibold text-accent transition-colors hover:text-primary"
-                    >
-                      {brand.cta}
-                      <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover/link:translate-x-1" />
-                    </Link>
                   </div>
                 </div>
               </article>

@@ -29,7 +29,7 @@ const Navbar = () => {
   const navLinks = [
     { name: 'Services', path: '/services' },
     { name: 'About', path: '/about' },
-    { name: 'Our Brands', path: '/work' },
+    { name: 'Work', path: '/work' },
     { name: 'Blog', path: '/blog' },
     { name: 'Free Audit', path: '/visibility-audit', highlight: true },
     { name: 'FAQ', path: '/faq' },

@@ -21,6 +21,7 @@ const staticRoutes: { path: string; freq: Freq; priority: number }[] = [
     { path: '/about',                        freq: 'monthly', priority: 0.7 },
     { path: '/about-digest-studio',          freq: 'monthly', priority: 0.8 },
     { path: '/work',                         freq: 'monthly', priority: 0.7 },
+    { path: '/work/tiny-moves',              freq: 'monthly', priority: 0.8 },
     { path: '/brands/newcastle-digest',      freq: 'monthly', priority: 0.8 },
     { path: '/brands/testimo',               freq: 'monthly', priority: 0.8 },
     { path: '/blog',                         freq: 'weekly',  priority: 0.8 },

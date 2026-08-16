@@ -19,13 +19,14 @@ const services = [
 const company = [
     { label: 'About', href: '/about' },
     { label: 'About Digest Studio', href: '/about-digest-studio' },
-    { label: 'Our Brands', href: '/work' },
+    { label: 'Work', href: '/work' },
     { label: 'Blog', href: '/blog' },
     { label: 'FAQ', href: '/faq' },
 ] as const;
 
 const resources = [
     { label: 'Free Audit', href: '/visibility-audit' },
+    { label: 'Tiny Moves', href: '/work/tiny-moves' },
     { label: 'Newcastle Digest', href: '/brands/newcastle-digest' },
     { label: 'Testimo', href: '/brands/testimo' },
 ] as const;
