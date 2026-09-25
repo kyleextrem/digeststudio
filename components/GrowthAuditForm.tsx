@@ -1,6 +1,6 @@
 'use client';
 
-import { useRef, useState, type FormEvent } from 'react';
+import { useEffect, useRef, useState, type FormEvent } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { ArrowRight } from 'lucide-react';
@@ -25,7 +25,7 @@ const labelClass = 'mb-2 block text-[13px] font-medium text-accent/80';
 const whileYoureHere = [
   {
     title: 'Newcastle Digest',
-    body: 'The local newsletter we built from scratch. 7,000+ subscribers, and a 60% average open rate.',
+    body: 'The best of Newcastle, delivered every week.',
     href: '/brands/newcastle-digest',
     image: '/newcastle-digest.png',
     imageAlt: 'Newcastle Digest homepage',
@@ -33,7 +33,7 @@ const whileYoureHere = [
   },
   {
     title: 'Testimo',
-    body: 'A product we built to turn customer feedback into reviews, referrals and follow-up.',
+    body: 'Turn customer feedback into a growth asset.',
     href: '/brands/testimo',
     image: '/Testimo.jpg',
     imageAlt: 'Testimo product',
@@ -41,7 +41,7 @@ const whileYoureHere = [
   },
   {
     title: 'Digest Studio',
-    body: 'Websites, local search, content and reviews for Newcastle businesses. You work directly with Kyle.',
+    body: 'Websites, SEO, content, reviews and local distribution for local businesses.',
     href: '/about',
     image: '/kyle-profile.jpg',
     imageAlt: 'Kyle, founder of Digest Studio',
@@ -114,8 +114,24 @@ export default function GrowthAuditForm() {
   const [submitError, setSubmitError] = useState('');
   const [succeeded, setSucceeded] = useState(false);
   const started = useRef(false);
+  const successPanel = useRef<HTMLDivElement>(null);
   const successHeading = useRef<HTMLHeadingElement>(null);
   const formRef = useRef<HTMLFormElement>(null);
+
+  useEffect(() => {
+    if (!succeeded) return;
+
+    const panel = successPanel.current;
+    const heading = successHeading.current;
+    if (!panel || !heading) return;
+
+    const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    panel.scrollIntoView({
+      behavior: reduceMotion ? 'auto' : 'smooth',
+      block: 'start',
+    });
+    heading.focus({ preventScroll: true });
+  }, [succeeded]);
 
   const update = <K extends GrowthAuditField>(key: K, value: GrowthAuditFields[K]) => {
     setFields((current) => ({ ...current, [key]: value }));
@@ -186,7 +202,6 @@ export default function GrowthAuditForm() {
 
       setSucceeded(true);
       trackEvent('growth_audit_application_success');
-      window.setTimeout(() => successHeading.current?.focus(), 0);
     } catch {
       setSubmitError('Something went wrong. Please try again.');
       trackEvent('growth_audit_form_error', { error_type: 'submit', fields: 'network' });
@@ -197,24 +212,26 @@ export default function GrowthAuditForm() {
 
   if (succeeded) {
     return (
-      <div className="rounded-[28px] border border-[#ececec] bg-white p-6 shadow-[0_24px_48px_-32px_rgba(17,24,39,0.35)] sm:p-10">
-        <p className="mb-3 text-[11px] font-semibold uppercase tracking-[0.2em] text-primary">
-          Application received
-        </p>
-        <h2
-          ref={successHeading}
-          tabIndex={-1}
-          className="font-heading text-4xl font-bold tracking-tight text-accent outline-none md:text-5xl"
-        >
-          You&apos;re in.
-        </h2>
-        <p className="mt-5 max-w-xl text-base leading-relaxed text-accent/75">
-          Your Growth Audit application has been received.
-        </p>
-        <p className="mt-3 max-w-xl text-base leading-relaxed text-accent/75">
-          We personally review each business, so we&apos;ll assess your application and let you
-          know where you sit in this month&apos;s audit queue.
-        </p>
+      <div
+        ref={successPanel}
+        className="hero-enter scroll-mt-28 rounded-[28px] border border-[#ececec] bg-white p-6 shadow-[0_24px_48px_-32px_rgba(17,24,39,0.35)] sm:p-10"
+      >
+        <div role="status" aria-live="polite" aria-atomic="true">
+          <h2
+            ref={successHeading}
+            tabIndex={-1}
+            className="font-heading text-4xl font-bold tracking-tight text-accent outline-none md:text-5xl"
+          >
+            You&apos;re in.
+          </h2>
+          <p className="mt-5 max-w-xl text-base leading-relaxed text-accent/75">
+            Your Growth Audit application has been received.
+          </p>
+          <p className="mt-3 max-w-xl text-base leading-relaxed text-accent/75">
+            We personally review each business, so we&apos;ll take a look at your application and
+            get back to you with the next step.
+          </p>
+        </div>
 
         <div className="mt-12">
           <h3 className="font-heading text-2xl font-bold tracking-tight text-accent">
