@@ -47,13 +47,19 @@ const Navbar = () => {
 
   return (
     <nav
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        isScrolled || pathname !== '/'
-          ? 'bg-white/95 backdrop-blur-md border-b border-[#ececec]/80 py-3.5'
-          : 'bg-transparent py-5'
+      className={`fixed top-0 left-0 right-0 z-50 transition-[padding] duration-300 ${
+        isScrolled || pathname !== '/' ? 'py-3.5' : 'py-5'
       }`}
     >
-      <div className="max-w-7xl mx-auto px-6 flex items-center justify-between">
+      <div
+        aria-hidden="true"
+        className={`pointer-events-none absolute inset-0 transition-colors duration-300 ${
+          isScrolled || pathname !== '/'
+            ? 'border-b border-[#ececec]/80 bg-white/95 backdrop-blur-md'
+            : ''
+        }`}
+      />
+      <div className="relative z-50 max-w-7xl mx-auto px-6 flex items-center justify-between">
         <Link href="/" className="flex items-center gap-2 group shrink-0">
           <img
             src="/logo-lightning.png"

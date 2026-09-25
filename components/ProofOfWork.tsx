@@ -25,7 +25,7 @@ const brands = [
         role: 'In-house product',
         href: '/brands/testimo',
         cta: 'See how Testimo works',
-        image: '/Testimo.png',
+        image: '/Testimo.jpg',
         imageAlt: 'Testimo product screenshot',
         browserUrl: 'testimo.com.au',
         description:

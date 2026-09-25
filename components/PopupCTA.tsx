@@ -9,8 +9,13 @@ const SEVEN_DAYS_MS = 7 * 24 * 60 * 60 * 1000;
 const SCROLL_THRESHOLD = 0.7;
 const BOOKING_URL = 'https://cal.com/digest/digest-studio';
 
-function isVisibilityAuditPath(pathname: string): boolean {
-    return pathname === '/visibility-audit' || pathname.startsWith('/visibility-audit/');
+function isConversionPath(pathname: string): boolean {
+    return (
+        pathname === '/visibility-audit' ||
+        pathname.startsWith('/visibility-audit/') ||
+        pathname === '/growth-audit' ||
+        pathname.startsWith('/growth-audit/')
+    );
 }
 
 function wasShownRecently(): boolean {
@@ -46,13 +51,13 @@ export default function PopupCTA() {
     }, []);
 
     useEffect(() => {
-        if (isVisibilityAuditPath(pathname)) {
+        if (isConversionPath(pathname)) {
             setIsOpen(false);
         }
     }, [pathname]);
 
     useEffect(() => {
-        if (isVisibilityAuditPath(pathname) || wasShownRecently()) return;
+        if (isConversionPath(pathname) || wasShownRecently()) return;
 
         const handleScroll = () => {
             if (hasTriggeredRef.current) return;

@@ -27,6 +27,7 @@ const staticRoutes: { path: string; freq: Freq; priority: number }[] = [
     { path: '/blog',                         freq: 'weekly',  priority: 0.8 },
     { path: '/local-seo-newcastle-nsw',       freq: 'weekly',  priority: 0.9 },
     { path: '/visibility-audit',             freq: 'monthly', priority: 0.8 },
+    { path: '/growth-audit',                 freq: 'weekly',  priority: 0.9 },
     { path: '/faq',                          freq: 'monthly', priority: 0.7 },
     { path: '/privacy',                      freq: 'yearly',  priority: 0.3 },
     { path: '/terms',                        freq: 'yearly',  priority: 0.3 },

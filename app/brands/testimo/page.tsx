@@ -18,7 +18,7 @@ export const metadata: Metadata = pageMetadata({
   description:
     'Testimo is a customer growth platform built by Digest Studio. Turn every completed job into reviews, testimonials, photos, referrals and list growth.',
   path: '/brands/testimo',
-  ogImage: '/Testimo.png',
+  ogImage: '/Testimo.jpg',
   ogImageAlt: 'Testimo product screenshot',
   ogTitle: 'Testimo | Digest Studio',
   ogDescription:
@@ -174,7 +174,7 @@ export default function TestimoBrandPage() {
         <div className="ds-container">
           <div className="overflow-hidden rounded-2xl border border-[#ececec]">
             <img
-              src="/Testimo.png"
+              src="/Testimo.jpg"
               alt="Testimo"
               className="aspect-[16/9] w-full object-cover object-top md:aspect-[2.2/1]"
             />
@@ -237,7 +237,7 @@ export default function TestimoBrandPage() {
           <figure className="max-w-4xl">
             <div className="overflow-hidden rounded-2xl border border-[#ececec] bg-[#f4f4f5]">
               <img
-                src="/Testimo.png"
+                src="/Testimo.jpg"
                 alt="Testimo product screenshot"
                 className="aspect-[16/10] w-full object-cover object-top"
               />

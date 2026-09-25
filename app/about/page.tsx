@@ -273,7 +273,7 @@ export default function AboutPage() {
                 className="block overflow-hidden rounded-2xl border border-[#ececec] transition-all duration-500 hover:-translate-y-1 hover:shadow-[0_24px_48px_-28px_rgba(17,24,39,0.28)]"
               >
                 <img
-                  src="/Testimo.png"
+                  src="/Testimo.jpg"
                   alt="Testimo product homepage screenshot"
                   width={1600}
                   height={900}

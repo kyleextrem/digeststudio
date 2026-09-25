@@ -101,7 +101,7 @@ const workItems: WorkItem[] = [
     tagline: 'Customer growth platform · Built in-house',
     href: '/brands/testimo',
     cta: 'Explore Testimo',
-    image: '/Testimo.png',
+    image: '/Testimo.jpg',
     imageAlt: 'Testimo',
     summary:
       'Turn every completed job into marketing assets - reviews, testimonials, photos, referrals and list growth through one customer flow.',

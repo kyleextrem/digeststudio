@@ -471,7 +471,7 @@ export const growthPartner: OfferPageData = {
       role: 'Our brand',
       description: 'Review automation we built for Australian local businesses - included in Growth Partner.',
       href: '/brands/testimo',
-      image: '/Testimo.png',
+      image: '/Testimo.jpg',
       imageAlt: 'Testimo product',
       metrics: [
         { value: 'Auto', label: 'Review requests' },
