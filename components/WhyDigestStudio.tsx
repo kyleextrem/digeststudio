@@ -14,7 +14,7 @@ const pillars = [
     {
         icon: Radio,
         title: 'Distribution',
-        sentence: 'Newcastle Digest, 7,000+ subscribers, and community reach.',
+        sentence: 'Newcastle Digest, 7,500+ subscribers, and community reach.',
     },
 ] as const;
 

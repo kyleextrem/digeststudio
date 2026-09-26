@@ -82,7 +82,7 @@ const LeadMagnet: React.FC = () => {
                                 </div>
                                 <h3 className="text-3xl font-heading font-bold mb-4 text-white">3. The Distribution Cannon</h3>
                                 <p className="text-white/80 text-lg leading-relaxed mb-6 max-w-2xl">
-                                    This is what other agencies can't offer. We take your new content and offer and feature it in <span className="text-white font-bold">Newcastle Digest</span>. It goes straight to 7,000+ locals' inboxes.
+                                    This is what other agencies can't offer. We take your new content and offer and feature it in <span className="text-white font-bold">Newcastle Digest</span>. It goes straight to 7,500+ locals' inboxes.
                                 </p>
                                 <div className="flex items-center gap-6">
                                     <div className="flex items-center gap-2 text-white/60">
@@ -91,7 +91,7 @@ const LeadMagnet: React.FC = () => {
                                     </div>
                                     <div className="flex items-center gap-2 text-white/60">
                                         <BarChart3 className="w-5 h-5 text-primary" />
-                                        <span>7,000+ Reach (Guaranteed)</span>
+                                        <span>7,500+ Reach (Guaranteed)</span>
                                     </div>
                                 </div>
                             </div>

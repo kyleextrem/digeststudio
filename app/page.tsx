@@ -13,7 +13,7 @@ import Link from 'next/link';
 export const metadata: Metadata = pageMetadata({
   title: 'Be the Newcastle Business Locals Think of First',
   description:
-    'The only Newcastle marketing studio with distribution baked in. Websites, local SEO and content - backed by Newcastle Digest and 7,000+ subscribers.',
+    'The only Newcastle marketing studio with distribution baked in. Websites, local SEO and content - backed by Newcastle Digest and 7,500+ subscribers.',
   path: '/',
   absoluteTitle: true,
 });

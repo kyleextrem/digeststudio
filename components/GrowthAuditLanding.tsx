@@ -74,7 +74,7 @@ const priorities = [
 const proof = [
   {
     name: 'Newcastle Digest',
-    stat: '7,000+ local subscribers',
+    stat: '7,500+ local subscribers',
     body: 'A real local audience, not a theoretical one.',
     href: '/brands/newcastle-digest',
     image: '/newcastle-digest.png',

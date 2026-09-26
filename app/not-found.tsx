@@ -44,7 +44,7 @@ const popularPages = [
   },
   {
     title: 'Newcastle Digest',
-    description: 'Our owned media brand reaching 7,000+ locals.',
+    description: 'Our owned media brand reaching 7,500+ locals.',
     href: '/brands/newcastle-digest',
     icon: Newspaper,
   },

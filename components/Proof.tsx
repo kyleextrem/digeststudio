@@ -4,7 +4,7 @@ import { Newspaper, Users, TrendingUp, Zap } from 'lucide-react';
 
 const Proof: React.FC = () => {
   const stats = [
-    { label: "Locals Reached", value: "7,000+", icon: Users },
+    { label: "Locals Reached", value: "7,500+", icon: Users },
     { label: "Avg. Open Rate", value: "~60%", icon: Newspaper },
     { label: "Local Impact", value: "100%", icon: Zap },
     { label: "Growth Focus", value: "24/7", icon: TrendingUp },

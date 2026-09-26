@@ -81,7 +81,7 @@ export default function AboutPage() {
               </h1>
               <div className="max-w-2xl space-y-5">
                 <p className="text-[15px] leading-relaxed text-accent/55 md:text-base">
-                  I built Newcastle Digest from zero to more than 7,000
+                  I built Newcastle Digest from zero to more than 7,500
                   subscribers with a 60% average open rate - learning how to earn
                   attention and trust in a local market, week by week.
                 </p>
@@ -227,7 +227,7 @@ export default function AboutPage() {
                 <div className="mb-6 flex flex-wrap gap-8">
                   <div>
                     <div className="font-heading text-xl font-bold tabular-nums text-accent">
-                      7,000+
+                      7,500+
                     </div>
                     <div className="text-[11px] uppercase tracking-[0.12em] text-accent/40">
                       Subscribers

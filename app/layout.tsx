@@ -26,7 +26,7 @@ const spaceGrotesk = Space_Grotesk({
 const homeMeta = pageMetadata({
   title: 'Be the Newcastle Business Locals Think of First',
   description:
-    "Newcastle's local marketing studio. Websites, local SEO and content - backed by Newcastle Digest and 7,000+ subscribers.",
+    "Newcastle's local marketing studio. Websites, local SEO and content - backed by Newcastle Digest and 7,500+ subscribers.",
   path: '/',
   absoluteTitle: true,
 });

@@ -12,10 +12,10 @@ const pillars: readonly Pillar[] = [
     },
     {
         title: 'We distribute.',
-        body: "We own Newcastle Digest - 7,000+ local subscribers, 60% open rates. Your offer lands in inboxes other agencies can't buy.",
+        body: "We own Newcastle Digest - 7,500+ local subscribers, 60% open rates. Your offer lands in inboxes other agencies can't buy.",
         featured: true,
         stats: [
-            { value: '7,000+', label: 'subscribers' },
+            { value: '7,500+', label: 'subscribers' },
             { value: '60%', label: 'open rate' },
         ],
     },
@@ -27,7 +27,7 @@ const pillars: readonly Pillar[] = [
 
 export default function WhyChooseUs() {
     return (
-        <section className="ds-section bg-[#fafafa] border-t border-[#ececec]">
+        <section id="how-it-works" className="ds-section scroll-mt-24 bg-[#fafafa] border-t border-[#ececec]">
             <div className="ds-container">
                 <div className="max-w-3xl mb-12 md:mb-16">
                     <span className="ds-eyebrow">Built-in distribution</span>

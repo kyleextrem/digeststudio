@@ -15,7 +15,7 @@ const brands = [
         description:
             "Newcastle's largest local newsletter. Built from an empty list into a media brand locals actually open.",
         metrics: [
-            { value: '7,000+', label: 'Subscribers' },
+            { value: '7,500+', label: 'Subscribers' },
             { value: '60%', label: 'Open rate' },
             { value: 'Weekly', label: 'Publish cadence' },
         ],

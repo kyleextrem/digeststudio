@@ -47,7 +47,7 @@ const services = [
     {
         icon: Newspaper,
         title: 'Local Advertising',
-        outcome: 'Reach 7,000+ locals',
+        outcome: 'Reach 7,500+ locals',
         description:
             'Feature your business in Newcastle Digest and campaigns that land in real inboxes.',
         href: '/services/local-advertising',

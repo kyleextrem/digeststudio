@@ -158,7 +158,7 @@ function getPersonalizedSummary(
         const areas = moderate.map((c) => c.name).join(' and ');
         return `${name} has a decent foundation, but ${areas} have room to improve. Small changes here could meaningfully increase how many Newcastle locals find and choose you.`;
     }
-    return `${name} is performing well across the board. Your report will focus on amplification: how to get more reach from what's already working, including our distribution channel of 7,000+ local subscribers.`;
+    return `${name} is performing well across the board. Your report will focus on amplification: how to get more reach from what's already working, including our distribution channel of 7,500+ local subscribers.`;
 }
 
 const BOOKING_URL = 'https://cal.com/digest/digest-studio';

@@ -98,7 +98,7 @@ export const visibilityBoost: OfferPageData = {
   h1Accent: 'Fast.',
   heroSupport:
     'A focused once-off package that tightens your Google presence, fixes what\'s holding you back, and puts you in front of Newcastle Digest subscribers.',
-  proofLine: '7,000+ local subscribers · No lock-in · Usually live within 2 weeks',
+  proofLine: '7,500+ local subscribers · No lock-in · Usually live within 2 weeks',
   primaryCta: { label: 'Book a Free Strategy Call', href: CAL },
   secondaryCta: { label: 'See all packages', href: '/services' },
   audienceIntro: 'Built for Newcastle businesses that need movement now - not a six-month retainer.',
@@ -186,7 +186,7 @@ export const visibilityBoost: OfferPageData = {
       image: '/newcastle-digest.png',
       imageAlt: 'Newcastle Digest homepage',
       metrics: [
-        { value: '7,000+', label: 'Subscribers' },
+        { value: '7,500+', label: 'Subscribers' },
         { value: '60%', label: 'Open rate' },
       ],
     },
@@ -324,7 +324,7 @@ export const localLaunchPack: OfferPageData = {
       image: '/newcastle-digest.png',
       imageAlt: 'Newcastle Digest homepage',
       metrics: [
-        { value: '7,000+', label: 'Subscribers' },
+        { value: '7,500+', label: 'Subscribers' },
         { value: '60%', label: 'Open rate' },
       ],
     },
@@ -462,7 +462,7 @@ export const growthPartner: OfferPageData = {
       image: '/newcastle-digest.png',
       imageAlt: 'Newcastle Digest homepage',
       metrics: [
-        { value: '7,000+', label: 'Subscribers' },
+        { value: '7,500+', label: 'Subscribers' },
         { value: '60%', label: 'Open rate' },
       ],
     },
@@ -613,7 +613,7 @@ export const websiteDesign: OfferPageData = {
       image: '/newcastle-digest.png',
       imageAlt: 'Newcastle Digest',
       metrics: [
-        { value: '7,000+', label: 'Subscribers' },
+        { value: '7,500+', label: 'Subscribers' },
         { value: 'From scratch', label: 'Built by us' },
       ],
     },
@@ -879,7 +879,7 @@ export const paidAds: OfferPageData = {
       image: '/newcastle-digest.png',
       imageAlt: 'Newcastle Digest',
       metrics: [
-        { value: '7,000+', label: 'Local reach' },
+        { value: '7,500+', label: 'Local reach' },
         { value: 'Owned', label: 'Not rented' },
       ],
     },
@@ -1014,7 +1014,7 @@ export const advancedSeo: OfferPageData = {
       imageAlt: 'Newcastle Digest',
       metrics: [
         { value: 'From zero', label: 'Audience built' },
-        { value: '7,000+', label: 'Subscribers' },
+        { value: '7,500+', label: 'Subscribers' },
       ],
     },
   ],

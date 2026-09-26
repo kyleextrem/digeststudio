@@ -263,7 +263,7 @@ const categories = [
       {
         question: 'How many subscribers does Newcastle Digest have?',
         answer:
-          'Newcastle Digest has more than 7,000 subscribers, with a strong average open rate.',
+          'Newcastle Digest has more than 7,500 subscribers, with a strong average open rate.',
       },
       {
         question: 'Who reads Newcastle Digest?',
