@@ -17,6 +17,12 @@ import {
 } from '@/lib/growth-audit';
 import { trackEvent } from '@/lib/track-event';
 
+declare global {
+  interface Window {
+    fbq?: (command: 'track', eventName: 'Lead') => void;
+  }
+}
+
 const inputClass =
   'w-full rounded-2xl border border-[#e4e4e7] bg-white px-4 py-3.5 text-[15px] text-accent placeholder:text-accent/35 transition-colors focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/25';
 
@@ -114,6 +120,7 @@ export default function GrowthAuditForm() {
   const [submitError, setSubmitError] = useState('');
   const [succeeded, setSucceeded] = useState(false);
   const started = useRef(false);
+  const leadTracked = useRef(false);
   const successPanel = useRef<HTMLDivElement>(null);
   const successHeading = useRef<HTMLHeadingElement>(null);
   const formRef = useRef<HTMLFormElement>(null);
@@ -198,6 +205,11 @@ export default function GrowthAuditForm() {
           fields: payload.fields ? Object.keys(payload.fields).join(',') : 'request',
         });
         return;
+      }
+
+      if (!leadTracked.current) {
+        leadTracked.current = true;
+        window.fbq?.('track', 'Lead');
       }
 
       setSucceeded(true);
