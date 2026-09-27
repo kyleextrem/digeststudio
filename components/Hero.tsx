@@ -1,6 +1,6 @@
-import Image from 'next/image';
 import Link from 'next/link';
 import { ArrowRight } from 'lucide-react';
+import HeroSystemDiagram from '@/components/HeroSystemDiagram';
 
 const proof = [
   { value: '7,500+', label: 'local subscribers' },
@@ -60,37 +60,7 @@ export default function Hero() {
             </div>
           </div>
 
-          <figure className="hero-enter hero-delay-2 min-w-0">
-            <div className="overflow-hidden rounded-[28px] border border-[#ececec] bg-white shadow-[0_24px_48px_-32px_rgba(17,24,39,0.35)]">
-              <div className="relative aspect-[16/9] bg-[#f7f7f8]">
-                <Image
-                  src="/newcastle-digest.png"
-                  alt="Newcastle Digest homepage. The headline reads: The best of Newcastle, delivered directly to you."
-                  fill
-                  priority
-                  sizes="(max-width: 1024px) 100vw, 55vw"
-                  className="object-cover object-[center_18%]"
-                />
-              </div>
-              <figcaption className="flex items-center gap-4 border-t border-[#ececec] px-4 py-3.5 sm:px-5">
-                <Image
-                  src="/logo-lightning.png"
-                  alt="Digest Studio"
-                  width={931}
-                  height={376}
-                  className="h-9 w-auto shrink-0 sm:h-10"
-                />
-                <div className="min-w-0 border-l border-[#ececec] pl-4">
-                  <p className="font-heading text-[15px] font-bold tracking-tight text-accent">
-                    Newcastle Digest
-                  </p>
-                  <p className="mt-0.5 text-[13px] leading-snug text-accent/55">
-                    Owned local audience · 7,500+ subscribers
-                  </p>
-                </div>
-              </figcaption>
-            </div>
-          </figure>
+          <HeroSystemDiagram />
         </div>
       </div>
     </section>
