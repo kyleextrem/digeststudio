@@ -28,6 +28,7 @@ const resources = [
     { label: 'Free Audit', href: '/visibility-audit' },
     { label: 'Growth Audit', href: '/growth-audit' },
     { label: 'Tiny Moves', href: '/work/tiny-moves' },
+    { label: 'Seed to Sleep', href: '/work/seed-to-sleep' },
     { label: 'Newcastle Digest', href: '/brands/newcastle-digest' },
     { label: 'Testimo', href: '/brands/testimo' },
 ] as const;

@@ -5,7 +5,7 @@ import { breadcrumbSchema } from '@/lib/schema';
 export const metadata: Metadata = pageMetadata({
   title: 'Work',
   description:
-    'Client case studies and brands from Digest Studio - including Tiny Moves, Newcastle Digest and Testimo.',
+    'Client case studies and brands from Digest Studio - including Seed to Sleep, Tiny Moves, Newcastle Digest and Testimo.',
   path: '/work',
 });
 

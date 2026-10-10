@@ -82,6 +82,23 @@ const workItems: WorkItem[] = [
     visitLabel: 'Visit Tiny Moves',
   },
   {
+    name: 'Seed to Sleep',
+    tagline: 'Web Design & Development',
+    href: '/work/seed-to-sleep',
+    cta: 'Read the case study',
+    summary:
+      "A complete website rebuild for Anna Spiteri's Newcastle sleep consultancy. Clearer packages and guides, online payments, and a free introductory consultation.",
+    image: '/work/seed-to-sleep/homepage.jpg',
+    imageAlt: 'The rebuilt Seed to Sleep homepage',
+    metrics: [
+      { value: 'Rebuild', label: 'Custom website' },
+      { value: 'Newcastle', label: 'Sleep consultancy' },
+      { value: 'Stripe', label: 'Online payments' },
+    ],
+    visitUrl: 'https://seedtosleep.com.au/',
+    visitLabel: 'Visit Seed to Sleep',
+  },
+  {
     name: 'Newcastle Digest',
     tagline: "Newcastle's weekly local newsletter",
     href: '/brands/newcastle-digest',
